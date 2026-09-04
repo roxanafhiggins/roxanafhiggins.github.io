@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roxana Higgins — Product Designer (UX/UI), Behavioural Design</title>
+<meta name="description" content="Product designer (UX/UI) in Germany. Behavioural design, UX research and information architecture for recruiting, learning and coaching products. Freelance & consulting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,400;1,500&display=swap">
+<style>
+:root{
+  --ink:#16232B;
+  --ink-2:#3D4B55;
+  --ink-3:#69757E;
+  --white:#FFFFFF;
+  --off:#F7F8F8;
+  --mist:#EFF4F1;
+  --line:#E6EAE8;
+  --line-2:#EDF0EF;
+
+  --c1:#F04E43;
+  --c2:#F7863C;
+  --c3:#FBB03B;
+  --grad:linear-gradient(96deg,var(--c1) 0%,var(--c2) 52%,var(--c3) 100%);
+
+  --mint-a:#E7F4EB; --mint-b:#F5FBF7; --mint-line:#D3E9DA; --mint-dot:#1E4A33;
+  --blush-a:#FDF0EF; --blush-b:#FEF9F8; --blush-line:#F6DAD7; --blush-dot:#C25248;
+
+  --paper:#F5F6F5;
+  --dot:#DFE2E0;
+  --dot-mist:#DCE5DF;
+  --dot-size:28px;
+
+  --r-card:24px;
+  --sh-nav:0 4px 24px rgba(22,35,43,.10), 0 1px 2px rgba(22,35,43,.05);
+  --sh-card:0 1px 2px rgba(22,35,43,.05), 0 14px 34px -22px rgba(22,35,43,.24);
+  --sh-media:0 8px 40px -12px rgba(22,35,43,.24);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;color:var(--ink);
+  background-color:var(--paper);
+  background-image:radial-gradient(circle,var(--dot) 1.1px,transparent 1.1px);
+  background-size:var(--dot-size) var(--dot-size);
+  font-family:"Plus Jakarta Sans","Helvetica Neue",Arial,sans-serif;
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{margin:0;font-weight:800;letter-spacing:-.028em;line-height:1.06;text-wrap:balance}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.it{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.01em}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.shell{max-width:1120px;margin:0 auto;padding:0 24px}
+.narrow{max-width:880px;margin:0 auto;padding:0 24px}
+
+/* ---------- nav ---------- */
+.navwrap{position:sticky;top:0;z-index:50;padding:16px 26px}
+.navrow{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:center;gap:18px}
+
+.logo{justify-self:start;display:inline-flex;align-items:center;gap:10px;
+  font-weight:800;font-size:18.5px;letter-spacing:-.032em;white-space:nowrap;color:var(--ink)}
+.logo .mark{width:11px;height:11px;border-radius:999px;background:var(--grad);flex:none}
+
+/* frosted centre pill */
+.navpill{justify-self:center;display:flex;align-items:center;gap:4px;
+  padding:7px 10px;border-radius:999px;
+  background:rgba(255,255,255,.58);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  backdrop-filter:blur(20px) saturate(180%);
+  border:1px solid rgba(255,255,255,.75);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),
+             inset 0 -1px 0 rgba(22,35,43,.03),
+             0 2px 10px rgba(22,35,43,.05);
+}
+.navpill a{padding:8px 16px;font-size:15px;font-weight:600;color:var(--ink-2);
+  border-radius:999px;white-space:nowrap}
+.navpill a:hover,.navpill a:focus-visible{color:var(--ink);background:rgba(255,255,255,.8)}
+
+.navcta{justify-self:end}
+.pill{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--white);
+  font-weight:700;font-size:15px;padding:12px 21px;border-radius:999px;white-space:nowrap;
+  box-shadow:0 1px 3px rgba(22,35,43,.10)}
+.pill:hover,.pill:focus-visible{background:#0E181E}
+.pill .ar{font-size:13px}
+
+@media(max-width:860px){
+  .navwrap{padding:14px 18px}
+  .navrow{grid-template-columns:1fr auto}
+  .navpill{display:none}
+  .pill{font-size:14.5px;padding:11px 18px}
+}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .navpill{background:rgba(255,255,255,.94)}
+}
+
+/* ---------- hero ---------- */
+.hero{text-align:center;padding:38px 0 84px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:120px;left:50%;transform:translateX(-50%);
+  width:820px;height:340px;max-width:120vw;
+  background:radial-gradient(ellipse at center,rgba(251,176,59,.18),rgba(240,78,67,.08) 45%,rgba(245,246,245,0) 72%);
+  pointer-events:none}
+.hero > *{position:relative}
+.hero h1{font-size:clamp(40px,7.2vw,80px);max-width:16ch;margin:0 auto}
+.hero h1 .ln{display:block}
+.hero .sub{font-size:clamp(17px,2vw,20px);color:var(--ink-2);max-width:58ch;margin:26px auto 0;
+  line-height:1.55;font-weight:500}
+.media{margin:52px auto 0;max-width:840px;background:var(--white);border:1px solid var(--line);
+  border-radius:20px;box-shadow:var(--sh-media);padding:38px 30px 30px}
+.media .cap{font-size:12.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:26px}
+.media svg{width:100%;height:auto;display:block;overflow:visible}
+.hero .cta{margin-top:44px}
+.hero .facts{margin-top:26px;font-size:14px;color:var(--ink-3);font-weight:500}
+
+/* ---------- sections ---------- */
+.sec{padding:100px 0;scroll-margin-top:96px}
+.final{scroll-margin-top:96px}
+.sec{background:transparent}
+.sec.mist{background:var(--mist)}
+.sec.off{background:var(--white)}
+.final{background:transparent}
+.eyebrow{font-size:12.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--c1);margin-bottom:18px}
+h2{font-size:clamp(32px,5vw,54px)}
+.sec .lead{font-size:19px;color:var(--ink-2);max-width:56ch;margin-top:20px;font-weight:500}
+.center{text-align:center}
+.center .lead{margin-left:auto;margin-right:auto}
+
+/* story */
+.story h2{max-width:14ch}
+.story .beats{margin-top:56px;display:flex;flex-direction:column;gap:30px;max-width:52ch}
+.story .beats p{font-size:clamp(18px,2.1vw,21px);color:var(--ink-2);font-weight:500;line-height:1.5}
+.story .beats p.last{color:var(--ink);font-weight:700}
+
+/* bento */
+.bento{display:grid;gap:20px;grid-template-columns:1fr;margin-top:60px}
+@media(min-width:840px){.bento{grid-template-columns:1fr 1fr}}
+.tile{background:var(--white);border:1px solid var(--line-2);border-radius:var(--r-card);
+  padding:34px 32px;box-shadow:var(--sh-card)}
+.tile h3{font-size:25px;margin-bottom:14px;letter-spacing:-.03em}
+.tile p{color:var(--ink-2);font-size:16.5px;font-weight:500;margin-bottom:20px}
+.tile ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.tile li{font-size:13.5px;font-weight:700;padding:7px 13px;border-radius:999px;
+  background:var(--paper);color:var(--ink-2);border:1px solid var(--line-2)}
+
+/* work */
+.case{background:var(--white);border:1px solid var(--line-2);border-radius:var(--r-card);
+  padding:40px 36px;box-shadow:var(--sh-card);margin-top:24px}
+.case .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.case .tags span{font-size:12.5px;font-weight:700;letter-spacing:.04em;padding:6px 12px;border-radius:999px;
+  background:var(--paper);color:var(--ink-3);border:1px solid var(--line-2)}
+.case h3{font-size:clamp(24px,3.2vw,33px);margin-bottom:20px;max-width:24ch;letter-spacing:-.03em}
+.case p{color:var(--ink-2);font-size:16.5px;max-width:66ch;margin-bottom:16px;font-weight:500}
+.case p b{color:var(--ink);font-weight:700}
+.slot{background:rgba(240,78,67,.09);color:#C33A30;padding:1px 7px;border-radius:6px;font-weight:700;font-size:.92em}
+.stats{display:flex;flex-wrap:wrap;gap:40px;margin-top:32px;padding-top:30px;border-top:1px solid var(--line-2)}
+.stat .fig{font-size:42px;font-weight:800;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.stat .fig.g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .lab{font-size:13.5px;color:var(--ink-3);margin-top:9px;font-weight:600}
+.shot{margin-top:30px;aspect-ratio:16/9;border-radius:16px;border:1px solid var(--line-2);
+  background:var(--paper);
+  background-image:radial-gradient(circle,var(--dot) 1.1px,transparent 1.1px);
+  background-size:var(--dot-size) var(--dot-size);display:flex;align-items:center;justify-content:center}
+.shot span{font-size:13px;color:var(--ink-3);font-weight:600;letter-spacing:.04em}
+
+/* testimonials */
+.tgrid{display:grid;gap:20px;grid-template-columns:1fr;margin-top:56px}
+@media(min-width:760px){.tgrid{grid-template-columns:1fr 1fr}}
+.tcard{background:var(--white);border:1px solid var(--line-2);border-radius:var(--r-card);
+  padding:32px 30px;box-shadow:var(--sh-card);display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+.tcard q{font-size:18px;line-height:1.5;color:var(--ink);font-weight:500;quotes:"\201C" "\201D";display:block}
+.tcard .who{font-size:15px;font-weight:800}
+.tcard .who span{display:block;font-size:13px;font-weight:600;color:var(--ink-3);margin-top:4px}
+
+/* fit */
+.fit{display:grid;gap:22px;grid-template-columns:1fr;margin-top:60px}
+@media(min-width:860px){.fit{grid-template-columns:1fr 1fr}}
+.fcard{border-radius:28px;padding:38px 34px}
+.fcard.yes{background:linear-gradient(170deg,var(--mint-a),var(--mint-b));border:1px solid var(--mint-line)}
+.fcard.no{background:linear-gradient(170deg,var(--blush-a),var(--blush-b));border:1px solid var(--blush-line)}
+.fcard h3{font-size:22px;margin-bottom:26px;letter-spacing:-.025em}
+.fcard ul{list-style:none;margin:0;padding:0}
+.fcard li{display:flex;gap:15px;padding:17px 0;font-size:16px;color:var(--ink-2);font-weight:500;line-height:1.45}
+.fcard.yes li+li{border-top:1px solid var(--mint-line)}
+.fcard.no li+li{border-top:1px solid var(--blush-line)}
+.dot{flex:none;width:26px;height:26px;border-radius:999px;display:grid;place-items:center;
+  font-size:13px;font-weight:800;margin-top:1px}
+.fcard.yes .dot{background:var(--mint-dot);color:#fff}
+.fcard.no .dot{background:#fff;color:var(--blush-dot);border:1px solid var(--blush-line)}
+
+/* steps */
+.steps{display:grid;gap:40px;grid-template-columns:1fr;margin-top:64px}
+@media(min-width:820px){.steps{grid-template-columns:repeat(3,1fr);gap:44px}}
+.step .n{font-size:46px;font-weight:800;letter-spacing:-.05em;line-height:1;margin-bottom:20px;color:var(--ink)}
+.step h3{font-size:20px;margin-bottom:12px;letter-spacing:-.025em}
+.step p{color:var(--ink-2);font-size:16px;font-weight:500;line-height:1.55}
+
+/* pull quote */
+.pull{margin-top:110px;text-align:center}
+.pull q{font-size:clamp(24px,3.6vw,38px);font-weight:800;letter-spacing:-.03em;line-height:1.22;
+  max-width:22ch;margin:0 auto;display:block;quotes:"\201C" "\201D"}
+.pull .who{margin-top:26px;font-size:16px;font-weight:800}
+.pull .who span{display:block;font-size:15px;font-weight:500;color:var(--ink-3);margin-top:6px}
+
+/* final cta */
+.final{padding:118px 0 124px;text-align:center}
+.final h2{max-width:16ch;margin:0 auto}
+.final p{color:var(--ink-2);font-size:18px;max-width:52ch;margin:24px auto 0;font-weight:500}
+.final .cta{margin-top:40px}
+.big{font-size:17px;padding:17px 32px}
+.alt{margin-top:22px;font-size:15px;color:var(--ink-3);font-weight:500}
+.alt a{text-decoration:underline;text-underline-offset:3px;color:var(--ink-2)}
+
+/* footer */
+footer{background:var(--ink);color:#9FAEB7;padding:44px 0}
+.fin{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:14.5px;font-weight:500}
+.fin a:hover,.fin a:focus-visible{color:#fff}
+.fnav{display:flex;gap:26px;flex-wrap:wrap}
+
+:focus-visible{outline:2px solid var(--c1);outline-offset:3px;border-radius:6px}
+</style>
+</head>
+<body>
+
+<div class="navwrap">
+  <div class="navrow">
+    <a class="logo" href="#top"><span class="mark"></span>Roxana Higgins</a>
+    <nav class="navpill" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#approach">Services</a>
+      <a href="#proof">Testimonials</a>
+    </nav>
+    <div class="navcta"><a class="pill" href="#contact">Discovery call <span class="ar">&#8599;</span></a></div>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <div class="shell">
+    <h1>
+      <span class="ln">Most products lose people</span>
+      <span class="ln">in <span class="it">the middle</span>.</span>
+      <span class="ln grad">That&#8217;s the part I design.</span>
+    </h1>
+    <p class="sub">Product designer (UX/UI) in Germany. I use behavioural design and UX research to find where people give up inside a product &mdash; then rebuild the flow, the structure and the interface so they don&#8217;t.</p>
+
+    <div class="media">
+      <p class="cap">Where the drop-off actually happens</p>
+      <svg viewBox="0 0 720 96" role="img" aria-label="A seven-step journey: the first three steps are completed, people drop off in the middle, and the final steps go unreached.">
+        <line x1="18" y1="40" x2="252" y2="40" stroke="#1E4A33" stroke-width="3" stroke-linecap="round"/>
+        <line x1="252" y1="40" x2="452" y2="40" stroke="#F04E43" stroke-width="3" stroke-dasharray="2 11" stroke-linecap="round"/>
+        <line x1="452" y1="40" x2="702" y2="40" stroke="#DFE5E2" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="18" cy="40" r="9" fill="#1E4A33"/>
+        <circle cx="135" cy="40" r="9" fill="#1E4A33"/>
+        <circle cx="252" cy="40" r="9" fill="#1E4A33"/>
+        <circle cx="352" cy="40" r="9" fill="#FFFFFF" stroke="#F04E43" stroke-width="3"/>
+        <circle cx="452" cy="40" r="7" fill="#FFFFFF" stroke="#DFE5E2" stroke-width="3"/>
+        <circle cx="577" cy="40" r="7" fill="#FFFFFF" stroke="#DFE5E2" stroke-width="3"/>
+        <circle cx="702" cy="40" r="7" fill="#FFFFFF" stroke="#DFE5E2" stroke-width="3"/>
+        <text x="18" y="78" font-size="13" font-weight="700" fill="#1E4A33" font-family="Plus Jakarta Sans, sans-serif">They start</text>
+        <text x="352" y="78" font-size="13" font-weight="700" fill="#F04E43" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif">They quit here</text>
+        <text x="702" y="78" font-size="13" font-weight="700" fill="#9AA6A1" text-anchor="end" font-family="Plus Jakarta Sans, sans-serif">They finish</text>
+      </svg>
+    </div>
+
+    <div class="cta"><a class="pill big" href="#contact">Tell me where people drop off <span class="ar">&#8599;</span></a></div>
+    <p class="facts">Four years in product teams &nbsp;&middot;&nbsp; Freelance &amp; consulting &nbsp;&middot;&nbsp; German and English &nbsp;&middot;&nbsp; Remote across the EU</p>
+  </div>
+</header>
+
+<section class="sec mist story">
+  <div class="shell">
+    <h2>Sound familiar?<br><span class="it" style="font-weight:400">You&#8217;re not imagining it.</span></h2>
+    <div class="beats">
+      <p>Sign-ups look fine. The dashboard says so.</p>
+      <p>People complete the first step. Maybe the second.</p>
+      <p>Then the effort catches up with them, and the payoff still feels far away.</p>
+      <p>They mean to come back. They don&#8217;t.</p>
+      <p>So you add a nudge. An email. A progress bar.</p>
+      <p class="last">The number doesn&#8217;t move &mdash; because the problem was never the reminder.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="approach">
+  <div class="shell">
+    <p class="eyebrow">Services</p>
+    <h2>Research, structure, and something<br>your team can keep.</h2>
+    <p class="lead">Most drop-off isn&#8217;t a visual problem. It&#8217;s people meeting effort before they&#8217;ve seen a reason. I work backwards from the moment they hesitate.</p>
+
+    <div class="bento">
+      <div class="tile">
+        <h3>Find the drop-off</h3>
+        <p>Interviews and usability sessions in German or English, set up so your team can keep running them after I leave.</p>
+        <ul><li>Behavioural design</li><li>UX research</li><li>Usability testing</li><li>Research ops</li></ul>
+      </div>
+      <div class="tile">
+        <h3>Rebuild the path</h3>
+        <p>The structural work: what comes first, what can wait, and what should never have been a step at all.</p>
+        <ul><li>Information architecture</li><li>User flows</li><li>Funnel optimisation</li><li>Design systems</li></ul>
+      </div>
+      <div class="tile">
+        <h3>Design the thing</h3>
+        <p>Interface work that carries the research through &mdash; not a reskin, and not a spec someone else has to interpret.</p>
+        <ul><li>UI design</li><li>Prototyping in Figma</li><li>Design system components</li></ul>
+      </div>
+      <div class="tile">
+        <h3>Ship it</h3>
+        <p>For smaller teams I hand over a live site, not a file. No engineering queue between the design and the launch.</p>
+        <ul><li>Webflow build</li><li>Handover documentation</li><li>AI-assisted workflows</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec off" id="work">
+  <div class="shell">
+    <p class="eyebrow">Selected work</p>
+    <h2>Two projects, both about the middle.</h2>
+
+    <article class="case">
+      <div class="tags"><span>HR Tech</span><span>Behavioural Design</span><span>Design System</span></div>
+      <h3>Getting both sides of a hiring marketplace to keep going</h3>
+      <p><span class="slot">[Product]</span> is a two-sided hiring marketplace. Candidates and employers both work through a long, uncertain process, and the business only earns when both sides reach the end. Sign-ups were never the problem &mdash; people stopped a few steps in, while the effort was still high and the payoff still felt far away.</p>
+      <p>I ran <span class="slot">[n]</span> interviews with candidates and recruiters to find where people were actually stopping, then rebuilt the <span class="slot">[n]</span>-step application flow around the moment of hesitation rather than the moment of arrival. I owned <b>research, information architecture and UI</b>, and the patterns became part of the design system the team still uses.</p>
+      <div class="stats">
+        <div class="stat"><p class="fig g"><span class="slot">14</span></p><p class="lab">user interviews</p></div>
+        <div class="stat"><p class="fig g"><span class="slot">7&nbsp;&#8594;&nbsp;4</span></p><p class="lab">steps in the flow</p></div>
+        <div class="stat"><p class="fig g"><span class="slot">40+</span></p><p class="lab">system components</p></div>
+      </div>
+      <div class="shot"><span>Flow redesign &mdash; before and after</span></div>
+    </article>
+
+    <article class="case">
+      <div class="tags"><span>Freelance</span><span>Research</span><span>Design &amp; Webflow build</span></div>
+      <h3>Designed, built and handed over in one engagement</h3>
+      <p><span class="slot">[Client]</span> is a <span class="slot">[what they do]</span> in <span class="slot">[city]</span>. They had <span class="slot">[the problem]</span>, and no in-house design or engineering to fix it.</p>
+      <p>I ran the research, designed the structure and the interface, then built it in <b>Webflow</b> and handed over a site they could edit themselves. Working language was German throughout, from the first interview to the handover documentation.</p>
+      <div class="stats">
+        <div class="stat"><p class="fig g"><span class="slot">[n]</span></p><p class="lab">weeks, research to launch</p></div>
+        <div class="stat"><p class="fig g"><span class="slot">[n]</span></p><p class="lab">pages built in Webflow</p></div>
+        <div class="stat"><p class="fig g">DE</p><p class="lab">research &amp; handover language</p></div>
+      </div>
+      <div class="shot"><span>Live site &mdash; Webflow</span></div>
+    </article>
+  </div>
+</section>
+
+<section class="sec" id="proof">
+  <div class="shell center">
+    <p class="eyebrow">In other people&#8217;s words</p>
+    <h2>Hear it from the people<br>I worked with</h2>
+    <p class="lead">Behavioural design, described by someone other than me.</p>
+  </div>
+  <div class="shell">
+    <div class="tgrid">
+      <div class="tcard">
+        <q>I sincerely recommend her for her exceptional skills in user experience (UX) and behavioral design. She consistently demonstrated a profound ability to understand the user&#8217;s perspective and design intuitive, engaging experiences that guided positive behaviors.</q>
+        <p class="who">Ana K.<span>User Research &amp; Conversion Specialist</span></p>
+      </div>
+      <div class="tcard">
+        <q>Her remarkable ability to align design strategies with business objectives sets Roxana apart. Her work captivates users and drives tangible business growth, leading to increased user engagement and high NPS ratings.</q>
+        <p class="who">Thorsten S.<span>CTO</span></p>
+      </div>
+      <div class="tcard">
+        <q>She holds herself to her own high standards&hellip; She makes sure that we step back and think through the bigger picture to ensure we&#8217;re making informed decisions.</q>
+        <p class="who">Jonathan F.<span>Senior Product Designer</span></p>
+      </div>
+      <div class="tcard">
+        <q>Du hast alles in so einer Schnelligkeit und Ordentlichkeit umgesetzt&hellip; du hast immer eingehalten, was du versprochen hast.</q>
+        <p class="who"><span class="slot">[Name]</span><span>Business Owner &middot; Germany</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec off">
+  <div class="shell center">
+    <h2>Is this a fit?</h2>
+    <p class="lead">I&#8217;d rather tell you now than three weeks in.</p>
+  </div>
+  <div class="shell">
+    <div class="fit">
+      <div class="fcard yes">
+        <h3>This is for you if&hellip;</h3>
+        <ul>
+          <li><span class="dot">&#10003;</span> People sign up for your product and stop partway through</li>
+          <li><span class="dot">&#10003;</span> You&#8217;ve already tried copy tweaks and reminders, and the number didn&#8217;t move</li>
+          <li><span class="dot">&#10003;</span> You want research and design from one person, not a handoff between three</li>
+          <li><span class="dot">&#10003;</span> You&#8217;d rather understand why people leave than guess at what to change</li>
+          <li><span class="dot">&#10003;</span> You want to keep the system running after the engagement ends</li>
+        </ul>
+      </div>
+      <div class="fcard no">
+        <h3>This is not for you if&hellip;</h3>
+        <ul>
+          <li><span class="dot">&#10005;</span> You need pixel execution against a spec someone else already wrote</li>
+          <li><span class="dot">&#10005;</span> You want a visual refresh without touching the flow underneath</li>
+          <li><span class="dot">&#10005;</span> There&#8217;s no way to reach your users, at all</li>
+          <li><span class="dot">&#10005;</span> You need a full-time designer rather than a focused engagement</li>
+          <li><span class="dot">&#10005;</span> The decision is already made and you want it validated</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec mist">
+  <div class="shell center">
+    <h2>Three steps to the answer</h2>
+  </div>
+  <div class="shell">
+    <div class="steps">
+      <div class="step">
+        <p class="n">01</p>
+        <h3>Find where they stop</h3>
+        <p>Interviews and session review in German or English, until the drop-off point stops being a guess and starts being a place.</p>
+      </div>
+      <div class="step">
+        <p class="n">02</p>
+        <h3>Rebuild the path</h3>
+        <p>Information architecture, flows and interface, redesigned around the moment of hesitation rather than the moment of arrival.</p>
+      </div>
+      <div class="step">
+        <p class="n">03</p>
+        <h3>Hand it over</h3>
+        <p>A design system, or a live Webflow build, that your team can keep running long after the engagement ends.</p>
+      </div>
+    </div>
+
+    <div class="pull">
+      <q>Her work captivates users and drives tangible business growth</q>
+      <p class="who">Thorsten S.<span>CTO</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="contact">
+  <div class="narrow">
+    <h2>Where does your product<br>lose people?</h2>
+    <p>Send me a short note about where people are dropping off. I&#8217;ll tell you what I&#8217;d look at first, and whether I&#8217;m the right person for it.</p>
+    <div class="cta"><a class="pill big" href="mailto:hello@example.com">Tell me where people drop off <span class="ar">&#8599;</span></a></div>
+    <p class="alt">or find me on <a href="#contact">LinkedIn</a> &mdash; freelance and consulting, in German or English.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="shell fin">
+    <span>&copy; 2026 Roxana Higgins</span>
+    <nav class="fnav">
+      <a href="#work">Work</a>
+      <a href="#approach">Services</a>
+      <a href="#proof">Testimonials</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact">Imprint</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

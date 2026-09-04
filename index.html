@@ -1,0 +1,2056 @@
+<!doctype html>
+<html lang="en"
+  data-en-doctitle="Roxana Higgins, Product Designer (UX/UI)"
+  data-de-doctitle="Roxana Higgins, Product Designerin (UX/UI)"
+  data-en-docdesc="Product designer. Research, structure and screens for products with many steps and more than one kind of user."
+  data-de-docdesc="Product Designerin. Recherche, Struktur und Screens für Produkte mit vielen Schritten und mehr als einer Nutzergruppe.">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roxana Higgins, Product Designer (UX/UI)</title>
+<meta name="description" content="Product designer (UX/UI). Research, information architecture and interface for products with many steps and more than one kind of user.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Figtree:ital,wght@0,400..800;1,400..800&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+/* ===== Ocean Serenity =====
+   Ink #111318 · Soft Blue #5C6DF4 · Warm dot #E16B43 */
+:root{
+  --paper:#F7F7FA; --surface:#FFFFFF;
+  --ink:#111318; --ink-2:#4C515B; --ink-3:#757A84; --rule:#E4E4EA;
+  --accent:#4A5AE8; --dotcol:#E16B43;
+  --btn:#111318; --btn-hover:#24272E; --btn-fg:#FFFFFF;
+  --dot:rgba(225,107,67,.22); --grid:rgba(17,19,24,.10);
+  --glass:rgba(255,255,255,.62); --glass-edge:rgba(255,255,255,.85);
+  --glass-top:rgba(255,255,255,.9); --chip:rgba(255,255,255,.78);
+  --shadow-card:0 1px 2px rgba(30,34,60,.05),0 18px 44px -30px rgba(30,34,60,.34);
+  --shadow-btn:0 14px 30px -14px rgba(17,19,24,.5);
+  --slot:rgba(17,19,24,.10);
+  --tint-a:rgba(92,109,244,.10); --tint-b:rgba(225,107,67,.075);
+  --call-1:#EDEFFB; --call-2:#F8F1EC; --call-rule:rgba(17,19,24,.028);
+  --panel-1:#0E1014; --panel-2:#171A28; --panel-3:#232A52;
+  --panel-4:#2F3878; --panel-5:#3A44A0; --panel-fg:#FFFFFF;
+  --wordmark:rgba(255,255,255,.68); --halftone:rgba(255,255,255,.30);
+  --dot-size:28px; --pad-x:230px; --cols:4; --navh:95px;
+  --fog:rgba(247,247,250,.985); --fog-0:rgba(247,247,250,0);
+  --ease:cubic-bezier(.22,1,.36,1);
+  /* Two families. Figtree is the working font: body, cards, chips, buttons,
+     everything you read. --font-display is the serif, and it is only on the
+     display headings. Geist, the third family that was doing neither job,
+     stays retired. Caveat is the one script accent, on "coffee with Roxy". */
+  --font:"Figtree","Avenir Next","Segoe UI",system-ui,-apple-system,sans-serif;
+  /* Display headings only. Figtree carries everything else, so this is two
+     families, not the three that were fighting each other. */
+  --font-display:"Instrument Serif",Georgia,serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0C0D11; --surface:#15171D;
+    --ink:#F5F6F8; --ink-2:#AEB3BE; --ink-3:#9AA0AB; --rule:#262A33;
+    --accent:#8E9BFF; --dotcol:#E16B43;
+    --btn:#4A5AE8; --btn-hover:#5C6DF4; --btn-fg:#FFFFFF;
+    --dot:rgba(225,107,67,.22); --grid:rgba(245,246,248,.10);
+    --glass:rgba(21,23,29,.55); --glass-edge:rgba(245,246,248,.14);
+    --glass-top:rgba(245,246,248,.16); --chip:rgba(245,246,248,.06);
+    --shadow-card:0 1px 2px rgba(0,0,0,.45),0 18px 44px -30px rgba(0,0,0,.85);
+    --shadow-btn:0 14px 30px -14px rgba(74,90,232,.5);
+    --slot:rgba(142,155,255,.16);
+    --tint-a:rgba(92,109,244,.14); --tint-b:rgba(225,107,67,.08);
+    --call-1:#2A3052; --call-2:#332C46; --call-rule:rgba(245,246,248,.045);
+    --panel-1:#0E1014; --panel-2:#141726; --panel-3:#1D2344;
+    --panel-4:#262E63; --panel-5:#303A86; --panel-fg:#F5F6F8;
+    --wordmark:rgba(245,246,248,.17); --halftone:rgba(255,255,255,.13);
+  --fog:rgba(12,13,17,.975); --fog-0:rgba(12,13,17,0);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0C0D11; --surface:#15171D;
+  --ink:#F5F6F8; --ink-2:#AEB3BE; --ink-3:#9AA0AB; --rule:#262A33;
+  --accent:#8E9BFF; --dotcol:#E16B43;
+  --btn:#4A5AE8; --btn-hover:#5C6DF4; --btn-fg:#FFFFFF;
+  --dot:rgba(225,107,67,.22); --grid:rgba(245,246,248,.10);
+  --glass:rgba(21,23,29,.55); --glass-edge:rgba(245,246,248,.14);
+  --glass-top:rgba(245,246,248,.16); --chip:rgba(245,246,248,.06);
+  --shadow-card:0 1px 2px rgba(0,0,0,.45),0 18px 44px -30px rgba(0,0,0,.85);
+  --shadow-btn:0 14px 30px -14px rgba(74,90,232,.5);
+  --slot:rgba(142,155,255,.16);
+  --tint-a:rgba(92,109,244,.14); --tint-b:rgba(225,107,67,.08);
+  --call-1:#2A3052; --call-2:#332C46; --call-rule:rgba(245,246,248,.045);
+  --panel-1:#0E1014; --panel-2:#141726; --panel-3:#1D2344;
+  --panel-4:#262E63; --panel-5:#303A86; --panel-fg:#F5F6F8;
+  --wordmark:rgba(245,246,248,.17); --halftone:rgba(255,255,255,.13);
+  --fog:rgba(12,13,17,.975); --fog-0:rgba(12,13,17,0);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;color:var(--ink);
+  transition:background-color .3s var(--ease),color .3s var(--ease);
+  background-color:var(--paper);
+  /* Three layers: the warm dot grid that scrolls with the page, then a peach
+     and a soft blue bloom pinned to the viewport so the ground stays alive over
+     a long scroll without ever competing with the copy. */
+  background-image:
+    radial-gradient(circle,var(--dot) 1.1px,transparent 1.1px),
+    radial-gradient(52% 44% at 90% 2%,rgba(225,107,67,.085),transparent 72%),
+    radial-gradient(48% 46% at 2% 96%,rgba(92,109,244,.085),transparent 74%);
+  background-size:var(--dot-size) var(--dot-size),100% 100%,100% 100%;
+  background-repeat:repeat,no-repeat,no-repeat;
+  background-attachment:scroll,fixed,fixed;
+  font-family:var(--font);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{margin:0}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+
+/* column rules, fixed so they run the whole page */
+.grid-lines{position:fixed;top:0;bottom:0;left:var(--pad-x);right:var(--pad-x);
+  display:grid;grid-template-columns:repeat(var(--cols),1fr);pointer-events:none;z-index:0}
+.grid-lines span{border-left:1px solid var(--grid)}
+.grid-lines span:last-child{border-right:1px solid var(--grid)}
+/* Column rules parked while the card grounds are being reworked.
+   Delete this display:none rule to bring them back. */
+.grid-lines{display:none}
+.page{position:relative;z-index:1}
+.wrap{padding-left:var(--pad-x);padding-right:var(--pad-x)}
+
+/* ---- house rule: text never sits on the bare dot grid ----
+   Text blocks carry a soft wash of the page colour that fades out at the edges,
+   so the dots and the column rules stay texture around content, not behind it. */
+.fog{border-radius:34px;background:radial-gradient(118% 130% at 50% 50%,var(--fog) 0 58%,var(--fog-0) 100%)}
+.fog-h{display:inline-block;padding:16px 30px;margin-left:-30px;border-radius:30px;
+  background:radial-gradient(100% 150% at 50% 50%,var(--fog) 0 54%,var(--fog-0) 100%)}
+.hero-fog{background:radial-gradient(62% 86% at 33% 50%,var(--fog) 0 48%,var(--fog-0) 100%)}
+@media(max-width:900px){.fog-h{margin-left:0;padding:12px 16px}}
+
+/* ---------- the button ---------- */
+.btn-cta{
+  display:inline-flex;align-items:center;gap:15px;
+  background:var(--btn);color:var(--btn-fg);
+  font-size:17px;font-weight:500;letter-spacing:.005em;
+  padding:20px 34px;border-radius:999px;white-space:nowrap;
+  transition:background .28s var(--ease),transform .28s var(--ease),box-shadow .28s var(--ease);
+}
+.btn-cta .ar{display:inline-block;font-size:15px;
+  transition:transform .34s var(--ease)}
+.btn-cta:hover,.btn-cta:focus-visible{
+  background:var(--btn-hover);transform:translateY(-2px);
+  box-shadow:var(--shadow-btn)}
+.btn-cta:hover .ar,.btn-cta:focus-visible .ar{transform:translate(5px,-5px)}
+.btn-cta:active{transform:translateY(0)}
+.btn-sm{font-size:14.5px;padding:12px 22px;gap:11px}
+.btn-sm .ar{font-size:13px}
+.btn-ghost{background:transparent;color:var(--ink);
+  box-shadow:inset 0 0 0 1px var(--rule)}
+.btn-ghost:hover,.btn-ghost:focus-visible{background:transparent;color:var(--accent);
+  box-shadow:inset 0 0 0 1px var(--accent)}
+/* the download arrow points down, so it should travel down on hover */
+.btn-dl .ar{font-size:16px}
+.btn-dl:hover .ar,.btn-dl:focus-visible .ar{transform:translateY(4px)}
+@media (prefers-reduced-motion: reduce){
+  .btn-cta,.btn-cta .ar{transition:none}
+  .btn-cta:hover,.btn-cta:focus-visible{transform:none}
+  .btn-cta:hover .ar,.btn-cta:focus-visible .ar{transform:none}
+}
+
+/* ---------- hero ---------- */
+.navbar{position:sticky;top:0;z-index:50;padding-top:20px;padding-bottom:20px}
+/* No min-height. The hero content is shorter than a viewport, and with
+   .mid centring inside flex:1 the leftover height was dumped below the trust
+   marks as a 240px void before the testimonials. */
+/* min-height, so the hero ends exactly at the fold and the note underneath it
+   is never half visible on load. The navbar sits in flow above at --navh, so
+   subtracting it lands the hero's bottom edge on the viewport's. svh not vh:
+   on mobile Safari vh counts the retracted toolbar and the hero would run
+   taller than the screen it is supposed to match.
+   The earlier version of this rule was removed because .mid centred inside
+   flex:1 and dumped the leftover height below the trust marks as a 240px void.
+   That is fixed by the padding trim on .mid, not by dropping the min-height.
+
+   overflow-x clipped, y left visible. The objects' selection frames are drawn
+   at inset:-11px and rotate with the object, and the rotated frame of the
+   corner one reached 1px past the viewport at 1030px, which is enough for a
+   phantom horizontal scrollbar. Clipping x costs nothing here: the hero runs
+   full bleed, so its side edges are the viewport's, and the drag clamp already
+   holds every object inside. y stays visible so the shadows still fall. */
+.hero{min-height:calc(100svh - var(--navh));
+  padding-bottom:34px;display:flex;flex-direction:column;position:relative;
+  overflow-x:clip;overflow-y:visible}
+@supports not (height:100svh){.hero{min-height:calc(100vh - var(--navh))}}
+
+/* ---------- hero objects ----------
+   Three renders scattered in the open right hand half of the hero, and the
+   viewer can pick them up and move them. They live in a layer of their own
+   rather than in the copy flow, so nothing they do can move a line of type.
+   The layer itself takes no pointer events, only the objects do, so they never
+   eat a click meant for a button. Below 1024px the hero copy fills the width,
+   there is no open half left, so they go rather than pile up behind the
+   headline, and there is nothing to drag on a phone either.
+
+   Each object carries its own shadow colour: the orange, blue and purple the
+   card chips already use, so the three glows read as the brand rather than as
+   three grey blurs. Two layers each, one wide bloom and one tight contact
+   shadow, which is what stops them floating.
+
+   The transform is composed from custom properties. The drag script only ever
+   writes --dx and --dy, so it can move an object without knowing or clobbering
+   the rotation and the flip that are set per object in CSS. */
+/* Above .mid, not below it. The hero's fog is a near opaque wash of the page
+   colour painted on .mid to keep type off the dot grid, and at z-index 0 that
+   wash was greying out the objects: the plane sat at 56% of the fog's radius,
+   just past its solid stop, and rendered at about 15% strength. Nothing here
+   overlaps a line of type, so drawing on top costs nothing, and the layer takes
+   no pointer events so it cannot swallow a click. */
+.playfield{position:relative}
+.hero-deco{position:absolute;inset:0;z-index:2;pointer-events:none}
+.hero > .mid{position:relative;z-index:1}
+.hero-deco .deco{position:absolute;display:block;pointer-events:auto;
+  cursor:grab;touch-action:none;-webkit-user-select:none;user-select:none;
+  transform:translate(var(--dx,0px),var(--dy,0px))
+            rotate(var(--rot,0deg)) scaleX(var(--flip,1));
+  transition:transform .42s var(--ease)}
+.hero-deco .deco img{display:block;width:100%;height:auto;
+  filter:drop-shadow(0 18px 28px var(--glow)) drop-shadow(0 3px 5px var(--glow-2));
+  transition:filter .3s var(--ease)}
+.hero-deco .deco:hover img{filter:drop-shadow(0 30px 44px var(--glow-hi))
+  drop-shadow(0 4px 7px var(--glow-2))}
+/* Picked up: the return transition comes off so the object tracks the pointer
+   instead of lagging behind it, and it rises above the other two. */
+.hero-deco .deco.is-drag,.hero-deco .deco.is-resize{transition:none;cursor:grabbing;z-index:4}
+.hero-deco .deco.is-drag img{filter:drop-shadow(0 38px 56px var(--glow-hi))
+  drop-shadow(0 5px 9px var(--glow-2))}
+
+/* The selection frame. One box and four corner marks, drawn on the wrapper so
+   they rotate with the object the way a selection does in a design tool. */
+.hero-deco .deco::after{content:"";position:absolute;inset:-11px;pointer-events:none;
+  border:1px solid var(--accent);opacity:0;
+  transition:opacity .14s linear;
+  background-image:
+    linear-gradient(var(--accent),var(--accent)),
+    linear-gradient(var(--accent),var(--accent)),
+    linear-gradient(var(--accent),var(--accent)),
+    linear-gradient(var(--accent),var(--accent));
+  background-size:6px 6px;background-repeat:no-repeat;
+  background-position:-3.5px -3.5px, calc(100% + 3.5px) -3.5px,
+    -3.5px calc(100% + 3.5px), calc(100% + 3.5px) calc(100% + 3.5px)}
+.hero-deco .deco:hover::after,.hero-deco .deco.is-drag::after,
+.hero-deco .deco.is-resize::after{opacity:1}
+
+/* ---------- resize handles ----------
+   Four real elements, not more painted corners: a pseudo element cannot take a
+   pointer on its own, and these have to be grabbable. Injected by the script so
+   the markup stays clean, and they sit on the corners of the frame, which means
+   inset:-11px for the frame plus half the 9px handle.
+   Resizing is proportional from the opposite corner. The alternative, free
+   resizing, would stretch a photograph of a face. */
+.hdl{position:absolute;width:9px;height:9px;padding:0;
+  background:var(--surface);border:1.5px solid var(--accent);border-radius:2px;
+  opacity:0;transition:opacity .14s linear;pointer-events:auto;z-index:3;
+  touch-action:none}
+.hero-deco .deco:hover .hdl,.hero-deco .deco.is-drag .hdl,
+.hero-deco .deco.is-resize .hdl,
+.sticky:hover .hdl,.sticky.is-drag .hdl,.sticky.is-resize .hdl{opacity:1}
+.hdl-nw{top:-15px;left:-15px;cursor:nwse-resize}
+.hdl-ne{top:-15px;right:-15px;cursor:nesw-resize}
+.hdl-sw{bottom:-15px;left:-15px;cursor:nesw-resize}
+.hdl-se{bottom:-15px;right:-15px;cursor:nwse-resize}
+.sticky .hdl{position:absolute}
+/* Touch: no handles, and the note gives the gesture back to the page. With
+   touch-action:none on it a swipe that started on the note dragged the note
+   instead of scrolling, which is a trap on a phone. The hero objects are
+   already hidden at this width. */
+@media(max-width:1023px){
+  .hdl{display:none}
+  .sticky{touch-action:auto;cursor:default}
+  .sticky::after{display:none}
+}
+
+/* Smaller than it was and tucked into the corner, so the top right reads as
+   trim rather than as a second focal point competing with the headline. */
+/* These three are measured off the screenshot she sent, where she had dragged
+   them where she wanted them. That reverses two earlier instructions: the face
+   is back up beside the headline rather than level with the buttons, and it uses
+   the gutter rather than stopping at the page column. Her positions win. */
+.deco-face{width:clamp(120px,14.3vw,206px);top:4.5%;right:14.5%;--rot:-7deg;
+  --glow:rgba(225,107,67,.32);--glow-hi:rgba(225,107,67,.5);--glow-2:rgba(76,42,28,.18)}
+.deco-onigiri{width:clamp(76px,8.6vw,128px);top:73.5%;right:8%;--rot:10deg;
+  --glow:rgba(170,119,239,.34);--glow-hi:rgba(170,119,239,.54);--glow-2:rgba(48,26,84,.18)}
+/* Mirrored on purpose, so the nose points back at the headline rather than off
+   the edge of the page. Nearest the copy of the three and sitting higher than
+   the onigiri, which is what she asked for, but still clear of the German
+   button row: "CV herunterladen" plus "Lass uns reden" runs 59% of the width at
+   1030px, wider than either English label, and an earlier placement collided
+   with it there and at 1280 while looking fine in English. */
+.deco-plane{width:clamp(96px,11.1vw,160px);top:58%;right:37%;
+  --rot:-9deg;--flip:-1;
+  --glow:rgba(74,90,232,.34);--glow-hi:rgba(74,90,232,.54);--glow-2:rgba(18,24,72,.18)}
+/* Below 1300 the German button row is the widest thing in the lower half:
+   "Fun CV herunterladen" plus "Lass uns reden" reaches 59% of the width, and the
+   plane's default overlapped it there while looking fine in English. Pulled
+   right for those widths only. */
+@media(max-width:1300px){.deco-plane{right:25%}}
+@media(max-width:1023px){.hero-deco{display:none}}
+@media (prefers-reduced-motion: reduce){.hero-deco .deco{transition:none}}
+.row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px}
+.logo{justify-self:start;display:inline-flex;align-items:center;gap:11px;
+  font-weight:600;font-size:18px;letter-spacing:-.02em;white-space:nowrap;
+  padding:10px 20px;border-radius:999px;
+  background:var(--glass);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);
+  border:1px solid var(--glass-edge);
+  box-shadow:inset 0 1px 0 var(--glass-top),0 2px 10px rgba(0,40,52,.06)}
+.navpill{justify-self:center;display:flex;align-items:center;gap:4px;padding:7px 10px;border-radius:999px;
+  background:var(--glass);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);
+  border:1px solid var(--glass-edge);
+  box-shadow:inset 0 1px 0 var(--glass-top),0 2px 10px rgba(0,40,52,.06)}
+.navpill a{padding:8px 15px;font-size:14.5px;font-weight:500;color:var(--ink-2);border-radius:999px;white-space:nowrap}
+.navpill a:hover,.navpill a:focus-visible{color:var(--ink);background:var(--glass-edge)}
+.navcta{justify-self:end;display:flex;align-items:center;gap:12px}
+
+.mid{flex:1;display:flex;flex-direction:column;justify-content:center;padding:18px 0}
+/* Three short lines rather than two long ones. The first sentence used to run
+   798px at 1440 and the eye had to travel the whole width twice; broken in two
+   it reads in one glance, the block gets narrower, and the right hand half of
+   the hero opens up for the objects. The type steps down from a /12.6 measure
+   to /13.4 so three lines cost less height than two lines did at the old size.
+   The breaks are explicit, not left to wrapping: at this size the browser's
+   own break points move around between widths and languages. */
+h1{font-family:var(--font-display);font-weight:400;
+  font-size:clamp(34px,calc((100vw - 2 * var(--pad-x)) / 11.4),96px);
+  line-height:1.02;letter-spacing:-.02em}
+h1 .ln{display:block}
+h1 em{font-style:italic}
+/* the one piece of colour in the headline, on the word the whole line turns on */
+h1 .mark{text-decoration:underline;text-decoration-color:var(--dotcol);
+  text-decoration-thickness:.062em;text-underline-offset:.2em;
+  /* One unbroken rule, dropped clear of the descender of the p. skip-ink is
+     off because the gap it opened around that descender broke the mark into two
+     dashes at this size. */
+  text-decoration-skip-ink:none}
+.sub{margin-top:30px;max-width:54ch;font-size:16.5px;line-height:1.62;color:var(--ink-2)}
+.sub b{color:var(--ink);font-weight:600}
+.actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:36px}
+.link-cta{display:inline-flex;align-items:center;gap:9px;font-size:16px;font-weight:500}
+.link-cta .ar{color:var(--ink-3);font-size:15px}
+.link-cta:hover,.link-cta:focus-visible{color:var(--accent)}
+.facts{margin-top:48px;font-size:13.5px;color:var(--ink-3);font-weight:500}
+
+/* ---------- sections ---------- */
+.sec{padding-top:62px;padding-bottom:62px}
+/* Reveal on scroll. Content is visible by default; the hidden start state is
+   only applied once JS confirms it can animate, so a failure can never hide the page. */
+.js-reveal .reveal{opacity:0;transform:scale(1.07);
+  transition:opacity .75s var(--ease),transform .95s var(--ease)}
+.js-reveal .reveal.in{opacity:1;transform:scale(1)}
+.js-reveal .mid .reveal:nth-child(2){transition-delay:.06s}
+.js-reveal .mid .reveal:nth-child(3){transition-delay:.12s}
+.js-reveal .mid .reveal:nth-child(4){transition-delay:.18s}
+.js-reveal .tcard.reveal:nth-child(2){transition-delay:.07s}
+.js-reveal .tcard.reveal:nth-child(3){transition-delay:.14s}
+.js-reveal .tcard.reveal:nth-child(4){transition-delay:.21s}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);margin-bottom:22px}
+/* It was reading last in the hierarchy: 12.5px at 600 in a wide track, sitting
+   26px clear of the headline so it did not even belong to it. Now bigger and
+   heavier, the tracking pulled in so the words hold together, and close enough
+   to the headline to read as its label. On its own tinted ground so it registers
+   as a badge rather than as a stray line of small caps. */
+.hero-eyebrow{display:inline-flex;align-self:flex-start;
+  font-size:13.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:14px;
+  padding:7px 14px;border-radius:999px;background:var(--tint-a)}
+.theme-toggle{display:inline-grid;place-items:center;width:42px;height:42px;flex:none;
+  border-radius:999px;border:1px solid var(--rule);background:var(--chip);color:var(--ink-2);cursor:pointer;
+  transition:color .2s var(--ease),border-color .2s var(--ease)}
+.theme-toggle:hover{color:var(--accent);border-color:var(--accent)}
+.theme-toggle svg{width:18px;height:18px}
+.theme-toggle .moon{display:block}.theme-toggle .sun{display:none}
+:root[data-theme="dark"] .theme-toggle .moon{display:none}
+:root[data-theme="dark"] .theme-toggle .sun{display:block}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .theme-toggle .moon{display:none}
+  :root:not([data-theme="light"]) .theme-toggle .sun{display:block}
+}
+/* Section headings, not display headlines. Uppercase and stepped down from 62
+   to 40, which is what lets the first card come up 60px: at 62px lowercase
+   "Work" was reading as a second hero and holding a whole band of the page to
+   itself. Applied to h2 so Work, What people say and My design principles stay
+   a set; the discovery panel keeps its own larger rule. Tracking goes positive
+   because caps need the air that lowercase does not. */
+h2{font-family:var(--font-display);font-weight:400;text-transform:uppercase;
+  font-size:clamp(26px,2.7vw,40px);line-height:1.08;letter-spacing:.035em;
+  max-width:26ch}
+h2 em{font-style:italic}
+.lead{margin-top:22px;max-width:52ch;font-size:17px;color:var(--ink-2)}
+
+/* cases */
+/* ---------- case cards ---------- */
+.case{position:relative;overflow:hidden;border-radius:28px;margin-top:22px;
+  padding:58px 52px}
+.case:first-of-type{margin-top:28px}
+.case-link{display:grid;color:inherit;
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.case-link:hover,.case-link:focus-visible{transform:translateY(-3px)}
+.case-link .more{display:inline-flex;align-items:center;gap:10px;margin-top:30px;
+  font-size:15.5px;font-weight:600;color:var(--c-strong)}
+.case-link .more .ar{font-size:14px;transition:transform .34s var(--ease)}
+.case-link:hover .more .ar,.case-link:focus-visible .more .ar{transform:translate(5px,-5px)}
+@media (prefers-reduced-motion: reduce){
+  .case-link,.case-link .more .ar{transition:none}
+  .case-link:hover,.case-link:focus-visible{transform:none}
+  .case-link:hover .more .ar{transform:none}
+}
+.case > *{position:relative;z-index:2}
+
+.case--dark{
+  --c-fg:#F5F6F8; --c-fg2:rgba(245,246,248,.74); --c-rule:rgba(245,246,248,.16);
+  --c-chip:rgba(245,246,248,.09); --c-chip-edge:rgba(245,246,248,.20);
+  --c-slot:rgba(142,155,255,.22); --c-strong:#8E9BFF;
+  background:
+    radial-gradient(120% 85% at 80% 6%, rgba(92,109,244,.26), transparent 58%),
+    linear-gradient(158deg,#14172A 0%,#0B0C10 100%);}
+.case--dark::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background-image:
+    repeating-linear-gradient(0deg,rgba(245,246,248,.05) 0 1px,transparent 1px 64px),
+    repeating-linear-gradient(90deg,rgba(245,246,248,.05) 0 1px,transparent 1px 64px);}
+
+.case--light{
+  --c-fg:var(--ink); --c-fg2:var(--ink-2); --c-rule:var(--rule);
+  --c-chip:var(--chip); --c-chip-edge:var(--rule);
+  --c-slot:var(--slot); --c-strong:var(--accent);
+  background:var(--surface);border:1px solid var(--rule);}
+
+.case-eyebrow{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--c-strong);margin-bottom:18px}
+.case h3{font-family:var(--font);font-weight:700;
+  font-size:clamp(28px,3.4vw,46px);line-height:1.08;letter-spacing:-.032em;
+  color:var(--c-fg);max-width:16ch;margin-bottom:24px}
+.case p{color:var(--c-fg2);max-width:44ch;margin-bottom:14px;font-size:16.5px;line-height:1.6}
+.case p b{color:var(--c-fg);font-weight:600}
+.slot{background:var(--c-slot,var(--slot));color:inherit;padding:1px 7px;border-radius:5px;font-weight:600;font-size:.92em}
+
+.tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+.tags span{font-size:13px;font-weight:500;color:var(--c-fg2);padding:9px 17px;border-radius:999px;
+  background:var(--c-chip);border:1px solid var(--c-chip-edge)}
+
+.stats{margin-top:36px;padding-top:26px;border-top:1px solid var(--c-rule);
+  display:flex;flex-direction:column;gap:14px;max-width:34ch}
+.stat{display:flex;justify-content:space-between;align-items:baseline;gap:24px}
+.stat .lab{font-size:16px;font-weight:600;color:var(--c-fg)}
+.stat .fig{font-size:16px;font-weight:500;color:var(--c-fg2);font-variant-numeric:tabular-nums;white-space:nowrap}
+/* meta variant: label + wrapping text value, not a figure.
+   The list itself owns the two columns and each row inherits them through
+   subgrid, so the label column sizes to the longest label in that card and
+   every value still starts on the same line. A per-row `auto` would size each
+   row on its own and the values would come out ragged. */
+.stats--meta{max-width:44ch;display:grid;grid-template-columns:auto minmax(0,1fr);
+  row-gap:14px;column-gap:20px}
+.stats--meta .stat{display:grid;grid-template-columns:subgrid;grid-column:1 / -1}
+@supports not (grid-template-columns:subgrid){
+  .stats--meta{display:flex;flex-direction:column}
+  .stats--meta .stat{grid-template-columns:12ch minmax(0,1fr);gap:20px}
+  .case--web .stats--meta .stat{grid-template-columns:15ch minmax(0,1fr)}
+}
+.stats--meta .stat .fig{white-space:normal;line-height:1.5;font-variant-numeric:normal}
+
+/* split layout: copy left, visual bleeding off the right */
+.case-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px;align-items:center}
+@media(min-width:1101px){.case-split .visual{margin-right:-160px}
+  /* the frame is no longer capped, so the screenshot fills the wider column */
+  .case-split .browser{max-width:none}}
+.case-centre{text-align:center}
+.case-centre h3,.case-centre p{margin-left:auto;margin-right:auto;max-width:20ch}
+.case-centre p{max-width:52ch}
+.case-centre .tags{justify-content:center}
+.case-centre .stats{margin-left:auto;margin-right:auto;text-align:left}
+
+/* device placeholders */
+.visual{position:relative;display:flex;justify-content:center}
+.visual .glow{position:absolute;inset:-14% -8%;z-index:0;border-radius:50%;
+  background:radial-gradient(closest-side,var(--c-glow,rgba(92,109,244,.30)),transparent 72%)}
+.phone,.browser{position:relative;z-index:1}
+.phone{width:min(272px,74%);aspect-ratio:9/18.5;border-radius:38px;
+  border:9px solid rgba(11,12,16,.92);background:var(--paper);
+  display:grid;place-items:center;overflow:hidden}
+.phone::before{content:"";position:absolute;top:11px;left:50%;transform:translateX(-50%);
+  width:76px;height:22px;border-radius:999px;background:rgba(11,12,16,.92)}
+.browser{width:100%;max-width:520px;aspect-ratio:16/10.5;border-radius:14px;
+  border:1px solid var(--c-rule);background:var(--paper);overflow:hidden}
+.browser .bar{height:34px;display:flex;align-items:center;gap:7px;padding:0 14px;
+  border-bottom:1px solid var(--rule);background:var(--surface)}
+.browser .bar i{width:9px;height:9px;border-radius:999px;background:var(--rule);display:block}
+.browser .shot{display:block;width:100%;height:calc(100% - 34px);object-fit:cover;object-position:top left}
+.phone .shot{display:block;width:100%;height:100%;object-fit:cover;object-position:top center}
+.browser .body,.phone .body{display:grid;place-items:center;height:100%;
+  font-size:13px;color:var(--ink-3);font-weight:500;text-align:center;padding:18px;
+  background-image:radial-gradient(var(--dot) 1.1px,transparent 1.1px);background-size:22px 22px}
+
+/* ---------- card artwork, shared by every case card ----------
+   One resting size and one hover for all four cards. The artwork runs the full
+   width of its column and spills past the card edge, where the 28px radius
+   crops it. Each card passes its own tinted shadow colour in --c-art-shadow,
+   so the shadow picks up the work rather than sitting there as a grey blur. */
+.case .art{display:block;width:100%;height:auto;position:relative;z-index:1}
+.case .art,.case .phone,.case .browser{
+  filter:drop-shadow(0 30px 52px var(--c-art-shadow,rgba(17,19,24,.28)));
+  transition:transform .55s var(--ease),filter .55s var(--ease);will-change:transform}
+
+/* Hover, shared by every card: the artwork comes straight forward. A plain
+   centred scale, no perspective or rotation, so the work grows towards the
+   reader instead of tilting away on one axis. The copy is left alone; it used
+   to blur and fade behind the image and that is gone on purpose.
+   On .case rather than .case-link so a card still behaves the same before it
+   becomes a link. */
+.case:hover .art,.case:hover .phone,.case:hover .browser,
+.case-link:focus-visible .art,.case-link:focus-visible .phone,.case-link:focus-visible .browser{
+  transform:scale(1.14);
+  filter:drop-shadow(0 44px 74px var(--c-art-shadow-hi,rgba(17,19,24,.40)))}
+/* ---------- Direction A hover: the artwork, and only the artwork ----------
+   Hovering anywhere on the card brings the image forward and deepens its own
+   tinted shadow. Nothing happens to the copy: no blur, no fade, no move. It is
+   the whole card, not just the image, because the card is the link and the
+   image should answer wherever the pointer lands on it.
+   One fixed move, identical on a trackpad and on a phone. The version that
+   tracked the cursor while the pointer sat on the image is gone: :active is here
+   too, because a tap leaves a sticky hover on some mobile browsers and never
+   fires it on others. */
+.case--dirA:hover .art,.case--dirA:hover .browser,
+.case--dirA:active .art,.case--dirA:active .browser,
+.case-link.case--dirA:focus-visible .art,
+.case-link.case--dirA:focus-visible .browser{
+  transform:scale(1.13) translateY(-14px);
+  filter:drop-shadow(0 54px 84px var(--c-art-shadow-hi,rgba(17,19,24,.42)))}
+@media (prefers-reduced-motion: reduce){
+  .case .art,.case .phone,.case .browser{transition:none}
+  .case:hover .art,.case:hover .phone,.case:hover .browser,
+  .case-link:focus-visible .art,.case-link:focus-visible .phone,.case-link:focus-visible .browser{
+    transform:none}
+}
+
+/* On hover the card stops clipping, so the part of the artwork that overhangs
+   the edge at rest becomes visible and the whole image can be seen. overflow is
+   not animatable, so this flips at once, which is what makes the reveal read.
+   The hovered card is lifted above its neighbours so the spill paints on top.
+   Gated at 1280 because that is where --pad-x steps up to 230px. Below it the
+   gutter is only 120px, which is less than the split cards' overhang plus the
+   scale, so the page would gain a horizontal scrollbar. */
+@media (hover:hover) and (min-width:1280px){
+  .case:hover{overflow:visible;z-index:5}
+}
+/* Safety net for the spill. The section's padding box is the full page width,
+   so the artwork can still grow out into the side gutters, but anything past
+   the window edge is cut instead of giving the page a horizontal scrollbar.
+   overflow-x:clip rather than hidden, because hidden would force the other
+   axis to auto and turn this into a scroll container, which breaks the
+   sticky nav. Matters on very wide monitors, where the card keeps growing
+   while --pad-x stays at 230px. */
+#work{overflow-x:clip;overflow-y:visible}
+
+/* ---------- third card: the web work, stacked ----------
+   Copy on top, the device line up across the lower half. Its artwork is already
+   very wide, so it only clears the card edge by a little rather than the deep
+   overhang the split cards use. */
+.case--web h3{max-width:28ch}
+.case--web .visual{display:block;margin-top:44px}
+.case--web .art{width:calc(100% + 140px);margin-left:-70px}
+@media(max-width:1100px){
+  .case--web .art{width:calc(100% + 52px);margin-left:-26px}
+}
+
+/* Workwise card: berry gradient ground, reference colours #C6335F and #E8E8F2.
+   Scoped to its own modifier because .case--dark is shared with the coaching card. */
+.case--berry{
+  --c-strong:#E8E8F2;
+  --c-fg2:rgba(255,255,255,.90);
+  --c-slot:rgba(232,232,242,.20);
+  --c-glow:rgba(232,232,242,.32);
+  background:
+    radial-gradient(80% 62% at 94% -4%, #E8E8F2 0%, rgba(232,232,242,.40) 32%, rgba(232,232,242,0) 66%),
+    linear-gradient(158deg,#C6335F 0%,#8E2148 100%);
+  padding-top:40px;padding-bottom:40px}
+.case--berry .case-eyebrow{margin-bottom:14px}
+.case--berry h3{margin-bottom:18px}
+.case--berry .copy > p:not(.case-eyebrow){margin-bottom:12px}
+.case--berry .tags{margin-top:20px}
+.case--berry .tags span{padding:7px 15px}
+.case--berry .stats{margin-top:24px;padding-top:18px;gap:10px}
+.case--berry .more{margin-top:20px}
+@media(max-width:1100px){
+  .case{padding:36px 26px}
+  .case-split{grid-template-columns:1fr;gap:34px}
+  /* stacked, so the artwork clears both card edges instead of overhanging one.
+     display:block rather than the centring flexbox, or the negative margin and
+     justify-content:center fight each other and the bleed comes out lopsided. */
+  .case-split .visual{margin-right:0;display:block}
+  .case-split .art,.case-split .browser{width:calc(100% + 72px);margin-left:-36px;max-width:none}
+  .case-split .phone{margin-left:auto;margin-right:auto}
+  .case h3,.case p{max-width:none}
+  .stats{max-width:none}
+}
+
+/* testimonials, bento */
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
+.tcard{padding:38px 34px;border-radius:16px;display:flex;flex-direction:column}
+/* bento spans retired: the row gives every card the same width */
+@media(max-width:1000px){.tgrid{grid-template-columns:repeat(2,1fr)}.tcard--wide{grid-column:span 2}}
+@media(max-width:700px){.tgrid{grid-template-columns:1fr}.tcard--wide{grid-column:span 1}}
+.tcard--a{background-color:var(--surface);background-image:linear-gradient(180deg,var(--tint-a),transparent)}
+.tcard--b{background-color:var(--surface);background-image:linear-gradient(180deg,var(--tint-b),transparent)}
+.tcard--c{background:var(--surface);border:1px solid var(--rule)}
+.tcard .qm{font-family:var(--font-display);font-size:52px;line-height:.5;
+  color:var(--accent);display:block;margin-bottom:26px}
+.tcard q{quotes:none;display:block;font-size:17px;line-height:1.56;color:var(--ink)}
+/* One highlighted phrase per quote so a recruiter skimming still catches the
+   point. Weight only, no second device: the quote text is already at full ink,
+   so adding colour on top would stack emphasis. */
+.tcard q b{font-weight:600}
+.who{margin-top:auto;padding-top:30px;font-size:15px;font-weight:700;color:var(--ink)}
+.who span{display:block;font-size:14.5px;font-weight:400;color:var(--ink-2);margin-top:3px}
+
+/* closing */
+.closing{padding-top:84px;padding-bottom:96px}
+/* ---------- discovery call ----------
+   Light, not near black. It used to run #14172A into #0B0C10, which sat within
+   1.1:1 of the footer band directly below it, so the page ended on two dark
+   slabs with a thin gap between them. It now runs the two page tints, blue into
+   peach, so it belongs to the same family as the body blooms and the footer
+   keeps the dark for itself.
+   The rule grid behind it is dialled right down and spread from 64px to 96px:
+   it is a texture, not a drawing.
+   Everything inside is centred. */
+.contact-panel{position:relative;border-radius:32px;padding:88px 56px 92px;
+  background:linear-gradient(158deg,var(--call-1) 0%,var(--call-2) 100%);
+  box-shadow:var(--shadow-card)}
+.contact-panel::before{content:"";position:absolute;inset:0;border-radius:32px;pointer-events:none;
+  background-image:
+    repeating-linear-gradient(0deg,var(--call-rule) 0 1px,transparent 1px 96px),
+    repeating-linear-gradient(90deg,var(--call-rule) 0 1px,transparent 1px 96px);}
+.contact-inner{position:relative;z-index:3;max-width:none;text-align:center;
+  display:flex;flex-direction:column;align-items:center}
+.closing h2{color:var(--ink);font-family:var(--font);font-weight:700;text-transform:none;
+  font-size:clamp(30px,3.6vw,48px);line-height:1.08;letter-spacing:-.03em;max-width:none;margin:0}
+.closing .script{display:block;font-family:"Caveat",cursive;font-weight:700;
+  font-size:clamp(46px,6vw,84px);line-height:.98;letter-spacing:0;
+  color:var(--accent);margin-top:4px}
+.closing p{margin:26px auto 0;max-width:58ch;font-size:16.5px;line-height:1.62;color:var(--ink-2)}
+.closing .btn-cta{margin-top:34px}
+/* --ink-2, not --ink-3. On the light panel #757A84 measured 3.76:1, under the
+   4.5 this size needs; the hierarchy comes from the size instead. */
+.closing .alt{margin-top:20px;font-size:14.5px;color:var(--ink-2)}
+.closing .alt a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- the two objects on the discovery panel ----------
+   Coffee off the top right corner, the idea small and on the left. The copy is
+   centred now, so the left edge is free and the bulb no longer has to share a
+   corner with the cup.
+   Each carries its own tinted shadow the way the hero objects do, peach under
+   the cup and yellow under the bulb, rather than the flat black drop they both
+   had while the panel was dark. Both are renders with their own alpha, so there
+   is no border radius to clip and no background behind them. */
+.cup{position:absolute;z-index:4;pointer-events:none}
+.cup img,.cup svg{display:block;width:100%;height:auto}
+.cup--main{width:min(232px,22%);top:-64px;right:6px;transform:rotate(6deg);
+  filter:drop-shadow(0 22px 34px rgba(225,107,67,.34)) drop-shadow(0 4px 7px rgba(76,42,28,.16))}
+.cup--small{width:min(104px,11%);bottom:26px;left:52px;transform:rotate(-9deg);
+  filter:drop-shadow(0 16px 24px rgba(240,202,85,.44)) drop-shadow(0 3px 6px rgba(74,52,10,.2))}
+@media(max-width:1000px){
+  .contact-panel{padding:64px 30px 108px}
+  .contact-inner{max-width:none}
+  .cup--main{width:132px;top:-40px;right:14px}
+  .cup--small{width:74px;bottom:16px;right:auto;left:14px}
+}
+
+/* ---------- footer, global ----------
+   Full bleed. The panel runs edge to edge with square corners so the page ends
+   on a band rather than on a floating card, and its content sits in the same
+   --pad-x column as everything above it, so the Work heading lines up with the
+   navbar and the cards.
+   Three groups in one row: work, contact, and the return link. The drawn flower
+   band that used to grow out of the top of the panel is gone, and so is the
+   token that coloured it.
+   The reveal sits on .footer-top, not on the panel or the meta line. Both of
+   those are full bleed now, and the reveal holds an element at scale(1.07)
+   until it scrolls in: on a 1425px band that is 50px of overhang each side, and
+   it put a horizontal scrollbar on the whole page.
+   This block and the discovery panel are global: they are byte identical on all
+   four pages, so an edit here has to be made in all four. */
+.site-footer{padding-bottom:0}
+.footer-meta{display:flex;gap:20px;flex-wrap:wrap;
+  padding:0 var(--pad-x) 26px;font-size:13.5px;color:var(--ink-3);font-weight:500}
+
+.footer-panel{position:relative;overflow:hidden;
+  min-height:490px;padding:74px var(--pad-x) 0;
+  background:linear-gradient(180deg,
+    var(--panel-1) 0%, var(--panel-1) 8%,
+    var(--panel-2) 34%, var(--panel-3) 64%,
+    var(--panel-4) 92%, var(--panel-5) 100%);}
+/* fine halftone screen over the gradient */
+.footer-panel::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(var(--halftone) .55px,transparent .55px);
+  background-size:4px 4px;mix-blend-mode:overlay}
+
+.footer-top{position:relative;z-index:2;display:flex;justify-content:space-between;
+  align-items:flex-start;gap:44px;flex-wrap:wrap}
+.footer-h{margin:0 0 15px;font-family:var(--font);
+  font-size:11.5px;font-weight:700;letter-spacing:.17em;text-transform:uppercase;
+  color:rgba(245,246,248,.5)}
+.footer-col{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.footer-col a,.footer-links a{display:inline-flex;align-items:center;gap:11px;
+  color:var(--panel-fg);font-size:16px;font-weight:500;opacity:.94;
+  transition:opacity .2s var(--ease),transform .28s var(--ease)}
+.footer-col a:hover,.footer-col a:focus-visible,
+.footer-links a:hover,.footer-links a:focus-visible{opacity:1;transform:translateY(-2px)}
+.footer-links{position:relative;z-index:2;display:flex;flex-direction:column;
+  align-items:flex-start;gap:12px}
+.footer-links svg,.footer-col svg{width:19px;height:19px;flex:none}
+.footer-links .up{transition:transform .3s var(--ease)}
+.footer-links a:hover .up,.footer-links a:focus-visible .up{transform:translateY(-4px)}
+
+.wordmark{position:absolute;left:0;right:0;bottom:-.19em;text-align:center;
+  font-size:clamp(70px,15.5vw,250px);font-weight:700;letter-spacing:-.045em;
+  line-height:.9;color:var(--wordmark);white-space:nowrap;pointer-events:none;
+  user-select:none;z-index:1}
+
+@media (prefers-reduced-motion: reduce){
+  .footer-col a,.footer-links a,.footer-links .up{transition:none}
+  .footer-col a:hover,.footer-col a:focus-visible,
+  .footer-links a:hover,.footer-links a:focus-visible{transform:none}
+  .footer-links a:hover .up{transform:none}
+}
+@media(max-width:900px){
+  .footer-panel{min-height:420px;padding-top:52px}
+  .footer-top{flex-direction:column;gap:30px}
+}
+
+@media(max-width:1279px){:root{--pad-x:120px}}
+@media(max-width:1023px){:root{--pad-x:64px}}
+@media(max-width:900px){
+  :root{--pad-x:24px;--cols:2}
+  .navpill{display:none}
+  .row{grid-template-columns:1fr auto}
+  .mid{padding:40px 0}
+  .sec{padding-top:80px;padding-bottom:80px}
+  .closing{padding-top:90px;padding-bottom:100px}
+  .case{padding:32px 26px 28px}
+  .stats{gap:28px}
+}
+@media(max-width:560px){
+  .nav-more{display:none}
+  .logo{font-size:16px;padding:9px 15px;gap:8px}
+  .navcta{gap:8px}
+  .btn-sm{font-size:13px;padding:11px 15px;gap:8px}
+  .btn-sm .ar{font-size:12px}
+  .theme-toggle{width:38px;height:38px}
+  .theme-toggle svg{width:16px;height:16px}
+}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:6px}
+
+/* ---------- theme toggle, floating instead of in the nav ----------
+   Fixed to the lower right so it stays reachable at any scroll depth. Keeps the
+   .theme-toggle class, so the existing sun and moon swap rules and the existing
+   click handler both still find it. */
+.fab-stack{position:fixed;right:26px;bottom:26px;z-index:60;
+  display:flex;align-items:center;gap:10px}
+.theme-fab,.lang-fab{width:52px;height:52px;
+  background:var(--glass);border-color:var(--glass-edge);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);
+  box-shadow:inset 0 1px 0 var(--glass-top),0 8px 26px -10px rgba(17,19,24,.42)}
+.theme-fab svg{width:20px;height:20px}
+/* The language button shows the flag of the language you would switch TO, the
+   same way the theme button shows the moon while the page is light. Default is
+   English, so it shows the German flag until German is chosen.
+   It deliberately does NOT carry the .theme-toggle class: the theme script uses
+   querySelector('.theme-toggle') and would otherwise bind to whichever came
+   first in the DOM. */
+.lang-fab{display:inline-grid;place-items:center;flex:none;padding:0;cursor:pointer;
+  border-radius:999px;border:1px solid var(--glass-edge);
+  transition:border-color .2s var(--ease)}
+.lang-fab:hover,.lang-fab:focus-visible{border-color:var(--accent)}
+
+/* Put the objects back. It is not in the dock until something has actually been
+   moved: a reset button next to a page nobody has touched is a control with
+   nothing to undo. Sits to the left of the flag so the two controls that were
+   always there keep their position. */
+.reset-fab{display:none;place-items:center;flex:none;padding:0;cursor:pointer;
+  border-radius:999px;border:1px solid var(--glass-edge);color:var(--ink);
+  transition:border-color .2s var(--ease),color .2s var(--ease)}
+:root.deco-moved .reset-fab{display:inline-grid}
+.reset-fab:hover,.reset-fab:focus-visible{border-color:var(--accent);color:var(--accent)}
+.reset-fab svg{width:21px;height:21px}
+.lang-fab .flag{display:none;width:26px;height:26px}
+.lang-fab .flag-de{display:block}
+:root[lang="de"] .lang-fab .flag-de{display:none}
+:root[lang="de"] .lang-fab .flag-gb{display:block}
+@media(max-width:700px){
+  .fab-stack{right:16px;bottom:16px;gap:8px}
+  .theme-fab,.lang-fab{width:48px;height:48px}
+  .lang-fab .flag{width:24px;height:24px}
+}
+@media print{.fab-stack{display:none}}
+
+/* ---------- nav icon button, same circle the toggle used to be ---------- */
+.nav-icon{display:inline-grid;place-items:center;width:42px;height:42px;flex:none;
+  border-radius:999px;border:1px solid var(--rule);background:var(--chip);color:var(--ink-2);
+  transition:color .2s var(--ease),border-color .2s var(--ease)}
+.nav-icon:hover,.nav-icon:focus-visible{color:var(--accent);border-color:var(--accent)}
+.nav-icon svg{width:17px;height:17px}
+
+/* The nav right side now holds three controls. The icon steps out first, then
+   the remaining two tighten up, because at 408px the row had already eaten the
+   whole right page padding and anything narrower would have overflowed. */
+@media(max-width:1040px){.nav-icon{display:none}}
+
+/* ---------- design principles ----------
+   Three columns, icon over a bold sans title over plain copy, which is the
+   mechanic from the reference. Colour, type and the card ground are this site's
+   own: accent line icons rather than blue, Geist 700 titles, and an opaque
+   surface under each one so the dot grid never runs behind the text. */
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
+.principle{background-color:var(--surface);border:1px solid var(--rule);
+  border-radius:24px;padding:38px 34px}
+.principle .pic{display:block;width:30px;height:30px;color:var(--accent);margin-bottom:26px}
+.principle .pic svg{display:block;width:100%;height:100%}
+.principle h3{font-family:var(--font);font-weight:700;
+  font-size:20px;letter-spacing:-.024em;color:var(--ink);margin-bottom:12px}
+.principle p{font-size:16.5px;line-height:1.62;color:var(--ink-2)}
+@media(max-width:900px){.principles{grid-template-columns:1fr;gap:16px}}
+@media(max-width:520px){.principle{padding:30px 26px}}
+
+/* ---------- certifications ----------
+   A credential strip rather than a full section: small tracked label, then the
+   issuer mark on its own white plate (brand marks are drawn for white, and the
+   IxDF seal is near black), the certificate name in bold sans and the issuer
+   underneath. The two with links are anchors, the one still waiting on a link
+   is a plain div, so nothing pretends to be clickable when it is not. */
+.certs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:34px}
+.cert{display:flex;align-items:flex-start;gap:16px;padding:22px;border-radius:20px;
+  background-color:var(--surface);border:1px solid var(--rule);
+  transition:border-color .24s var(--ease),transform .24s var(--ease)}
+a.cert:hover,a.cert:focus-visible{border-color:var(--accent);transform:translateY(-2px)}
+.cert-seal{flex:none;width:48px;height:48px;border-radius:14px;overflow:hidden;
+  padding:4px;background:#FFFFFF;border:1px solid #E1EBED;
+  display:grid;place-items:center}
+.cert-seal img{display:block;width:100%;height:100%;object-fit:contain}
+.cert-body{min-width:0}
+.cert-name{display:block;font-family:var(--font);font-weight:700;
+  font-size:16px;letter-spacing:-.02em;line-height:1.35;color:var(--ink)}
+.cert-meta{display:block;margin-top:6px;font-size:13.5px;line-height:1.45;color:var(--ink-3)}
+.cert-go{display:inline-flex;align-items:center;gap:7px;margin-top:10px;
+  font-size:13px;font-weight:600;color:var(--accent)}
+.cert-go .ar{font-size:11px;transition:transform .28s var(--ease)}
+a.cert:hover .cert-go .ar,a.cert:focus-visible .cert-go .ar{transform:translate(4px,-4px)}
+@media(max-width:1040px){.certs{grid-template-columns:1fr 1fr}}
+@media(max-width:680px){.certs{grid-template-columns:1fr;gap:14px}}
+/* the compact variant the case pages carry, one or two badges */
+.certs--inline{grid-template-columns:repeat(auto-fit,minmax(288px,1fr));margin-top:24px}
+
+/* ---------- card one, Direction A ----------
+   Composition, colour and type from case-study-card-spec.md. It keeps .case and
+   .case-link, so the shared hover already on the page still applies: the card
+   lifts, the artwork comes forward on a centred scale(1.14), the clip releases
+   so it can spill, and the CTA arrow travels. The spec's starburst and cursor
+   arrow are left out on purpose.
+   Every colour is a token, so the dark theme at the end of this block can swap
+   the whole card without re-stating the composition. The card used to be pinned
+   white in both themes; it now follows the page. */
+.case--dirA{
+  --a-ink:#111318; --a-muted:#4C515B; --a-faint:#6D727C;
+  --a-orange:#E16B43; --a-blue:#5C6DF4; --a-purple:#AA77EF; --a-hair:#E7E5EB;
+  --a-surface:#FFFFFF; --a-chip:#FFFFFF; --a-edge:transparent;
+  --a-btn:#111318; --a-btn-fg:#FFFFFF;
+  background:var(--a-surface);border:0;border-radius:28px;padding:40px;
+  box-shadow:inset 0 0 0 1px var(--a-edge);
+  display:flex;align-items:center;gap:44px;
+  font-family:var(--font)}
+.case--dirA .copy{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:20px}
+
+.dirA-meta{display:flex;align-items:center;gap:12px}
+.dirA-meta img{width:34px;height:34px;border-radius:9px;display:block}
+.dirA-co{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--a-orange)}
+.dirA-yr{font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--a-faint)}
+
+/* clamped, because the text column is now about 420px rather than 460px and a
+   flat 46px pushed the headline to four lines */
+.case--dirA h3{font-family:inherit;font-size:clamp(30px,3.05vw,46px);line-height:1.07;
+  letter-spacing:-.022em;font-weight:800;color:var(--a-ink);margin:0;max-width:none}
+.case--dirA h3 .stop{color:var(--a-orange)}
+.case--dirA .copy > p{margin:0;font-size:17px;line-height:1.55;color:var(--a-muted);
+  max-width:450px}
+
+/* Chips. The pill is on the DIRECT child only: `.tags span` also matched the
+   inner label span, which drew a second pill inside the first. Slimmer than the
+   spec's 11px/18px at her request. */
+.case--dirA .tags{display:flex;flex-wrap:wrap;gap:9px;margin:0}
+.case--dirA .tags > span{display:inline-flex;align-items:center;gap:8px;padding:7px 15px;
+  border:1px solid var(--a-hair);border-radius:999px;background:var(--a-chip)}
+.case--dirA .tags > span > span{font-size:14px;font-weight:600;color:var(--a-ink);
+  letter-spacing:normal;padding:0;border:0;background:none;display:inline}
+.case--dirA .tags i{width:8px;height:8px;border-radius:999px;flex:none}
+
+/* the CTA is a span, not an anchor: the whole card is already the link and
+   anchors cannot nest. It only looks like a button. */
+.case--dirA .more{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;
+  height:54px;padding:0 28px;border-radius:999px;margin:0;
+  background:var(--a-btn);color:var(--a-btn-fg);font-size:16px;font-weight:700}
+.case--dirA .more .ar{font-size:15px;color:var(--a-btn-fg)}
+
+/* The artwork is wider than its own column so it grows taller, and the extra
+   width bleeds off the right edge where the card's radius crops it. The card
+   then takes its height from the image rather than the text, which is what
+   makes the image side read as the bigger half. */
+/* Percentage, not a fixed 580px. The card now matches the navbar column, and a
+   fixed image column left the text at 241px against the 460px the composition
+   was drawn for. */
+.case--dirA .visual{width:45%;flex:none;position:relative;display:block}
+/* The phones asset is trimmed to its alpha bounds, so the box height is the
+   phone height with no transparent padding inside it. */
+.case--dirA .visual .art,.case--dirA .visual .browser{width:520px;max-width:none;
+  height:auto;margin-right:-40px;display:block;transform-origin:50% 50%}
+/* the research card only needed a little more, so it keeps the flow layout */
+.case--dirA .visual .browser{width:480px;margin-right:-70px}
+
+/* ---------- the tall variant, card one ----------
+   The artwork runs the full height of the card rather than sitting inside the
+   padding. The visual stretches to the flex line and then cancels the card's
+   vertical padding with a negative block margin, so it spans edge to edge; the
+   art takes height:100% off that and its width follows the aspect. min-height
+   on the card is what makes the artwork bigger rather than just proportionally
+   taller, since otherwise the text would set the height. No overflow on the
+   visual: the card already crops, and cropping here would eat the hover scale
+   and the pointer movement. */
+/* Explicit height, plain block, no grid and no percentages. Two earlier
+   attempts failed: `height:100%` on a stretched grid item made the browser
+   resolve the circular dependency by falling back to the asset's own 745px, and
+   `justify-self:start` did not hold against intrinsic ratio sizing, so the art
+   drifted 77px across the text column. A fixed height with a negative block
+   margin is unambiguous: the art's border box is 660px, its margin box is 580,
+   so the flex line is 580, the card is 580 + 80 padding = 660, and the art
+   spans the card top to bottom exactly. Block flow keeps its left edge on the
+   column edge, so it can only ever bleed right. */
+.case--dirA-tall .visual{align-self:center;display:block}
+.case--dirA-tall .visual .art{height:470px;width:auto;max-width:none;
+  margin:-40px 0;display:block}
+@media(max-width:1100px){
+  .case--dirA-tall{min-height:0}
+  .case--dirA-tall .visual{align-self:auto;display:block}
+  .case--dirA-tall .visual .art{height:auto;width:100%;margin:0}
+}
+@media(min-width:1101px){.case--dirA .visual{margin-right:0}}
+
+/* The wide device composition card keeps the stacked shape it was given, and
+   only takes Direction A's text treatment. */
+.case--dirA-stack{flex-direction:column;align-items:center;text-align:center;gap:26px}
+.case--dirA-stack .copy{align-items:center}
+.case--dirA-stack .dirA-meta{justify-content:center}
+.case--dirA-stack h3{max-width:26ch}
+.case--dirA-stack .copy > p{max-width:56ch}
+.case--dirA-stack .tags{justify-content:center}
+.case--dirA-stack .more{align-self:center}
+.case--dirA-stack .visual{width:100%;margin-top:2px}
+.case--dirA-stack .visual .art{width:calc(100% + 44px);margin:0 -22px}
+
+@media(max-width:1100px){
+  .case--dirA{flex-direction:column;align-items:flex-start;gap:28px;padding:32px}
+  /* margin-inline, not margin-right: the stack variant sets both sides, so
+     resetting only the right left the artwork 49px off centre on phones. */
+  .case--dirA .visual .art,.case--dirA .visual .browser{width:100%;margin-inline:0}
+  .case--dirA-stack{align-items:center}
+  .case--dirA .visual{width:100%}
+  .case--dirA h3{font-size:38px}
+}
+@media(max-width:520px){
+  .case--dirA{padding:26px 22px}
+  .case--dirA h3{font-size:31px}
+  .case--dirA .copy > p{font-size:16px}
+  .case--dirA .more{height:50px;padding:0 22px;font-size:15px}
+}
+/* ---------- Direction A in the dark theme ----------
+   Four things change and nothing else. The surface follows --surface so these
+   cards match the testimonial cards, with a hairline, because #15171D on
+   #0C0D11 is only 1.08:1 and the card edge would otherwise disappear. The ink
+   inverts. The orange lifts to #F08A63, which measures 6.8:1 on the dark
+   surface where the light theme's #E16B43 measures 5.0:1. And the pill takes
+   the same blue the navbar CTA takes in the dark theme, because a near black
+   pill on a dark card is an invisible button.
+   The chip dots are left alone: they are inline on the markup and decorative.
+   The Workwise mark is solid black artwork, so it is the one thing that has to
+   be inverted rather than re-coloured. */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .case--dirA{
+  --a-ink:#F5F6F8; --a-muted:#B7BCC6; --a-faint:#9AA0AB;
+  --a-orange:#F08A63; --a-hair:rgba(245,246,248,.15);
+  --a-surface:var(--surface); --a-chip:rgba(245,246,248,.05);
+  --a-edge:rgba(245,246,248,.09);
+  --a-btn:var(--btn); --a-btn-fg:var(--btn-fg);
+  }
+  :root:not([data-theme="light"]) .dirA-meta img.mark-ink{filter:invert(1)}
+}
+:root[data-theme="dark"] .case--dirA{
+  --a-ink:#F5F6F8; --a-muted:#B7BCC6; --a-faint:#9AA0AB;
+  --a-orange:#F08A63; --a-hair:rgba(245,246,248,.15);
+  --a-surface:var(--surface); --a-chip:rgba(245,246,248,.05);
+  --a-edge:rgba(245,246,248,.09);
+  --a-btn:var(--btn); --a-btn-fg:var(--btn-fg);
+}
+:root[data-theme="dark"] .dirA-meta img.mark-ink{filter:invert(1)}
+
+
+/* ---------- quiet trust row, under the hero CTAs ----------
+   Marks only, no wording: it is there to be recognised, not read. Sits straight
+   on the hero ground rather than in a card. Two marks, not three, because two
+   of the three certificates share the same issuer and showing the seal twice
+   would read as a mistake.
+   Clicking a mark opens a small panel listing that issuer's certificates. The
+   panel is absolutely positioned so opening it never reflows the hero, and it
+   is a native details/summary so it works with no script and takes the keyboard.
+   The plates stay white in both themes: the IxDF seal is near black and would
+   disappear on the dark surface token. */
+/* The marks sit slightly on top of one another, stacked-avatar style. The
+   overlap is small: enough to read as a set, not enough to hide either mark.
+   Later marks sit under earlier ones, and the hovered or open one comes to the
+   front so nothing is ever half covered while you are using it. */
+.trustrow{display:flex;align-items:center;margin-top:28px}
+.trust{position:relative}
+.trust + .trust{margin-left:-12px}
+.trust:nth-child(1){z-index:3}
+.trust:nth-child(2){z-index:2}
+.trust:nth-child(3){z-index:1}
+.trust:hover,.trust:focus-within,.trust[open]{z-index:9}
+.trust > summary{list-style:none;cursor:pointer;display:grid;place-items:center;
+  width:52px;height:52px;border-radius:15px;overflow:hidden;padding:5px;
+  background:#FFFFFF;border:1px solid var(--rule);
+  transition:border-color .24s var(--ease),transform .24s var(--ease),
+    box-shadow .24s var(--ease)}
+/* 52px, not 68px. At 68 the marks stood as tall as the 65px CTAs next to them
+   and read as a third button. They are supporting evidence, so they now sit a
+   clear step below the buttons and the body copy.
+   The Growth.Design mark is an illustrated square with its own ground, so it
+   runs full bleed with no plate padding and no border. The IxDF seal is a black
+   mark on white and still needs both. */
+.trust--bleed > summary{padding:0;border:0}
+.trust--bleed > summary:hover,.trust--bleed > summary:focus-visible{border:0}
+.trust > summary::-webkit-details-marker{display:none}
+.trust > summary::marker{content:""}
+.trust > summary img{display:block;width:100%;height:100%;object-fit:contain}
+.trust > summary:hover,.trust > summary:focus-visible{border-color:var(--accent);
+  transform:translateY(-2px);box-shadow:0 10px 22px -12px rgba(17,19,24,.35)}
+.trust[open] > summary{border-color:var(--accent)}
+/* a ring in the page colour separates the overlapping marks */
+.trust > summary{box-shadow:0 0 0 2.5px var(--paper)}
+.trust > summary:hover,.trust > summary:focus-visible{
+  box-shadow:0 0 0 2.5px var(--paper),0 8px 18px -10px rgba(17,19,24,.35)}
+
+.trust-pop{position:absolute;z-index:20;top:calc(100% + 10px);left:0;
+  width:max-content;max-width:min(330px,78vw);
+  background:var(--surface);border:1px solid var(--rule);border-radius:16px;
+  padding:15px 18px 17px;
+  box-shadow:0 1px 2px rgba(17,19,24,.05),0 18px 40px -22px rgba(17,19,24,.42)}
+.trust-issuer{font-size:11px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);margin:0 0 11px}
+.trust-pop a,.trust-pop em{display:block;font-size:14.5px;line-height:1.45;
+  font-weight:600;font-style:normal;margin-top:9px}
+.trust-pop a{color:var(--accent)}
+.trust-pop em{color:var(--ink-2);font-weight:500}
+.trust-pop a:first-of-type{margin-top:0}
+.trust-pop .ar{font-size:11px;display:inline}
+@media(max-width:560px){
+  /* The hero is taller than a phone viewport, and the marks were landing 36px
+     below the fold. Tightening the run in to them brings them fully into view
+     without touching the type. */
+  .trustrow{margin-top:18px}
+  .trust > summary{width:58px;height:58px;border-radius:17px;padding:5px}
+  .trust + .trust{margin-left:-13px}
+  .actions{margin-top:28px}
+  .mid{padding:24px 0}
+  /* No right:0 here. The panel's containing block is the 58px summary, so
+     anchoring right pushed a 275px panel off the left edge instead. The
+     max-width already keeps it on screen from left:0. */
+}
+@media (prefers-reduced-motion: reduce){
+  .trust > summary{transition:none}
+  .trust > summary:hover,.trust > summary:focus-visible{transform:none}
+}
+
+/* ---------- the lead endorsement ----------
+   Thorsten's quote alone, straight after the hero, set larger so it gets read
+   rather than skimmed. The other three sit further down in their own section. */
+/* ---------- the endorsement, as a sticky note ----------
+   Not a card. A square, square cornered, one flat orange, tilted just enough to
+   read as something stuck on rather than laid out, and it can be picked up and
+   moved like the objects in the hero. The square is what makes it read as a
+   sticky: at 720 wide it was a coloured band with a quote in it.
+   Type is small, in quotation marks, under a label that says what it is before
+   anyone reads a word of it. The name sits on the bottom edge with air above
+   it, which is where a name goes on a note.
+   The ground is #F4A97F, the brand orange lifted until near black ink clears
+   9.5:1 on it; #E16B43 itself only reaches 5.6:1 and the quote is the one thing
+   on this page that has to be read.
+   The note keeps its colour in the dark theme. A physical object does not
+   repaint itself when the lights go out, and the ink on it is dark either way.
+   The shadow is the sticky kind: a tight contact line plus one soft orange
+   bloom, rather than the neutral card shadow used everywhere else. */
+/* The note is rotated, and a rotated box reports a fractional scroll width that
+   rounds up into a phantom 1px horizontal scrollbar on the whole page. Clipped
+   on x only, so the shadow still falls below it. */
+#endorsement{position:relative;overflow-x:clip;overflow-y:visible}
+
+/* ---------- the three pills beside the note ----------
+   Loose cluster, each one tilted its own way, each solid in one of the three
+   brand colours the card chips already use: blue, orange, purple. Filled, not
+   outlined, with white type on top. The oranges and purples are stepped darker
+   than the chip dots for that reason: white on #E16B43 reads 3.3:1 and on
+   #AA77EF 3.2:1, both under the 4.5 this size needs, while #B4471F reaches 5.4
+   and #7B3FC8 6.2. The fills are the same in both themes, like the note.
+   They are real text, not decoration, so the layer is not aria-hidden and the
+   German strings sit on them like everywhere else.
+   Draggable and resizable with everything else, but resizing scales the type
+   rather than the box: stretching a text pill's width just pads it out, which
+   is not what resizing a label should mean. */
+.pill-deco{position:absolute;inset:0;z-index:3;pointer-events:none}
+.pill{position:absolute;pointer-events:auto;cursor:grab;touch-action:none;
+  display:inline-flex;align-items:center;white-space:nowrap;
+  padding:.72em 1.32em;border-radius:999px;border:0;
+  background:var(--p-fill);color:#FFFFFF;
+  font-size:clamp(17px,1.45vw,22px);font-weight:600;letter-spacing:-.012em;
+  line-height:1.2;
+  -webkit-user-select:none;user-select:none;
+  transform:translate(var(--dx,0px),var(--dy,0px)) rotate(var(--rot,0deg));
+  transition:transform .42s var(--ease),box-shadow .3s var(--ease);
+  box-shadow:0 12px 24px -16px var(--p-shadow)}
+.pill:hover{box-shadow:0 18px 32px -16px var(--p-shadow)}
+.pill.is-drag,.pill.is-resize{transition:none;cursor:grabbing;z-index:6;
+  box-shadow:0 26px 44px -18px var(--p-shadow)}
+.pill::after{content:"";position:absolute;inset:-11px;pointer-events:none;
+  border:1px solid var(--accent);opacity:0;transition:opacity .14s linear;
+  background-image:
+    linear-gradient(var(--accent),var(--accent)),
+    linear-gradient(var(--accent),var(--accent)),
+    linear-gradient(var(--accent),var(--accent)),
+    linear-gradient(var(--accent),var(--accent));
+  background-size:6px 6px;background-repeat:no-repeat;
+  background-position:-3.5px -3.5px, calc(100% + 3.5px) -3.5px,
+    -3.5px calc(100% + 3.5px), calc(100% + 3.5px) calc(100% + 3.5px)}
+.pill:hover::after,.pill.is-drag::after,.pill.is-resize::after{opacity:1}
+.pill:hover .hdl,.pill.is-drag .hdl,.pill.is-resize .hdl{opacity:1}
+
+/* The staircase from her reference, measured off it and scaled to this type
+   size: blue at the left, orange stepped right by 133, purple back to the left
+   and widest, with 31 then 38 of air between the rows. Offsets in px, not
+   percentages, so the relationships between the three hold at every width, and
+   anchored to the note's right edge rather than to the viewport, because the
+   note is a fixed 428 wide while a percentage drifts. The base offset is 548,
+   so there is 120 of air between the note's right edge and the first pill. */
+.pill--a{--p-fill:#4A5AE8;--p-shadow:rgba(74,90,232,.8);
+  top:56px;left:calc(var(--pad-x) + 548px);--rot:-2.5deg}
+.pill--b{--p-fill:#B4471F;--p-shadow:rgba(180,71,31,.8);
+  top:151px;left:calc(var(--pad-x) + 681px);--rot:2deg}
+.pill--c{--p-fill:#7B3FC8;--p-shadow:rgba(123,63,200,.75);
+  top:253px;left:calc(var(--pad-x) + 553px);--rot:-1.5deg}
+
+@media(max-width:1023px){
+  /* Stacked in flow under the note instead of scattered: at this width there is
+     no space beside it and nothing to drag them around in. */
+  .pill-deco{position:static;display:flex;flex-wrap:wrap;gap:10px;
+    margin-top:26px;pointer-events:auto}
+  .pill{position:static;cursor:default;touch-action:auto;--rot:0deg;
+    font-size:15.5px}
+  .pill::after{display:none}
+}
+.sticky{position:relative;margin:0;width:min(100%,428px);
+  aspect-ratio:1/.78;min-width:min(340px,100%);padding:32px 36px 30px;
+  display:flex;flex-direction:column;
+  background:#F4A97F;color:#111318;border-radius:2px;
+  cursor:grab;touch-action:none;
+  /* -3deg, so the lean is actually visible. Negative is counter clockwise:
+     the left edge drops and the right lifts. One sign flip if she wants it the
+     other way. */
+  transform:translate(var(--dx,0px),var(--dy,0px)) rotate(var(--rot,-3deg));
+  transition:transform .42s var(--ease),box-shadow .3s var(--ease);
+  box-shadow:0 1px 1px rgba(76,42,28,.16),0 22px 40px -20px rgba(225,107,67,.62)}
+.sticky:hover{box-shadow:0 1px 1px rgba(76,42,28,.16),0 30px 52px -22px rgba(225,107,67,.72)}
+.sticky.is-drag,.sticky.is-resize{transition:none;cursor:grabbing;z-index:5;
+  -webkit-user-select:none;user-select:none;
+  box-shadow:0 2px 2px rgba(76,42,28,.2),0 40px 66px -24px rgba(225,107,67,.78)}
+/* the same selection frame the hero objects get, so it is obvious this one
+   moves too */
+.sticky::after{content:"";position:absolute;inset:-11px;pointer-events:none;
+  border:1px solid var(--accent);opacity:0;transition:opacity .14s linear;
+  background-image:
+    linear-gradient(var(--accent),var(--accent)),
+    linear-gradient(var(--accent),var(--accent)),
+    linear-gradient(var(--accent),var(--accent)),
+    linear-gradient(var(--accent),var(--accent));
+  background-size:6px 6px;background-repeat:no-repeat;
+  background-position:-3.5px -3.5px, calc(100% + 3.5px) -3.5px,
+    -3.5px calc(100% + 3.5px), calc(100% + 3.5px) calc(100% + 3.5px)}
+.sticky:hover::after,.sticky.is-drag::after,.sticky.is-resize::after{opacity:1}
+/* The reveal writes transform:scale() at `.js-reveal .reveal.in`, three classes
+   deep, which outranks .sticky's own single class transform. That silently ate
+   both the tilt and the drag offset: --dx was being written and had no effect,
+   so the note looked draggable and was not. The two are composed here instead,
+   with the reveal's scale carried in --rv, and the selector is four classes so
+   it wins outright rather than by source order. */
+.js-reveal .sticky.reveal{--rv:1.07}
+.js-reveal .sticky.reveal.in{--rv:1}
+.js-reveal .sticky.reveal,.js-reveal .sticky.reveal.in{
+  transform:translate(var(--dx,0px),var(--dy,0px))
+            rotate(var(--rot,-3deg)) scale(var(--rv,1));
+  transition:opacity .75s var(--ease),transform .52s var(--ease)}
+.js-reveal .sticky.reveal.is-drag,.js-reveal .sticky.reveal.is-resize{transition:none}
+/* the paper: a faint grain and a slightly darker bottom edge, so the flat
+   orange does not read as a div */
+.sticky::before{content:"";position:absolute;inset:0;border-radius:2px;pointer-events:none;
+  background-image:linear-gradient(180deg,rgba(255,255,255,.16),transparent 34%,rgba(76,42,28,.07))}
+.sticky > *{position:relative;z-index:1}
+.sticky .lbl{display:block;margin-bottom:16px;font-size:10.5px;font-weight:800;
+  letter-spacing:.19em;text-transform:uppercase;color:rgba(29,16,10,.62)}
+.sticky blockquote{quotes:none;margin:0;font-family:var(--font);
+  font-size:clamp(14.5px,1.16vw,16.5px);line-height:1.52;letter-spacing:-.004em;
+  font-weight:500;text-wrap:pretty}
+.sticky blockquote b{font-weight:700}
+.sticky figcaption{margin-top:auto;padding-top:26px;
+  font-size:14.5px;font-weight:700;letter-spacing:-.005em}
+.sticky figcaption span{display:block;margin-top:3px;
+  font-size:13.5px;font-weight:500;color:rgba(29,16,10,.72)}
+@media(max-width:700px){
+  .sticky{width:100%;aspect-ratio:auto;min-height:0;padding:28px 24px 24px;
+    --rot:-.7deg}
+}
+@media (prefers-reduced-motion: reduce){.sticky{transform:none}}
+
+/* ---------- hover label on the certificate marks ---------- */
+.trustrow{position:relative}
+.trust-hint{position:absolute;left:0;bottom:calc(100% + 9px);white-space:nowrap;
+  font-size:12px;font-weight:600;letter-spacing:.02em;color:var(--ink-3);
+  opacity:0;transform:translateY(4px);pointer-events:none;
+  transition:opacity .24s var(--ease),transform .24s var(--ease)}
+.trustrow:hover .trust-hint,.trustrow:focus-within .trust-hint{opacity:1;transform:translateY(0)}
+
+/* ---------- a corner of the CV drifts out of the download button ----------
+   It sits behind the button at rest, tucked down and left, blurred and
+   transparent. On hover it eases out past the button's top right corner,
+   settling from a 30 degree tilt to 20, sharpening as it goes, so it reads as
+   fog clearing rather than a panel sliding. A mask fades the lower part out and
+   keeps the top solid, and a turbulence overlay adds the grain. z-index 0
+   against the button's 1 is what makes it emerge from behind rather than on
+   top, and pointer-events none means it can never intercept the click.
+   Small on purpose: about half the area of the earlier full width version. */
+.cvpeek{position:relative;display:inline-flex}
+.cvpeek .btn-cta{position:relative;z-index:1}
+/* 108px wide, showing three quarters of the page rather than a tight crop of
+   the wordmark. The width is set by the footprint: rotated, a portrait box of
+   w by w/0.947 occupies about 1.33w vertically, and anything past 106px starts
+   covering the paragraph above rather than just the chips. Settles at 18deg
+   rather than 20 for the same reason. */
+.cvpeek-window{position:absolute;z-index:0;right:-30px;bottom:calc(100% - 22px);
+  width:108px;pointer-events:none;border-radius:7px;overflow:hidden;
+  -webkit-mask-image:linear-gradient(to top,transparent 0%,rgba(0,0,0,.55) 22%,#000 58%);
+  mask-image:linear-gradient(to top,transparent 0%,rgba(0,0,0,.55) 22%,#000 58%);
+  opacity:0;filter:blur(7px);
+  transform:rotate(30deg) translate(-24px,16px) scale(.86);
+  transition:opacity .5s var(--ease),filter .5s var(--ease),transform .58s var(--ease)}
+.cvpeek-window img{display:block;width:100%;height:auto}
+.cvpeek-window::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:150px 150px;
+  mix-blend-mode:overlay;opacity:.34}
+.cvpeek:hover .cvpeek-window,.cvpeek:focus-within .cvpeek-window{
+  opacity:1;filter:blur(0);transform:rotate(18deg) translate(0,0) scale(1)}
+@media (prefers-reduced-motion: reduce){
+  .cvpeek-window{transition:none}
+  .cvpeek:hover .cvpeek-window,.cvpeek:focus-within .cvpeek-window{
+    opacity:0;filter:blur(7px);transform:rotate(30deg) translate(-24px,16px) scale(.86)}
+}
+@media(max-width:560px){.cvpeek-window{display:none}}
+
+/* ---------- testimonials as a row of three ----------
+   Not a bento any more: three equal cards side by side, in a horizontal
+   scroller so a fourth or fifth can be added without touching the layout. The
+   arrows only appear when there is something to scroll to, so with exactly
+   three cards they stay hidden rather than sitting there dead. */
+.trow-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+.trow-nav{display:none;gap:10px;flex:none;padding-bottom:6px}
+.trow-nav.is-on{display:flex}
+.trow-nav button{width:42px;height:42px;flex:none;display:grid;place-items:center;
+  border-radius:999px;border:1px solid var(--rule);background:var(--chip);
+  color:var(--ink-2);cursor:pointer;
+  transition:color .2s var(--ease),border-color .2s var(--ease),opacity .2s var(--ease)}
+.trow-nav button:hover:not(:disabled),.trow-nav button:focus-visible:not(:disabled){
+  color:var(--accent);border-color:var(--accent)}
+.trow-nav button:disabled{opacity:.32;cursor:default}
+.trow-nav svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round}
+
+.trow{display:flex;gap:20px;margin-top:52px;overflow-x:auto;
+  scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  scrollbar-width:none;-ms-overflow-style:none;
+  /* the cards carry shadows, so let them breathe past the scroll box */
+  padding:4px 0 8px}
+.trow::-webkit-scrollbar{display:none}
+.trow .tcard{flex:0 0 calc((100% - 40px) / 3);scroll-snap-align:start}
+@media(max-width:900px){.trow .tcard{flex-basis:calc((100% - 20px) / 2)}}
+@media(max-width:640px){.trow{gap:14px}.trow .tcard{flex-basis:86%}}
+
+/* The discovery panel is near black now, so a black button would vanish into
+   it. It inverts to white with black text, which is the highest contrast pair
+   available and keeps the "CTAs are black" reading the right way round. */
+/* The panel is light now, so the button goes back to the black every other CTA
+   on this page uses. It was only ever inverted because black on a near black
+   panel was an invisible button. */
+
+/* ---------- CV in the navbar ----------
+   She wants the download reachable from the nav, so it sits in the action group
+   as its own ghost pill rather than in the link pill: a download that fires
+   instead of navigating would break the promise the centre links make. */
+.nav-cv{display:inline-flex;align-items:center;gap:9px;flex:none;white-space:nowrap;
+  font-size:14.5px;font-weight:600;color:var(--ink);
+  padding:12px 18px;border-radius:999px;
+  background:var(--chip);box-shadow:inset 0 0 0 1px var(--rule);
+  transition:color .2s var(--ease),box-shadow .2s var(--ease)}
+.nav-cv .ar{font-size:14px;transition:transform .3s var(--ease)}
+.nav-cv:hover,.nav-cv:focus-visible{color:var(--accent);
+  box-shadow:inset 0 0 0 1px var(--accent)}
+.nav-cv:hover .ar,.nav-cv:focus-visible .ar{transform:translateY(3px)}
+@media(max-width:620px){
+  /* Three items in the action group again, so the surname steps out. The
+     breakpoint is 620 not 560: at 380px the row was already flush to the page
+     edge with the full name in place. */
+  .logo-rest{display:none}
+  .navcta{gap:7px}
+  .nav-cv{padding:11px 12px}
+  .navcta .btn-sm{padding:11px 15px;gap:8px}
+  .navcta .btn-sm .ar{font-size:12px}
+}
+@media (prefers-reduced-motion: reduce){
+  .nav-cv,.nav-cv .ar{transition:none}
+  .nav-cv:hover .ar{transform:none}
+}
+</style>
+<script>(function(){var r=document.documentElement;
+try{var t=localStorage.getItem('theme');if(t)r.setAttribute('data-theme',t);}catch(e){}
+if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add('js-reveal');}
+})();</script>
+</head>
+<body>
+
+<div class="grid-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+
+<div class="page">
+
+<header class="navbar wrap">
+  <div class="row">
+    <a class="logo" href="#top">Roxana<span class="logo-rest"> Higgins</span></a>
+    <!-- Two links, not three. "Contact" and the CTA both pointed at #contact,
+         which is the duplication Roxana spotted. The centre group is now purely
+         navigation and the right hand button is the only action. -->
+    <nav class="navpill" aria-label="Sections">
+      <a data-de="Projekte" href="#work">Work</a>
+      <a data-de="Stimmen" href="#proof">Testimonials</a>
+    </nav>
+    <div class="navcta">
+      <a class="nav-icon" href="https://www.linkedin.com/in/roxana-higgins"
+         target="_blank" rel="noopener noreferrer" aria-label="Roxana Higgins on LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21h-4V9z"/></svg>
+      </a>
+      <a class="nav-cv btn-sm" href="Roxana-Higgins-CV.pdf" download="Roxana-Higgins-CV.pdf"
+         data-de="<span class=&quot;ar&quot;>&amp;#8595;</span> CV"><span class="ar">&#8595;</span> CV</a>
+      <a class="btn-cta btn-sm" href="#contact" data-de="<span class=&quot;ar&quot;>&amp;#8599;</span> Lass uns reden"><span class="ar">&#8599;</span> Let&rsquo;s chat</a>
+    </div>
+  </div>
+</header>
+
+<!-- The hero and the endorsement are one movable area. Every piece is clamped
+     to this wrapper rather than to its own section, so an object can be carried
+     down next to the note and the note can be carried up next to the objects,
+     and nothing can reach the case cards below. -->
+<div class="playfield">
+<section class="hero wrap" id="top">
+  <!-- Draggable, and deliberately not focusable: there is nothing here to
+       accomplish with a keyboard, and a focus stop on three decorations would
+       be three stops between the headline and the buttons. The layer stays
+       aria-hidden, so assistive tech is not told about them at all. -->
+  <div class="hero-deco" aria-hidden="true">
+    <span class="deco deco-face"><img src="images/deco-roxana-taste.webp" width="472" height="562" alt="" draggable="false"></span>
+    <span class="deco deco-plane"><img src="images/deco-plane.webp" width="560" height="395" alt="" draggable="false"></span>
+    <span class="deco deco-onigiri"><img src="images/deco-onigiri.webp" width="520" height="476" alt="" draggable="false"></span>
+  </div>
+  <div class="mid hero-fog">
+    <p data-de="Product Designerin (UX/UI)" class="hero-eyebrow reveal">Product designer (UX/UI)</p>
+    <h1 class="reveal">
+      <span data-de="Ich bringe &lt;span class=&quot;mark&quot;&gt;Klarheit&lt;/span&gt; in" class="ln">I bring <span class="mark">clarity</span> to</span>
+      <span data-de="komplexe Produkte." class="ln">complex products.</span>
+    </h1>
+    <p data-de="Ich gestalte durchgängige Erlebnisse für Produkte mit mehreren Nutzergruppen, von Recherche und Produktstrategie bis zu skalierbaren Systemen und ausgelieferten Interfaces." class="sub reveal">I design end-to-end experiences for multi-user products, from research and product direction to scalable systems and shipped&nbsp;interfaces.</p>
+    <div class="actions reveal">
+      <span class="cvpeek">
+        <span class="cvpeek-window" aria-hidden="true"><img src="images/cv-corner.webp" width="300" height="317" alt=""></span>
+        <a class="btn-cta btn-dl" href="Roxana-Higgins-CV.pdf" download="Roxana-Higgins-CV.pdf" data-de="<span class=&quot;ar&quot;>&amp;#8595;</span> Fun CV herunterladen"><span class="ar">&#8595;</span> Download fun CV</a>
+      </span>
+      <a class="btn-cta btn-ghost" href="#contact" data-de="<span class=&quot;ar&quot;>&amp;#8599;</span> Lass uns reden"><span class="ar">&#8599;</span> Let&rsquo;s chat</a>
+    </div>
+    <div class="trustrow reveal">
+      <span class="trust-hint" data-de="Zertifikate ansehen">View certificates</span>
+      <details class="trust trust--bleed">
+        <summary aria-label="Certificates from Growth.Design" data-de-label="Zertifikate von Growth.Design">
+          <img src="images/cert-growthdesign.webp" width="96" height="96" alt="Growth.Design">
+        </summary>
+        <div class="trust-pop">
+          <p class="trust-issuer">Growth.Design</p>
+          <a href="https://growth.design/certificates/54pk4u7x" target="_blank" rel="noopener noreferrer">Product Psychology Masterclass <span class="ar">&#8599;</span></a>
+        </div>
+      </details>
+      <details class="trust">
+        <summary aria-label="Certificates from the Interaction Design Foundation" data-de-label="Zertifikate der Interaction Design Foundation">
+          <img src="images/cert-ixdf.webp" width="144" height="144" alt="Interaction Design Foundation">
+        </summary>
+        <div class="trust-pop">
+          <p class="trust-issuer">Interaction Design Foundation</p>
+          <a href="https://ixdf.org/members/roxana-higgins/certificate/course/0065acf5-8a13-428e-8f18-6ee25d09db3a" target="_blank" rel="noopener noreferrer">Web Design for Usability <span class="ar">&#8599;</span></a>
+          <em data-de="Web Applications and User Flows &lt;span style=&quot;opacity:.7&quot;&gt;(Link folgt)&lt;/span&gt;">Web Applications and User Flows <span style="opacity:.7">(link to follow)</span></em>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap" id="endorsement" style="padding-top:34px;padding-bottom:40px">
+  <figure class="sticky reveal">
+    <span class="lbl" data-de="Referenz">Testimonial</span>
+    <blockquote data-de="&amp;ldquo;Was Roxana auszeichnet, ist ihre bemerkenswerte Fähigkeit, &lt;b&gt;Designstrategie und Geschäftsziele zusammenzubringen&lt;/b&gt;. Ihre Arbeit begeistert Nutzer und sorgt für messbares Wachstum, mit mehr Engagement und hohen NPS Werten.&amp;rdquo;">&ldquo;Her remarkable ability to <b>align design strategies with business objectives</b> sets Roxana apart. Her work captivates users and drives tangible business growth, leading to increased user engagement and high NPS ratings.&rdquo;</blockquote>
+    <figcaption data-de="Thorsten S.<span>Ehemaliger CTO bei Workwise &amp;middot; Aus dem Englischen übersetzt</span>">Thorsten S.<span>Former CTO at Workwise</span></figcaption>
+  </figure>
+
+  <!-- The label lives in a child span, not on .pill itself. The language engine
+       replaces innerHTML wherever it finds data-de, and with it on the pill it
+       deleted the resize handles the script appends and stashed their markup
+       inside the English string. -->
+  <div class="pill-deco">
+    <span class="pill pill--a"><span data-de="Produktstrategie">Product strategy</span></span>
+    <span class="pill pill--b"><span data-de="Behavioral Design">Behavioral design</span></span>
+    <span class="pill pill--c"><span data-de="Informationsarchitektur">Information architecture</span></span>
+  </div>
+</section>
+</div>
+
+<section class="sec wrap" id="work">
+  <h2 data-de="Arbeiten" class="reveal fog-h">Work</h2>
+
+  <a class="case case--dirA case--dirA-tall reveal case-link" href="case-workwise-profile.html"
+     style="--c-art-shadow:rgba(92,109,244,.26);--c-art-shadow-hi:rgba(92,109,244,.46)"
+     aria-label="Read the case study, Making the profile worth finishing">
+    <div class="copy">
+      <div class="dirA-meta">
+        <img class="mark-ink" src="images/case-study-logo-workwise.png" width="34" height="34" alt="Workwise">
+        <span class="dirA-co">Workwise</span>
+        <!-- The spec asks for an en dash between the years. Standing no dashes
+             rule wins, so this reads 2022/23. -->
+        <span class="dirA-yr">2022 to 2023</span>
+      </div>
+      <h3 data-de="Ein Profil, das man fertig ausfüllen will&lt;span class=&quot;stop&quot;&gt;.&lt;/span&gt;">Making the profile worth finishing<span class="stop">.</span></h3>
+      <p data-de="Arbeitgeber bewerten und kontaktieren Talente über das Profil. Ich habe es neu gestaltet, und die Gründe, es aktuell zu halten.">The candidate profile is what employers use to evaluate and contact talent, so I redesigned it and the reasons people keep it current.</p>
+      <div class="tags">
+        <span><i style="background:#E16B43"></i><span data-de="Nutzerforschung">User research</span></span>
+        <span><i style="background:#5C6DF4"></i><span data-de="Informationsarchitektur">Information architecture</span></span>
+        <span><i style="background:#AA77EF"></i><span data-de="Designsysteme">Design systems</span></span>
+      </div>
+      <span class="more" data-de="Case Study lesen &lt;span class=&quot;ar&quot;&gt;&amp;#8599;&lt;/span&gt;">Read the case study <span class="ar">&#8599;</span></span>
+    </div>
+    <div class="visual">
+      <img class="art" src="images/workwise-3-phones.webp" width="822" height="745" loading="lazy"
+           alt="Three phones showing the rebuilt Workwise profile: completion at 85 percent, the profile page with what the candidate is looking for, and language levels with sliders">
+    </div>
+  </a>
+
+  <a class="case case--dirA case--dirA-stack reveal case-link" href="case-web-nocode.html"
+     style="--c-art-shadow:rgba(225,107,67,.24);--c-art-shadow-hi:rgba(225,107,67,.44)"
+     aria-label="Explore the projects, memorable brands and websites that convert and keep working">
+    <div class="copy">
+      <div class="dirA-meta">
+        <span class="dirA-co" data-de="Selbständige Unternehmen">Independent businesses</span>
+        <span class="dirA-yr">2022 to 2026</span>
+      </div>
+      <h3 data-de="Marken und Websites, die im Kopf bleiben und Kunden bringen&lt;span class=&quot;stop&quot;&gt;.&lt;/span&gt;">Memorable brands and websites that&nbsp;convert and keep working<span class="stop">.</span></h3>
+      <p data-de="Ich gestalte den gesamten digitalen Auftritt, von Strategie und Identität bis zur Website. Danach verbinde ich die Systeme, die nach dem Launch weiter Kunden bringen.">I shape the whole digital presence, from strategy and identity through to the website, then wire up the systems that keep it earning after launch.</p>
+      <div class="tags">
+        <span><i style="background:#E16B43"></i><span data-de="Markenstrategie">Brand strategy</span></span>
+        <span><i style="background:#5C6DF4"></i><span data-de="Conversion Design">Conversion design</span></span>
+        <span><i style="background:#AA77EF"></i><span data-de="Webflow und Automatisierung">Webflow and automation</span></span>
+      </div>
+      <span class="more" data-de="Projekte ansehen &lt;span class=&quot;ar&quot;&gt;&amp;#8599;&lt;/span&gt;">Explore the projects <span class="ar">&#8599;</span></span>
+    </div>
+    <div class="visual">
+      <img class="art" src="images/web-selected-devices.webp" width="2400" height="986" loading="lazy"
+           alt="Holistic Breathwork, Touching The Art, Nico Smat and Purposeful shown on laptops and phones">
+    </div>
+  </a>
+
+  <a class="case case--dirA reveal case-link" href="case-ard-audiothek.html"
+     style="--c-art-shadow:rgba(92,109,244,.26);--c-art-shadow-hi:rgba(92,109,244,.46)"
+     aria-label="Read the case study, Making a new homepage explain itself">
+    <div class="copy">
+      <div class="dirA-meta">
+        <img src="images/case-study-logo-ard.webp" width="34" height="34" alt="ARD Audiothek">
+        <span class="dirA-co">ARD Audiothek</span>
+        <span class="dirA-yr">2025 to 2026</span>
+      </div>
+      <h3 data-de="Eine neue Startseite, die sich selbst erklärt&lt;span class=&quot;stop&quot;&gt;.&lt;/span&gt;">Making a new homepage explain itself<span class="stop">.</span></h3>
+      <p data-de="Ein öffentlich-rechtlicher Sender wollte wissen, wie eine neue App Startseite ankommt, bevor sie gebaut wird. Ich habe die Studie entworfen und durchgeführt, die zeigte, was Menschen wahrnehmen, falsch verstehen und als Nächstes erwarten.">A public broadcaster wanted to know how a new app homepage would land before building it. I designed and ran the study that showed what people noticed, misread and expected next.</p>
+      <div class="tags">
+        <span><i style="background:#E16B43"></i><span data-de="Nutzerforschung">User research</span></span>
+        <span><i style="background:#5C6DF4"></i><span data-de="Usability Testing">Usability testing</span></span>
+        <span><i style="background:#AA77EF"></i><span data-de="Synthese">Research synthesis</span></span>
+      </div>
+      <span class="more" data-de="Case Study lesen &lt;span class=&quot;ar&quot;&gt;&amp;#8599;&lt;/span&gt;">Read the case study <span class="ar">&#8599;</span></span>
+    </div>
+    <div class="visual">
+      <div class="browser">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <img class="shot" src="images/ard-miro-synthesis.jpg" width="1200" height="583" loading="lazy"
+             alt="The synthesis board in Miro, tagged sticky notes in columns by page, phase and user group">
+      </div>
+    </div>
+  </a>
+
+</section>
+
+<section class="sec wrap" id="proof">
+  <div class="trow-head">
+    <h2 data-de="Was andere sagen" class="reveal fog-h">What people say</h2>
+    <div class="trow-nav reveal" aria-hidden="true">
+      <button type="button" data-scroll="prev" aria-label="Previous testimonials" data-de-label="Vorherige Stimmen">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+      </button>
+      <button type="button" data-scroll="next" aria-label="More testimonials" data-de-label="Weitere Stimmen">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="trow">
+    <div class="tcard tcard--a reveal">
+      <span class="qm">&ldquo;</span>
+      <q data-de="Ich empfehle sie aufrichtig für ihre &lt;b&gt;außergewöhnlichen Fähigkeiten in User Experience und Behavioral Design&lt;/b&gt;. Sie hat immer wieder gezeigt, dass sie die Perspektive der Nutzer versteht und intuitive, fesselnde Erlebnisse gestaltet, die zu positivem Verhalten führen.">I sincerely recommend her for her <b>exceptional skills in user experience (UX) and behavioral design</b>. She consistently demonstrated a profound ability to understand the user's perspective and design intuitive, engaging experiences that guided positive behaviors.</q>
+      <p class="who" data-de="Ana K.<span>User Research &amp;amp; Conversion Specialist &amp;middot; Aus dem Englischen übersetzt</span>">Ana K.<span>User Research &amp; Conversion Specialist</span></p>
+    </div>
+    <div class="tcard tcard--c reveal">
+      <span class="qm">&ldquo;</span>
+      <q data-de="Sie hat &lt;b&gt;ein starkes Gespür für Design und Usability&lt;/b&gt; und ist im Team sehr beliebt. Sie hält sich an ihre eigenen hohen Maßstäbe und bringt ihre Entwürfe immer noch einen Schritt weiter. In Brainstormings behält sie einen klaren Kopf und sorgt dafür, dass wir einen Schritt zurücktreten und das Ganze durchdenken, damit wir fundierte Entscheidungen treffen.">She has <b>a strong instinct about design and usability</b> and is a much loved member of our team. She holds herself to her own high standards and is always willing to push her designs to the next level. She keeps a calm head in brainstorming sessions, and makes sure that we step back and think through the bigger picture to ensure we're making informed decisions.</q>
+      <p class="who" data-de="Jonathan F.<span>Senior Product Designer &amp;middot; Aus dem Englischen übersetzt</span>">Jonathan F.<span>Senior Product Designer</span></p>
+    </div>
+    <div class="tcard tcard--b reveal">
+      <span class="qm">&ldquo;</span>
+      <q data-de="Ein großes Lob für deine tolle Arbeit. Die Zusammenarbeit war wirklich eine Freude. Du hast &lt;b&gt;alles schnell und sorgfältig geliefert&lt;/b&gt;, die Nachfassungen kamen zum richtigen Zeitpunkt, und du hast immer gehalten, was du versprochen hast.">High praise for your great work. It was genuinely a pleasure to work with you. You <b>delivered everything with real speed and care</b>, the follow-ups were well timed, and you always kept what you promised.</q>
+      <p class="who" data-de="Konstantin<span>Inhaber, Deutschland. Rückübersetzung aus dem Englischen.</span>">Konstantin<span>Business Owner, Germany. Translated from German.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap" id="principles">
+  <h2 data-de="Meine Designprinzipien" class="reveal fog-h">My design principles</h2>
+
+  <div class="principles">
+    <div class="principle reveal">
+      <span class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.6"/><path d="M15.5 15.5L21 21"/></svg></span>
+      <h3 data-de="Neugier">Curiosity</h3>
+      <p data-de="Ich will wissen, warum Menschen tun, was sie tun. Also frage ich sie und schaue ihnen bei der Arbeit zu.">I want to know why people do what they do, so I ask them and I watch them work.</p>
+    </div>
+    <div class="principle reveal">
+      <span class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="8.5" width="7" height="7" rx="2.2"/><rect x="15" y="2.6" width="7" height="7" rx="2.2"/><rect x="15" y="14.4" width="7" height="7" rx="2.2"/><path d="M9 12h3M12 12V6.1h3M12 12v5.9h3"/></svg></span>
+      <h3 data-de="Probleme lösen">Problem solving</h3>
+      <p data-de="Ich zerlege ein großes Problem in die kleineren darunter und nehme sie mir einzeln vor.">I break a big problem into the smaller ones underneath it, then take those one at a time.</p>
+    </div>
+    <div class="principle reveal">
+      <span class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="3.6" width="18.8" height="7" rx="2.4"/><rect x="2.6" y="13.4" width="18.8" height="7" rx="2.4"/><circle cx="17.7" cy="7.1" r=".95" fill="currentColor" stroke="none"/><circle cx="17.7" cy="16.9" r=".95" fill="currentColor" stroke="none"/></svg></span>
+      <h3 data-de="Systemisch denken">Systems thinking</h3>
+      <p data-de="Ein Screen ist nie nur ein Screen. Ich schaue, womit er verbunden ist, bevor ich ihn ändere.">One screen is never just one screen. I look at what it connects to before I change it.</p>
+    </div>
+  </div>
+</section>
+
+<section class="closing wrap" id="contact">
+  <div class="contact-panel reveal">
+    <div class="cup cup--main" aria-hidden="true">
+      <img src="images/deco-coffee.webp" width="600" height="528" loading="lazy" alt="">
+    </div>
+    <div class="cup cup--small" aria-hidden="true">
+      <img src="images/deco-lightbulb.webp" width="503" height="560" loading="lazy" alt="">
+    </div>
+
+    <div class="contact-inner">
+      <h2 class="reveal" data-de="Kennenlernen und <span class=&quot;script&quot;>Kaffee mit Roxy</span>">Discovery call and
+        <span data-de="Kaffee mit Roxy" class="script">coffee with Roxy</span>
+      </h2>
+      <p data-de="Lass uns kurz sprechen, worum es dir geht, ob du eine Produktdesignerin für dein Team suchst oder Unterstützung bei einem anstehenden Projekt. Ich erzähle dir mehr über meine Erfahrung und meine Arbeitsweise, beantworte deine Fragen und wir finden heraus, ob wir zusammenpassen." class="reveal">Let&rsquo;s have a brief conversation about what you are looking for, whether that is a product designer for your team or support with an upcoming project. I can share more about my experience and approach, answer your questions and explore whether we would be a good match.</p>
+      <a class="btn-cta reveal" href="https://calendly.com/roxanafhiggins/new-meeting"
+         target="_blank" rel="noopener noreferrer"
+         data-de="<span class=&quot;ar&quot;>&amp;#8599;</span> Gespräch buchen"><span class="ar">&#8599;</span> Book a discovery call</a>
+      <p class="alt reveal" data-de="oder finde mich auf <a href=&quot;https://www.linkedin.com/in/roxana-higgins&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;>LinkedIn</a>. Remote, auf Deutsch oder Englisch.">or find me on <a href="https://www.linkedin.com/in/roxana-higgins" target="_blank" rel="noopener noreferrer">LinkedIn</a>. Remote, in English or German.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p class="footer-meta"><span data-de="Gestaltet und gebaut von Roxana">Designed and built by Roxana</span></p>
+
+  <div class="footer-panel">
+    <div class="footer-top reveal">
+      <nav class="footer-col" aria-label="Work">
+        <h2 class="footer-h" data-de="Arbeiten">Work</h2>
+        <a href="case-workwise-profile.html" data-de="Produktdesign">Product design</a>
+        <a href="case-web-nocode.html" data-de="Webdesign">Web design</a>
+        <a href="case-ard-audiothek.html" data-de="Nutzerforschung">User research</a>
+      </nav>
+
+      <div class="footer-col">
+        <h2 class="footer-h" data-de="Kontakt">Contact</h2>
+        <div class="footer-links">
+          <a href="https://www.linkedin.com/in/roxana-higgins" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21h-4V9z"/></svg>
+            linkedin.com/in/roxana-higgins
+          </a>
+          <a href="mailto:hello@example.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 6.5l9 6.5 9-6.5"/></svg>
+            hello@example.com
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <a href="#top">
+          <svg class="up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+          <span data-de="Nach oben">Back to top</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="wordmark">Roxana H.</div>
+  </div>
+</footer>
+
+</div>
+<div class="fab-stack">
+  <button class="reset-fab theme-fab" type="button"
+          aria-label="Put the hero objects back where they started" title="Reset the objects"
+          data-de-label="Die Objekte im Hero zurücksetzen" data-de-title="Objekte zurücksetzen">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M3.2 12a8.8 8.8 0 1 0 2.9-6.5"/><path d="M3 4.2V9h4.8"/>
+    </svg>
+  </button>
+  <button class="lang-fab" type="button" aria-label="Switch the site to German" title="Deutsch">
+    <svg class="flag flag-de" viewBox="0 0 24 24" aria-hidden="true"><clipPath id="flagDeClip"><circle cx="12" cy="12" r="11"/></clipPath><g clip-path="url(#flagDeClip)"><rect y="1" width="24" height="7.3333" fill="#000000"/><rect y="8.3333" width="24" height="7.3333" fill="#DD0000"/><rect y="15.6667" width="24" height="7.3333" fill="#FFCE00"/></g></svg>
+    <svg class="flag flag-gb" viewBox="0 0 24 24" aria-hidden="true"><clipPath id="flagGbClip"><circle cx="12" cy="12" r="11"/></clipPath><clipPath id="flagGbQuad"><path d="M12 12 L36 12 L36 24 Z M12 12 L12 24 L-12 24 Z M12 12 L-12 12 L-12 0 Z M12 12 L12 0 L36 0 Z"/></clipPath><g clip-path="url(#flagGbClip)"><rect x="-12" width="48" height="24" fill="#012169"/><path d="M-12 0 L36 24 M36 0 L-12 24" stroke="#FFFFFF" stroke-width="4.3"/><g clip-path="url(#flagGbQuad)"><path d="M-12 0 L36 24 M36 0 L-12 24" stroke="#C8102E" stroke-width="1.45"/></g><path d="M12 0 V24 M-12 12 H36" stroke="#FFFFFF" stroke-width="7"/><path d="M12 0 V24 M-12 12 H36" stroke="#C8102E" stroke-width="4.2"/></g></svg>
+  </button>
+  <button class="theme-toggle theme-fab" type="button" aria-label="Switch between light and dark">
+    <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.4v2.2M12 19.4v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.4 12h2.2M19.4 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+  </button>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  function showAll(){els.forEach(function(el){el.classList.add('in')});}
+  if(!root.classList.contains('js-reveal')){showAll();return;}
+  var reported=false;
+  var io=new IntersectionObserver(function(entries){
+    reported=true;
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+    });
+  },{threshold:0,rootMargin:'0px 0px -10% 0px'});
+  els.forEach(function(el){io.observe(el)});
+  /* If the observer never reports, reveal everything rather than leave the page blank. */
+  setTimeout(function(){if(!reported){showAll();}},1200);
+})();
+document.querySelector('.theme-toggle').addEventListener('click',function(){
+  var r=document.documentElement;
+  var cur=r.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+  var next=cur==='dark'?'light':'dark';
+  r.setAttribute('data-theme',next);
+  try{localStorage.setItem('theme',next);}catch(e){}
+});
+
+/* One trust panel open at a time, and it closes on Escape or an outside click.
+   Native details would otherwise let all of them sit open at once. */
+(function(){
+  var all=[].slice.call(document.querySelectorAll('.trust'));
+  if(!all.length) return;
+  all.forEach(function(d){
+    d.addEventListener('toggle',function(){
+      if(!d.open) return;
+      all.forEach(function(o){if(o!==d) o.open=false;});
+    });
+  });
+  document.addEventListener('click',function(e){
+    if(e.target.closest('.trust')) return;
+    all.forEach(function(d){d.open=false;});
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape') all.forEach(function(d){d.open=false;});
+  });
+})();
+
+/* The testimonial row's arrows. They are only shown when the row actually
+   overflows, and each is disabled at its end, so three cards leave them out
+   entirely and a fourth turns them on with no other change. */
+(function(){
+  var row=document.querySelector('.trow');
+  var nav=document.querySelector('.trow-nav');
+  if(!row||!nav) return;
+  var btns=[].slice.call(nav.querySelectorAll('button'));
+  function step(){
+    var card=row.querySelector('.tcard');
+    return card ? card.getBoundingClientRect().width + 20 : row.clientWidth * 0.8;
+  }
+  function sync(){
+    var over=row.scrollWidth - row.clientWidth > 4;
+    nav.classList.toggle('is-on', over);
+    nav.setAttribute('aria-hidden', over ? 'false' : 'true');
+    if(!over) return;
+    var x=row.scrollLeft, max=row.scrollWidth-row.clientWidth;
+    btns[0].disabled = x <= 2;
+    btns[1].disabled = x >= max-2;
+  }
+  btns[0].addEventListener('click',function(){row.scrollBy({left:-step(),behavior:'smooth'});});
+  btns[1].addEventListener('click',function(){row.scrollBy({left:step(),behavior:'smooth'});});
+  row.addEventListener('scroll',sync,{passive:true});
+  /* The reveal holds each card at scale(1.07) until it scrolls into view, and
+     Chromium counts transformed descendants in scrollable overflow, so the row
+     reports an 11px overflow and the arrows switch on for a row of three that
+     does not actually overflow. Re-syncing when the reveal transition finishes
+     is what settles it. */
+  row.addEventListener('transitionend',sync);
+  addEventListener('resize',sync);
+  addEventListener('load',sync);
+  /* The first sync runs before the webfont and the card images settle, when the
+     row still overflows by a few pixels, which left the arrows on with only
+     three cards. Observing the row alone was not enough because its own box
+     never changes; the card is what resizes. */
+  if(window.ResizeObserver){
+    var ro=new ResizeObserver(sync);
+    ro.observe(row);
+    var first=row.querySelector('.tcard');
+    if(first) ro.observe(first);
+  }
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(sync);
+  setTimeout(sync,400);
+  sync();
+})();
+
+
+/* ---------- the movable pieces ----------
+   The three hero objects and the endorsement note. Pointer events, not mouse
+   events, so one code path covers trackpad, mouse, pen and touch.
+   setPointerCapture means a fast drag that leaves the object behind keeps
+   sending moves to it instead of dropping the gesture the moment the pointer
+   crosses onto the headline.
+
+   The script writes only --dx and --dy. The rotation and the mirror live in CSS
+   per piece and compose in front of them, so moving something never flattens
+   the tilt it was designed with.
+
+   Each piece is clamped to a container: the hero for the objects, its own
+   section for the note. Without it a piece dragged downwards keeps its z-index
+   and paints straight over the case cards. The clamp is computed from the
+   element's own rendered box, so the rotated bounds are what gets held inside,
+   not the untransformed ones, and from the container's padding box, so the note
+   stays in the same column as the rest of the page.
+
+   Nothing moves until the pointer has travelled 5px. Below that it is a click,
+   which is what keeps a tap on the note from nudging it and leaves the quote
+   selectable. Once a drag does engage, any selection it started is dropped.
+
+   Resizing runs off four injected corner handles and is proportional: the
+   handle drives the width and the height follows, from the image's own aspect
+   for the objects and from aspect-ratio for the note. Free resizing would
+   stretch a photograph of a face. The corner diagonally opposite the handle is
+   the anchor and stays put, which needs a measure after the width is written
+   rather than before: these pieces are positioned from their right edge, so
+   changing the width moves offsetLeft on its own.
+
+   Reads happen on pointerdown and on resize, never per move: a
+   getBoundingClientRect on every pointermove forces layout on each frame. */
+(function(){
+  var root=document.documentElement;
+  var resetBtn=document.querySelector('.reset-fab');
+  var pieces=[];
+  var moved=false;
+
+  function flagMoved(){
+    if(moved) return;
+    moved=true; root.classList.add('deco-moved');
+  }
+
+  function draggable(el, box, inset, pad, mode){
+    var dx=0, dy=0, sx=0, sy=0, bx=0, by=0;
+    var live=false, engaged=false, pid=null, queued=0;
+    var minX=0, maxX=0, minY=0, maxY=0;
+    var THRESH=5;
+
+    /* Layout geometry, transform free. getBoundingClientRect is the animated
+       box: mid glide back from a reset it reports a position that no longer
+       matches dx, and subtracting dx from it produced a rest box hundreds of
+       pixels off, which let a piece be dragged clean out of its container on the
+       next grab. offsetLeft and offsetWidth ignore transforms entirely, so this
+       is the same answer every time. */
+    function rest(){
+      var op=el.offsetParent||document.body;
+      var opr=op.getBoundingClientRect();
+      return {x:opr.left+el.offsetLeft, y:opr.top+el.offsetTop,
+              w:el.offsetWidth, h:el.offsetHeight};
+    }
+
+    /* The legal area, in viewport coordinates. Every piece defaults into the
+       page's column but none of them is held there: once you pick something up
+       it can go anywhere on the page and stay there, which is what she asked
+       for. The only thing still enforced is the horizontal edge, and only
+       because a piece parked past it would put a scrollbar on the document.
+       `inset` is kept as a parameter but is no longer used for the gutter. */
+    function field(){
+      var c=box.getBoundingClientRect();
+      return {l:c.left+pad, t:c.top+pad, r:c.right-pad, b:c.bottom-pad,
+              w:c.width-2*pad};
+    }
+    function measure(){
+      var f=field();
+      var b=rest();
+      var left=b.x, top=b.y, right=b.x+b.w, bottom=b.y+b.h;
+      /* Zero is always inside the range, so the designed rest position stays
+         reachable whatever the container is doing. The pad also covers the
+         rotation overhang: a rotated box sticks out past the layout box being
+         clamped here, 5px for the note at 1.3deg and about 10px for the face at
+         7deg, both inside their pads. */
+      minX=Math.min(0, f.l-left);
+      maxX=Math.max(0, f.r-right);
+      minY=Math.min(0, f.t-top);
+      maxY=Math.max(0, f.b-bottom);
+    }
+    function clamp(){
+      dx=Math.min(maxX,Math.max(minX,dx));
+      dy=Math.min(maxY,Math.max(minY,dy));
+    }
+    function paint(){
+      queued=0;
+      el.style.setProperty('--dx',dx.toFixed(1)+'px');
+      el.style.setProperty('--dy',dy.toFixed(1)+'px');
+    }
+
+    el.addEventListener('pointerdown',function(e){
+      if(e.button) return;
+      live=true; engaged=false; pid=e.pointerId;
+      sx=e.clientX; sy=e.clientY; bx=dx; by=dy;
+      measure();
+      try{ el.setPointerCapture(pid); }catch(err){}
+    });
+    el.addEventListener('pointermove',function(e){
+      if(!live||e.pointerId!==pid) return;
+      var mx=e.clientX-sx, my=e.clientY-sy;
+      if(!engaged){
+        if(Math.abs(mx)<THRESH && Math.abs(my)<THRESH) return;
+        engaged=true;
+        el.classList.add('is-drag');
+        var sel=window.getSelection&&window.getSelection();
+        if(sel&&sel.removeAllRanges) sel.removeAllRanges();
+      }
+      dx=bx+mx; dy=by+my;
+      clamp();
+      if(!queued) queued=requestAnimationFrame(paint);
+    },{passive:true});
+    function drop(){
+      if(!live) return;
+      live=false;
+      el.classList.remove('is-drag');
+      try{ el.releasePointerCapture(pid); }catch(err){}
+      if(engaged && (Math.abs(dx)>1||Math.abs(dy)>1)) flagMoved();
+      engaged=false;
+    }
+    el.addEventListener('pointerup',drop);
+    el.addEventListener('pointercancel',drop);
+    /* the browser's own image drag would otherwise start a ghost drag */
+    el.addEventListener('dragstart',function(e){ e.preventDefault(); });
+
+    /* the container changes size with the viewport, so a held position that was
+       legal at 1600 has to be pulled back inside at 1100 */
+    addEventListener('resize',function(){
+      if(!dx&&!dy) return;
+      measure(); clamp(); paint();
+    },{passive:true});
+
+    /* ---- resize ---- */
+    var natural=0, baseFont=0;
+    ['nw','ne','sw','se'].forEach(function(corner){
+      var h=document.createElement('span');
+      h.className='hdl hdl-'+corner;
+      h.setAttribute('aria-hidden','true');
+      el.appendChild(h);
+
+      var rz=false, rid=null, ax=0, ay=0, rq=0, wTarget=0;
+      var wLo=0, wHi=0, vWest=false, vNorth=false;
+
+      h.addEventListener('pointerdown',function(e){
+        if(e.button) return;
+        e.stopPropagation();          /* never let this become a move */
+        e.preventDefault();
+        rz=true; rid=e.pointerId;
+        if(!natural){
+          var cur=el.style.width; el.style.width='';
+          natural=el.offsetWidth || 1;
+          el.style.width=cur;
+        }
+        /* Which side the handle is actually on, measured rather than read off
+           its class name. The plane is mirrored with scaleX(-1), which swaps
+           where its handles appear without moving its box, so the layout corner
+           and the corner the user grabbed are not the same one. Measuring is
+           also rotation proof, and it is the only version that matches what the
+           pointer is doing. */
+        var hr=h.getBoundingClientRect(), er=el.getBoundingClientRect();
+        vWest  = (hr.left+hr.right)/2 < (er.left+er.right)/2;
+        vNorth = (hr.top+hr.bottom)/2 < (er.top+er.bottom)/2;
+
+        var b=rest();
+        /* the anchor is the edge opposite the handle, held in layout space */
+        ax = vWest  ? (b.x+dx+b.w) : (b.x+dx);
+        ay = vNorth ? (b.y+dy+b.h) : (b.y+dy);
+        /* Bound the width now, so the anchor can always be honoured. Clamping
+           the position afterwards instead meant growing from a corner slid the
+           piece sideways once it hit the container edge, which reads as the
+           handle dragging the whole object.
+           The piece grows away from its anchor: a north handle grows upward
+           from a fixed bottom edge, a south handle downward from a fixed top
+           edge. Having those two the wrong way round put the vertical ceiling at
+           62px and pinned every resize to the minimum. */
+        var f=field(), ratio=b.h/b.w;
+        wLo=natural*0.5;
+        wHi=Math.min(natural*2, f.w-2*pad,
+              vWest ? (ax-f.l) : (f.r-ax),
+              (vNorth ? (ay-f.t) : (f.b-ay)) / (ratio||1));
+        if(wHi<wLo) wHi=wLo;
+        el.classList.add('is-resize');
+        try{ h.setPointerCapture(rid); }catch(err){}
+      });
+
+      function apply(){
+        rq=0;
+        if(mode==='font'){
+          /* Scale the type, not the box. A text pill widened by width alone just
+             grows its padding, so the label would stay the same size inside a
+             longer capsule. Changing font-size relays the box out on its own,
+             which is why the anchor measurement below still works. */
+          if(!baseFont) baseFont=parseFloat(getComputedStyle(el).fontSize)||16;
+          el.style.fontSize=(baseFont*(wTarget/natural)).toFixed(2)+'px';
+        } else {
+          el.style.width=wTarget.toFixed(1)+'px';
+        }
+        /* measured after the write: these pieces are anchored to their right
+           edge, so the new width has already shifted offsetLeft on its own */
+        var b=rest();
+        dx = ax - (vWest  ? (b.x+b.w) : b.x);
+        dy = ay - (vNorth ? (b.y+b.h) : b.y);
+        paint();
+      }
+
+      h.addEventListener('pointermove',function(e){
+        if(!rz||e.pointerId!==rid) return;
+        var want = vWest ? (ax-e.clientX) : (e.clientX-ax);
+        wTarget = Math.max(wLo, Math.min(wHi, want));
+        if(!rq) rq=requestAnimationFrame(apply);
+      },{passive:true});
+
+      function stop(){
+        if(!rz) return;
+        rz=false;
+        el.classList.remove('is-resize');
+        try{ h.releasePointerCapture(rid); }catch(err){}
+        flagMoved();
+      }
+      h.addEventListener('pointerup',stop);
+      h.addEventListener('pointercancel',stop);
+      h.addEventListener('dragstart',function(e){ e.preventDefault(); });
+    });
+
+    pieces.push(function(){
+      dx=0; dy=0; el.style.width=''; el.style.fontSize=''; paint();
+    });
+  }
+
+  /* The whole page, not the hero: a piece can be carried down past the cards
+     and left there. */
+  var field=document.querySelector('.page')||document.querySelector('.playfield');
+  var layer=document.querySelector('.hero-deco');
+  if(field&&layer){
+    /* 18 of pad: the objects use the full bleed width, so their selection frames
+       at inset:-11px would otherwise reach past the viewport edge and raise a
+       horizontal scrollbar. */
+    [].slice.call(layer.querySelectorAll('.deco')).forEach(function(el){
+      draggable(el, field, false, 18);
+    });
+  }
+  /* 6 of pad: the note is held inside the --pad-x column, so there is a 230px
+     gutter between it and the viewport and the frame has room. */
+  var note=document.querySelector('.sticky');
+  if(note&&field) draggable(note, field, true, 6);
+  /* The pills resize by type size rather than by box width. */
+  if(field) [].slice.call(document.querySelectorAll('.pill-deco .pill')).forEach(function(el){
+    if(getComputedStyle(el).position!=='absolute') return;   /* stacked on mobile */
+    draggable(el, field, true, 6, 'font');
+  });
+
+  if(!pieces.length) return;
+  if(resetBtn) resetBtn.addEventListener('click',function(){
+    pieces.forEach(function(f){ f(); });
+    moved=false; root.classList.remove('deco-moved');
+  });
+})();
+
+/* ---------- language ----------
+   Every translatable element carries data-de holding its German innerHTML. The
+   English original is stashed into data-en on first switch, so flipping back is
+   lossless. innerHTML rather than textContent because several strings contain
+   <em>, <b> or a nested span that has to survive. Attributes that get read
+   aloud or shown on hover use data-de-label / data-de-title, and the page title
+   and meta description come off the html element.
+   Default English. No build step and no second set of files: a page per
+   language would mean making every copy edit twice. */
+(function(){
+  var btn=document.querySelector('.lang-fab');
+  var LABEL={en:'Switch the site to German',de:'Auf Englisch umstellen'};
+  var TITLE={en:'Deutsch',de:'English'};
+  function swap(code){
+    document.querySelectorAll('[data-de]').forEach(function(el){
+      if(!el.hasAttribute('data-en')) el.setAttribute('data-en', el.innerHTML);
+      el.innerHTML = (code==='de') ? el.getAttribute('data-de') : el.getAttribute('data-en');
+    });
+    [['data-de-label','data-en-label','aria-label'],
+     ['data-de-title','data-en-title','title']].forEach(function(m){
+      document.querySelectorAll('['+m[0]+']').forEach(function(el){
+        if(!el.hasAttribute(m[1])) el.setAttribute(m[1], el.getAttribute(m[2])||'');
+        el.setAttribute(m[2], (code==='de') ? el.getAttribute(m[0]) : el.getAttribute(m[1]));
+      });
+    });
+    var r=document.documentElement;
+    var t=r.getAttribute(code==='de'?'data-de-doctitle':'data-en-doctitle');
+    if(t) document.title=t;
+    var d=r.getAttribute(code==='de'?'data-de-docdesc':'data-en-docdesc');
+    var meta=document.querySelector('meta[name="description"]');
+    if(d&&meta) meta.setAttribute('content',d);
+  }
+  function apply(code,store){
+    document.documentElement.setAttribute('lang',code);
+    swap(code);
+    if(btn){btn.setAttribute('aria-label',LABEL[code]);btn.setAttribute('title',TITLE[code]);}
+    if(store){try{localStorage.setItem('lang',code);}catch(e){}}
+  }
+  var saved=null; try{saved=localStorage.getItem('lang');}catch(e){}
+  apply(saved==='de'?'de':'en',false);
+  if(btn) btn.addEventListener('click',function(){
+    apply(document.documentElement.getAttribute('lang')==='de'?'en':'de',true);
+  });
+})();
+</script>
+</body>
+</html>

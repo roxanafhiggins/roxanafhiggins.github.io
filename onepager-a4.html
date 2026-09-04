@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>Roxana Higgins, Product Designer, one pager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600;700&display=swap">
+<style>
+/* ===== Ocean Serenity, print edition =====
+   Deep Teal #004E64 · Seafoam #00A896 · Whisper White #F4F9F9
+   Ground is tinted, never white, so the white cards read as cards. */
+:root{
+  --ground:#DCEAEB; --surface:#fff;
+  --ink:#04333F; --ink-2:#3E6A78; --ink-3:#7B9CA6; --rule:#DBE9EA;
+  --accent:#00806F; --deep:#004E64; --foam:#00A896;
+  --dot:rgba(0,78,100,.13);
+  --card:0 1px 2px rgba(4,51,63,.05),0 18px 44px -30px rgba(4,51,63,.45);
+  --pur:#6D28D9; --pur-2:#7C3AED; --pur-bg:#F6EFFE; --pur-line:#EADDFD;
+}
+*{box-sizing:border-box;margin:0}
+@page{size:A4;margin:0}
+html,body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{background:#C9DDDF;font-family:"Geist",Inter,system-ui,-apple-system,sans-serif;
+  color:var(--ink);-webkit-font-smoothing:antialiased;display:flex;justify-content:center;padding:24px 0}
+@media print{body{padding:0;background:#fff}}
+
+.page{position:relative;width:210mm;height:297mm;overflow:hidden;padding:30px 38px 24px;
+  background-color:var(--ground);display:flex;flex-direction:column;gap:14px}
+/* soft colour blooms, same family as the site */
+.page::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(52% 34% at 88% 2%,rgba(0,168,150,.26),transparent 70%),
+    radial-gradient(46% 30% at 4% 34%,rgba(0,78,100,.11),transparent 72%),
+    radial-gradient(54% 32% at 96% 68%,rgba(127,227,211,.30),transparent 72%),
+    radial-gradient(46% 26% at 10% 99%,rgba(0,78,100,.10),transparent 72%)}
+/* the dot grid is texture around content, never behind it */
+.page::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:radial-gradient(circle,var(--dot) 1.05px,transparent 1.05px);background-size:28px 28px}
+.page>*{position:relative;z-index:1}
+
+.card{background:var(--surface);border-radius:22px;box-shadow:var(--card)}
+
+/* ---------- header ---------- */
+.head{display:flex;align-items:center;gap:22px;padding:22px 26px}
+h1{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:33px;line-height:1.08;
+  letter-spacing:-.015em}
+h1 em{font-style:italic;color:var(--accent)}
+.eyebrow{font-size:9.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:11px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.chips span{font-size:9.5px;font-weight:500;color:var(--ink-2);padding:5px 11px;
+  border-radius:999px;background:#F4F9F9;border:1px solid var(--rule)}
+.face{width:76px;height:76px;flex:none;border-radius:999px;display:grid;place-items:center;
+  background:radial-gradient(120% 120% at 30% 20%,#F4F9F9,#D3EAEA);
+  border:1px solid var(--rule);font-size:9px;color:var(--ink-3);text-align:center;line-height:1.3;
+  font-weight:500;letter-spacing:.02em}
+
+/* ---------- projects ---------- */
+.proj{display:grid;gap:22px;padding:20px 24px;align-items:center}
+.proj--img{grid-template-columns:292px 1fr}
+.proj--txt{grid-template-columns:1fr 200px}
+.num{font-family:"Instrument Serif",Georgia,serif;font-size:19px;color:var(--accent);line-height:1;
+  margin-bottom:5px}
+.proj h2{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:20.5px;line-height:1.14;
+  letter-spacing:-.012em}
+.proj h2 em{font-style:italic;color:var(--accent)}
+ul{list-style:none;padding:0;margin:11px 0 0}
+li{position:relative;padding-left:15px;font-size:10.5px;line-height:1.5;color:var(--ink-2);
+  margin-bottom:5px}
+li::before{content:"";position:absolute;left:0;top:6.5px;width:5px;height:5px;border-radius:999px;
+  background:var(--foam)}
+li b{color:var(--ink);font-weight:600}
+.meta{margin-top:10px;padding-top:9px;border-top:1px solid var(--rule);
+  font-size:9px;color:var(--ink-3);font-weight:500;letter-spacing:.01em}
+.scope{background:#F4F9F9;border:1px solid var(--rule);border-radius:16px;padding:15px 16px}
+.scope dt{font-size:8.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3)}
+.scope dd{margin:3px 0 11px;font-size:10.5px;font-weight:500;color:var(--ink);line-height:1.35}
+.scope dd:last-child{margin-bottom:0}
+
+/* ---------- mock 1: onboarding cards ---------- */
+.shot{position:relative;height:175px}
+.m{position:absolute;background:#fff;border:1px solid var(--pur-line);border-radius:13px;
+  box-shadow:0 10px 26px -16px rgba(4,51,63,.5)}
+.m1{left:0;top:0;width:182px;padding:10px}
+.m2{right:0;bottom:0;width:176px;padding:10px}
+.mt{font-size:9.5px;font-weight:700;letter-spacing:-.01em;line-height:1.25}
+.ms{font-size:7px;color:var(--ink-3);margin-top:3px;line-height:1.3}
+.ring{display:flex;align-items:center;gap:6px;margin-top:9px}
+.ring i{width:17px;height:17px;border-radius:999px;flex:none;
+  background:conic-gradient(var(--pur-2) 0 62%,#EDE6F6 62% 100%);
+  position:relative}
+.ring i::after{content:"";position:absolute;inset:3px;border-radius:999px;background:#fff}
+.ring span{font-size:7px;font-weight:600;color:var(--ink-2)}
+.field{margin-top:8px;height:19px;border:1px solid #D6C9EC;border-radius:7px;
+  display:flex;align-items:center;padding:0 8px;font-size:7px;color:var(--ink-3)}
+.pchips{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.pc{font-size:6.5px;font-weight:600;color:var(--pur);background:var(--pur-bg);
+  padding:3.5px 7px;border-radius:999px}
+.pc.g{color:var(--ink-2);background:#F2F4F5;font-weight:500}
+.lbl{font-size:7px;font-weight:600;margin-top:8px}
+.opt{display:flex;align-items:center;gap:6px;margin-top:5px;padding:5px 7px;border-radius:8px;
+  border:1px solid #EAEDEE;font-size:7.5px;font-weight:500;color:var(--ink)}
+.opt.on{border-color:var(--pur-2);background:var(--pur-bg)}
+.opt .tick{margin-left:auto;color:var(--pur-2);font-size:8px}
+.nav{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+.nav .prev{font-size:7px;font-weight:600;color:var(--pur)}
+.nav .next{font-size:7px;font-weight:600;color:#fff;background:var(--pur);
+  padding:5px 11px;border-radius:7px}
+
+/* ---------- mock 2: purposeful site ---------- */
+.site{height:196px;border-radius:13px;overflow:hidden;border:1px solid var(--rule);
+  box-shadow:0 10px 26px -16px rgba(4,51,63,.5);background:#fff;position:relative}
+.site::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(38% 30% at 12% 0%,rgba(255,182,193,.34),transparent 70%),
+             radial-gradient(38% 30% at 52% -4%,rgba(167,243,208,.36),transparent 70%),
+             radial-gradient(38% 30% at 92% 0%,rgba(191,219,254,.42),transparent 70%)}
+.site>*{position:relative}
+.bar{display:flex;align-items:center;gap:5px;padding:6px 9px;background:#EFF2F3;
+  border-bottom:1px solid var(--rule)}
+.bar i{width:5px;height:5px;border-radius:999px;background:#CFD9DA}
+.bar .url{margin-left:8px;flex:1;height:12px;border-radius:999px;background:#fff;
+  font-size:6.5px;color:var(--ink-3);display:flex;align-items:center;justify-content:center;
+  font-weight:500}
+.pill{margin:11px auto 0;width:fit-content;display:flex;align-items:center;gap:9px;
+  background:#fff;border-radius:999px;padding:5px 6px 5px 12px;
+  box-shadow:0 4px 14px -8px rgba(4,51,63,.5);font-size:6.5px;font-weight:500;color:#1B2A32}
+.pill b{font-size:7.5px;font-weight:700}
+.pill .su{background:#16232B;color:#fff;padding:4px 9px;border-radius:999px;font-weight:600}
+.hero{text-align:center;margin-top:13px;padding:0 24px}
+.hero h3{font-size:17px;font-weight:700;letter-spacing:-.028em;color:#16232B;line-height:1.12}
+.hero p{font-size:7.5px;color:#5B6B73;margin-top:6px}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:11px 14px 0}
+.tile{background:#fff;border:1px solid #EAEFF0;border-radius:10px;padding:9px 10px;
+  box-shadow:0 6px 18px -14px rgba(4,51,63,.5)}
+.tile h4{font-size:8.5px;font-weight:700;letter-spacing:-.02em;color:#16232B;line-height:1.2}
+.tile p{font-size:6.5px;color:#5B6B73;margin-top:4px;line-height:1.4}
+
+/* ---------- certifications ---------- */
+.certs{padding:14px 24px}
+.certs .eyebrow{margin-bottom:11px}
+.crow{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.cert{display:flex;align-items:center;gap:11px}
+.badge{width:34px;height:34px;flex:none;border-radius:9px;display:grid;place-items:center;
+  border:1px solid var(--rule);background:#F4F9F9;font-size:9px;font-weight:700;
+  letter-spacing:-.02em;color:var(--deep)}
+.badge.round{border-radius:999px;font-size:7.5px}
+.cert .t{font-size:11px;font-weight:600;letter-spacing:-.012em;line-height:1.2}
+.cert .s{font-size:9px;color:var(--ink-3);margin-top:3px}
+
+/* ---------- footer ---------- */
+.foot{display:flex;align-items:center;justify-content:space-between;padding:11px 24px;
+  font-size:9.5px;font-weight:500;color:var(--ink-2)}
+.foot .l{display:flex;gap:20px}
+.foot .r{display:flex;gap:18px;color:var(--ink);font-weight:600}
+.foot span.k{color:var(--ink-3);font-weight:500}
+</style></head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="card head">
+    <div style="flex:1">
+      <div class="eyebrow">Product Designer, UX and UI</div>
+      <h1>Some products are complicated.<br>I make them <em>feel simple.</em></h1>
+      <div class="chips">
+        <span>Behavioural research</span><span>Information architecture</span>
+        <span>Design systems</span><span>UI design</span><span>AI</span>
+      </div>
+    </div>
+    <!-- swap for <img src="images/memoji.png"> -->
+    <div class="face">memoji<br>goes here</div>
+  </header>
+
+  <!-- 01 -->
+  <section class="card proj proj--img">
+    <div class="shot">
+      <!-- swap the two .m blocks for <img src="images/onboarding-cards.png"> -->
+      <div class="m m1">
+        <div class="mt">What skills are you great at?</div>
+        <div class="ms">We have pre-selected some skills based on your profile.</div>
+        <div class="ring"><i></i><span>Add 3 more skills to get started</span></div>
+        <div class="pchips"><span class="pc">Kundenbetreuung</span><span class="pc">Vertrieb</span></div>
+        <div class="lbl">Suggested skills</div>
+        <div class="pchips">
+          <span class="pc g">Projektmanagement</span><span class="pc g">Marketing</span>
+          <span class="pc g">Social Media</span><span class="pc g">HR</span>
+        </div>
+      </div>
+      <div class="m m2">
+        <div class="mt">How actively are you searching for jobs?</div>
+        <div class="ms">You decide how often you hear from us.</div>
+        <div class="opt">I am ready to apply now</div>
+        <div class="opt on">I am open if something fits well <span class="tick">&#10003;</span></div>
+        <div class="opt">I am just browsing</div>
+        <div class="nav"><span class="prev">&#8249; Previous</span><span class="next">Next</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="num">01</div>
+      <h2>The profile that carries <em>every application.</em></h2>
+      <ul>
+        <li>Rebuilt the candidate profile and the signup flow on a hiring marketplace</li>
+        <li>Ran research with candidate support and account managers before deciding what to change</li>
+        <li>Added completion and reminder patterns so people finish the profile and keep it current</li>
+        <li>Built the reusable Figma components the team still works from</li>
+      </ul>
+      <div class="meta">Profile page · Signup wizard · Job search &nbsp;&nbsp;|&nbsp;&nbsp; Shipped and live</div>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section class="card proj proj--txt">
+    <div>
+      <div class="num">02</div>
+      <h2>Admin side of a <em>coaching product.</em></h2>
+      <ul>
+        <li>One place to manage users, cohorts, content and access</li>
+        <li>Role based access, so support sees less than an admin does</li>
+        <li>Daily controls sit in the table, the rest moves into settings</li>
+        <li>Test accounts kept out of the numbers the business reads</li>
+      </ul>
+    </div>
+    <dl class="scope">
+      <dt>Role</dt><dd>Product design, end to end</dd>
+      <dt>Built for</dt><dd>Admins and support staff</dd>
+      <dt>Status</dt><dd>In use</dd>
+    </dl>
+  </section>
+
+  <!-- 03 -->
+  <section class="card proj proj--img" style="grid-template-columns:1fr 292px">
+    <div>
+      <div class="num">03</div>
+      <h2>A coaching product, <em>designed and built.</em></h2>
+      <ul>
+        <li>Designed the whole thing: the strategy, the full flow, and the working product</li>
+        <li>Mapped every step of a coaching programme that runs over weeks</li>
+        <li>Wrote the exercises people work through, then changed them on feedback</li>
+        <li>Built it with Claude, which is what made a project this size possible on my own</li>
+      </ul>
+      <div class="meta">Strategy · Flow architecture · Interface · Build &nbsp;&nbsp;|&nbsp;&nbsp; purposeful.you</div>
+    </div>
+    <!-- swap .site for <img src="images/purposeful-site.png"> -->
+    <div class="site">
+      <div class="bar"><i></i><i></i><i></i><div class="url">purposeful.you</div></div>
+      <div class="pill"><b>Purposeful</b><span>Testimonials</span><span>Podcast</span><span>Log in</span><span class="su">Sign up</span></div>
+      <div class="hero">
+        <h3>Inside the 30-Day Challenge</h3>
+        <p>Everything you need to build a career you love</p>
+      </div>
+      <div class="tiles">
+        <div class="tile"><h4>A step by step guide</h4><p>Guided questions and a clear process.</p></div>
+        <div class="tile"><h4>Purposeful App</h4><p>Guidance, reminders and AI when you need it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="card certs">
+    <div class="eyebrow">Certifications</div>
+    <div class="crow">
+      <div class="cert">
+        <!-- swap for <img src="images/growth-design.png"> -->
+        <div class="badge">G.</div>
+        <div><div class="t">Product Psychology Masterclass</div>
+             <div class="s">Growth.Design · August 2024</div></div>
+      </div>
+      <div class="cert">
+        <!-- swap for <img src="images/ixdf.png"> -->
+        <div class="badge round">IxDF</div>
+        <div><div class="t">Web Design for Usability</div>
+             <div class="s">Interaction Design Foundation · December 2020</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="card foot">
+    <div class="l">
+      <span><span class="k">Email</span> &nbsp;roxanahiggins@gmail.com</span>
+      <span><span class="k">Phone</span> &nbsp;+49 177 6870927</span>
+    </div>
+    <div class="r"><span>LinkedIn &#8599;</span><span>Portfolio &#8599;</span></div>
+  </footer>
+
+</div>
+</body></html>
