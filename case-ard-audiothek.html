@@ -312,6 +312,87 @@ h2 em{font-style:italic}
 .closing .alt{margin-top:22px;font-size:15px;color:rgba(245,246,248,.62)}
 .closing .alt a{color:#8E9BFF;text-decoration:underline;text-underline-offset:3px}
 
+/* ---------- next case, in the home page's card style ----------
+   The dark panel that used to close this page is gone. The last thing a reader
+   sees is now the same card the home page uses for a case study, so it looks
+   like the thing it links to rather than like a different site.
+
+   The tokens are lifted from index.html so the two stay in step, including the
+   dark theme swap: the orange lifts to keep its contrast on a dark surface, the
+   card takes a hairline because #15171D on #0C0D11 is only 1.08:1, and the near
+   black pill becomes the blue one, because a near black button on a dark card
+   is an invisible button. */
+#next{padding-top:96px;padding-bottom:116px}
+.nextcard{
+  --a-ink:#111318; --a-muted:#4C515B; --a-faint:#6D727C;
+  --a-orange:#E16B43; --a-hair:#E7E5EB;
+  --a-surface:#FFFFFF; --a-chip:#FFFFFF; --a-edge:transparent;
+  --a-btn:#111318; --a-btn-fg:#FFFFFF;
+  display:flex;align-items:center;gap:44px;
+  background:var(--a-surface);border-radius:28px;padding:40px;
+  box-shadow:inset 0 0 0 1px var(--a-edge);color:var(--a-ink);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.nextcard:hover,.nextcard:focus-visible{transform:translateY(-3px)}
+.nextcard .copy{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:20px}
+.nc-meta{display:flex;align-items:center;gap:12px}
+.nc-meta img{width:34px;height:34px;border-radius:9px;display:block}
+.nc-co{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--a-orange)}
+.nc-yr{font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--a-faint)}
+.nextcard h2{font-family:var(--font);font-size:clamp(28px,2.7vw,36px);line-height:1.1;
+  letter-spacing:-.022em;font-weight:800;color:var(--a-ink);margin:0;max-width:20ch}
+.nextcard p{margin:0;font-size:17px;line-height:1.55;color:var(--a-muted);max-width:52ch}
+.nc-tags{display:flex;flex-wrap:wrap;gap:9px}
+.nc-tags > span{display:inline-flex;align-items:center;gap:8px;padding:7px 15px;
+  border:1px solid var(--a-hair);border-radius:999px;background:var(--a-chip)}
+.nc-tags > span > span{font-size:14px;font-weight:600;color:var(--a-ink)}
+.nc-tags i{width:8px;height:8px;border-radius:999px;flex:none}
+/* a span, not an anchor: the whole card is the link and anchors cannot nest */
+.nc-more{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;
+  height:54px;padding:0 28px;border-radius:999px;
+  background:var(--a-btn);color:var(--a-btn-fg);font-size:16px;font-weight:700}
+.nc-more .ar{font-size:15px;color:var(--a-btn-fg);transition:transform .3s var(--ease)}
+.nextcard:hover .nc-more .ar,.nextcard:focus-visible .nc-more .ar{transform:translate(2px,-2px)}
+/* This card carries the device composition rather than a browser frame, so the
+   artwork is the picture itself: held inside the card, a little smaller than
+   the home page runs it, with its own soft shadow instead of a frame. */
+.nc-visual{width:52%;flex:none;display:block}
+.nc-visual .art{display:block;width:100%;height:auto;margin-left:auto;
+  filter:drop-shadow(0 26px 44px rgba(225,107,67,.26)) drop-shadow(0 4px 10px rgba(17,19,24,.10))}
+.nc-alt{margin-top:22px;font-size:15px;color:var(--ink-3)}
+.nc-alt a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+@media(max-width:1023px){
+  .nextcard{flex-direction:column;align-items:flex-start;gap:28px;padding:32px}
+  .nc-visual{width:100%}
+  .nc-visual .art{margin-left:0}
+}
+@media(max-width:520px){
+  .nextcard{padding:26px 22px}
+  .nextcard h2{font-size:29px}
+  .nextcard p{font-size:16px}
+  .nc-more{height:50px;padding:0 22px;font-size:15px}
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .nextcard{
+    --a-ink:#F5F6F8; --a-muted:#B7BCC6; --a-faint:#9AA0AB;
+    --a-orange:#F08A63; --a-hair:rgba(245,246,248,.15);
+    --a-surface:var(--surface); --a-chip:rgba(245,246,248,.05);
+    --a-edge:rgba(245,246,248,.09);
+    --a-btn:var(--btn); --a-btn-fg:var(--btn-fg);
+  }
+}
+:root[data-theme="dark"] .nextcard{
+  --a-ink:#F5F6F8; --a-muted:#B7BCC6; --a-faint:#9AA0AB;
+  --a-orange:#F08A63; --a-hair:rgba(245,246,248,.15);
+  --a-surface:var(--surface); --a-chip:rgba(245,246,248,.05);
+  --a-edge:rgba(245,246,248,.09);
+  --a-btn:var(--btn); --a-btn-fg:var(--btn-fg);
+}
+@media (prefers-reduced-motion: reduce){
+  .nextcard,.nc-more .ar{transition:none}
+  .nextcard:hover,.nextcard:focus-visible{transform:none}}
+
+
 /* ---------- the two objects on the discovery panel ----------
    Coffee hangs off the top right corner and the idea off the bottom right, both
    clear of the copy: the text column is capped at 34ch and sits hard left, so a
@@ -431,7 +512,7 @@ h2 em{font-style:italic}
   background:
     radial-gradient(120% 72% at 50% 104%,rgba(92,109,244,.32),transparent 64%),
     linear-gradient(180deg,#0B0C10 0%,#14172A 46%,#111318 100%)}
-.cs-track{height:300vh;height:300svh;min-height:1900px}
+.cs-track{height:210vh;height:210svh;min-height:1350px}
 .cs-fix{position:sticky;top:0;height:100vh;height:100svh;min-height:620px;overflow:hidden;
   display:flex;flex-direction:column;padding-top:calc(var(--navh,95px) + 30px)}
 .cs-inner{display:flex;flex-direction:column;flex:1;width:100%;max-width:1160px;
@@ -604,11 +685,20 @@ h2 em{font-style:italic}
 .band{margin-top:60px;border-radius:28px;padding:44px;border:1px solid var(--rule);
   background-color:var(--surface);background-image:linear-gradient(180deg,var(--tint-a),transparent)}
 .band--b{background-image:linear-gradient(180deg,var(--tint-b),transparent)}
-.band--dark{border-color:rgba(245,246,248,.14);
-  background-color:#15171D;
-  background-image:radial-gradient(120% 90% at 50% 0%,rgba(92,109,244,.20),transparent 62%);
-  --ink:#F5F6F8; --ink-2:rgba(245,246,248,.78); --ink-3:rgba(245,246,248,.62);
-  --rule:rgba(245,246,248,.16); --surface:transparent}
+/* It used to be near black, which put a heavy slab around every screenshot and
+   pulled the eye away from the picture inside it. Now it is a soft panel a
+   step off the page: enough to hold the image and its caption together and to
+   separate them from the ground, not enough to compete with them. The ink
+   tokens go back to the page's own, since the panel is no longer dark. */
+.band--dark{border-color:var(--rule);
+  background-color:#ECEEF5;
+  background-image:linear-gradient(180deg,rgba(92,109,244,.09),transparent 72%)}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .band--dark{background-color:#191C24;
+    background-image:linear-gradient(180deg,rgba(142,155,255,.10),transparent 72%)}
+}
+:root[data-theme="dark"] .band--dark{background-color:#191C24;
+  background-image:linear-gradient(180deg,rgba(142,155,255,.10),transparent 72%)}
 figure{margin:0}
 figure+figure{margin-top:34px}
 .frame{aspect-ratio:16/9;border-radius:16px;border:1px solid var(--rule);background:var(--surface);
@@ -695,7 +785,13 @@ figcaption{margin-top:17px;font-size:15px;line-height:1.6;color:var(--ink-2)}
 /* ARD case study: hero eyebrow, and the research questions with their verdicts */
 .cs-eyebrow{margin:0 auto 20px;font-size:12.5px;font-weight:600;letter-spacing:.16em;
   text-transform:uppercase;color:var(--p-fg2)}
-.qgrid{list-style:none;margin:26px 0 0;padding:0;display:flex;flex-direction:column;gap:14px}
+/* Across, not down: three short questions in a column made a tall stack that
+   read as a list of unrelated notes. Side by side they read as one set, and
+   each card is short enough to take a narrow column. */
+.qgrid{list-style:none;margin:26px 0 0;padding:0;
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
+.qgrid .q{display:flex;flex-direction:column}
+@media(max-width:900px){.qgrid{grid-template-columns:1fr;gap:14px}}
 .q{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--accent);
   border-radius:12px;padding:20px 22px}
 .q .ask{margin:0 0 8px;font-size:16.5px;line-height:1.5;font-weight:600;color:var(--ink)}
@@ -903,7 +999,8 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
     <div class="col">
       <h2>Assumptions, tested</h2>
       <p>Five research questions agreed before fielding. Three mattered.</p>
-      <ul class="qgrid">
+    </div>
+    <ul class="qgrid">
         <li class="q">
           <p class="ask">Teasers lost their play buttons. We assumed nobody would mind.</p>
           <p class="ans"><b>Confirmed.</b> Nobody missed them.</p>
@@ -916,8 +1013,7 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
           <p class="ask">Content types are shown at different sizes. Does that read as hierarchy?</p>
           <p class="ans"><b>No, and this became the study.</b> Most widgets carried equal weight, so nothing looked important.</p>
         </li>
-      </ul>
-    </div>
+    </ul>
   </div>
 
   <div class="band band--dark reveal">
@@ -978,15 +1074,23 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
 
 </section>
 
-<section class="closing wrap" id="next">
-  <div class="contact-panel reveal">
-    <div class="contact-inner">
-      <h2 class="reveal">Next</h2>
-      <p class="reveal">Different product, same question about what people understand. Next, a job profile and getting people to finish it.</p>
-      <a class="btn-cta reveal" href="case-workwise-profile.html"><span class="ar">&#8599;</span> See the Workwise case study</a>
-      <p class="alt reveal">or go back to <a href="index.html#work">all work</a>.</p>
+<section class="wrap" id="next">
+  <a class="nextcard reveal" href="case-web-nocode.html"
+     aria-label="Explore the projects, memorable brands and websites that convert and keep working">
+    <div class="copy">
+      <div class="nc-meta">
+        <span class="nc-co">Independent businesses</span>
+      </div>
+      <h2>Memorable brands and websites that convert and keep working</h2>
+      <p>I shape the whole digital presence, from strategy and identity through to the website, then wire up the systems that keep it earning after launch.</p>
+      <span class="nc-more">Explore the projects <span class="ar">&#8599;</span></span>
     </div>
-  </div>
+    <div class="nc-visual">
+      <img class="art" src="images/web-selected-devices.webp" width="2400" height="986" loading="lazy"
+           alt="Holistic Breathwork, Touching The Art, Nico Smat and Purposeful shown on laptops and phones">
+    </div>
+  </a>
+  <p class="nc-alt reveal">or go back to <a href="index.html#work">all work</a>.</p>
 </section>
 <footer class="site-footer">
   <p class="footer-meta"><span data-de="Gestaltet und gebaut von Roxana">Designed and built by Roxana</span></p>
@@ -1106,11 +1210,23 @@ document.querySelector('.theme-toggle').addEventListener('click',function(){
       var t=track.getBoundingClientRect();
       var span=t.height-vh;
       var p=span>0?Math.min(1,Math.max(0,-t.top/span)):0;
+      /* Two curves. A page whose frame pans has the page inside it to carry the
+         rest of the track, so the frame grows and stays grown. A page with
+         nothing to pan, like this one, would then stand still for two thirds of
+         the track, which reads as stuck: there it grows, holds long enough to
+         be looked at, and shrinks back before the hero hands over to the next
+         section. The copy follows the same curve, so it comes back as the frame
+         goes down and the hero leaves the way it arrived. */
       var GROW=0.26;
-      var z=Math.min(1,p/GROW);
+      var z;
+      if(pans.length){ z=Math.min(1,p/GROW); }
+      else {
+        var G=0.34,O=0.58;
+        z = p<=G ? p/G : (p<O ? 1 : 1-Math.min(1,(p-O)/(1-O)));
+      }
       var ez=1-Math.pow(1-z,3);
       if(copy){
-        var f=Math.min(1,p/(GROW*0.6));
+        var f=Math.min(1,z/0.6);
         copy.style.opacity=(1-f).toFixed(3);
         copy.style.transform='translate3d(0,'+(-30*f).toFixed(1)+'px,0)';
         copy.style.pointerEvents=f>0.85?'none':'';

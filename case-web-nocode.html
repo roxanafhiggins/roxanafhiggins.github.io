@@ -608,11 +608,18 @@ h2 em{font-style:italic}
 .band{margin-top:60px;border-radius:28px;padding:44px;border:1px solid var(--rule);
   background-color:var(--surface);background-image:linear-gradient(180deg,var(--tint-a),transparent)}
 .band--b{background-image:linear-gradient(180deg,var(--tint-b),transparent)}
-.band--dark{border-color:rgba(245,246,248,.14);
-  background-color:#15171D;
-  background-image:radial-gradient(120% 90% at 50% 0%,rgba(92,109,244,.20),transparent 62%);
-  --ink:#F5F6F8; --ink-2:rgba(245,246,248,.78); --ink-3:rgba(245,246,248,.62);
-  --rule:rgba(245,246,248,.16); --surface:transparent}
+/* A soft panel a step off the page rather than the near black slab this used
+   to be, which put a heavy frame around every screenshot and pulled the eye off
+   the picture inside it. The ink tokens go back to the page's own. */
+.band--dark{border-color:var(--rule);
+  background-color:#ECEEF5;
+  background-image:linear-gradient(180deg,rgba(92,109,244,.09),transparent 72%)}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .band--dark{background-color:#191C24;
+    background-image:linear-gradient(180deg,rgba(142,155,255,.10),transparent 72%)}
+}
+:root[data-theme="dark"] .band--dark{background-color:#191C24;
+  background-image:linear-gradient(180deg,rgba(142,155,255,.10),transparent 72%)}
 figure{margin:0}
 figure+figure{margin-top:34px}
 .frame{aspect-ratio:16/9;border-radius:16px;border:1px solid var(--rule);background:var(--surface);

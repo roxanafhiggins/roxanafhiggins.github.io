@@ -396,8 +396,9 @@ h2 em{font-style:italic}
   --a-btn:var(--btn); --a-btn-fg:var(--btn-fg);
 }
 @media (prefers-reduced-motion: reduce){
-  .nextcard,.nc-more .ar{transition:none}
-  .nextcard:hover,.nextcard:focus-visible{transform:none}
+  .nextcard,.nc-more .ar,.owned-card{transition:none}
+  .nextcard:hover,.nextcard:focus-visible,
+  .owned-card:hover,.owned-card:focus-visible{transform:none}
 }
 
 /* ---------- the two objects on the discovery panel ----------
@@ -714,11 +715,18 @@ h2 em{font-style:italic}
 .band{margin-top:60px;border-radius:28px;padding:44px;border:1px solid var(--rule);
   background-color:var(--surface);background-image:linear-gradient(180deg,var(--tint-a),transparent)}
 .band--b{background-image:linear-gradient(180deg,var(--tint-b),transparent)}
-.band--dark{border-color:rgba(245,246,248,.14);
-  background-color:#15171D;
-  background-image:radial-gradient(120% 90% at 50% 0%,rgba(92,109,244,.20),transparent 62%);
-  --ink:#F5F6F8; --ink-2:rgba(245,246,248,.78); --ink-3:rgba(245,246,248,.62);
-  --rule:rgba(245,246,248,.16); --surface:transparent}
+/* A soft panel a step off the page rather than the near black slab this used
+   to be, which put a heavy frame around every screenshot and pulled the eye off
+   the picture inside it. The ink tokens go back to the page's own. */
+.band--dark{border-color:var(--rule);
+  background-color:#ECEEF5;
+  background-image:linear-gradient(180deg,rgba(92,109,244,.09),transparent 72%)}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .band--dark{background-color:#191C24;
+    background-image:linear-gradient(180deg,rgba(142,155,255,.10),transparent 72%)}
+}
+:root[data-theme="dark"] .band--dark{background-color:#191C24;
+  background-image:linear-gradient(180deg,rgba(142,155,255,.10),transparent 72%)}
 figure{margin:0}
 figure+figure{margin-top:34px}
 .frame{aspect-ratio:16/9;border-radius:16px;border:1px solid var(--rule);background:var(--surface);
@@ -827,10 +835,19 @@ figcaption{margin-top:17px;font-size:15px;line-height:1.6;color:var(--ink-2)}
    so all three sit on one line whatever the copy above them does. */
 .owned{list-style:none;margin:34px 0 0;padding:0;
   display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.owned > li{--row:var(--tint-a);display:flex;flex-direction:column;
+/* The whole card is the link, the way the case cards on the home page are, so
+   the CTA inside it is a span: anchors cannot nest. The card's own look sits on
+   the anchor rather than on the li, so the hover and the focus ring belong to
+   the thing that is actually clickable rather than to a box around it. */
+.owned > li{--row:var(--tint-a);display:flex}
+.owned-card{flex:1;display:flex;flex-direction:column;color:inherit;
   padding:28px 26px 26px;border-radius:24px;border:1px solid var(--rule);
   background-color:var(--surface);
-  background-image:linear-gradient(168deg,var(--row),transparent 66%)}
+  background-image:linear-gradient(168deg,var(--row),transparent 66%);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.owned-card:hover,.owned-card:focus-visible{transform:translateY(-3px);
+  border-color:var(--slot);
+  box-shadow:0 24px 44px -28px rgba(17,19,24,.5)}
 .owned > li:nth-child(2){--row:var(--tint-c)}
 .owned > li:nth-child(3){--row:var(--tint-b)}
 .owned-no{display:grid;place-items:center;width:46px;height:46px;border-radius:999px;
@@ -861,13 +878,13 @@ figcaption{margin-top:17px;font-size:15px;line-height:1.6;color:var(--ink-2)}
   margin-top:auto;padding-top:22px;
   font-size:15px;font-weight:600;color:var(--ink)}
 .owned-go .ar{color:var(--ink-3);font-size:14px;transition:transform .3s var(--ease)}
-.owned-go:hover,.owned-go:focus-visible{color:var(--accent)}
-.owned-go:hover .ar,.owned-go:focus-visible .ar{color:var(--accent);transform:translateY(3px)}
+.owned-card:hover .owned-go,.owned-card:focus-visible .owned-go{color:var(--accent)}
+.owned-card:hover .ar,.owned-card:focus-visible .ar{color:var(--accent);transform:translateY(3px)}
 /* One column below the desktop band. Three cards at 1023 come out under 300px
    each, which is narrower than the copy inside them wants to be. */
 @media(max-width:1023px){
   .owned{grid-template-columns:1fr;gap:16px}
-  .owned > li{padding:26px 22px}
+  .owned-card{padding:26px 22px}
   .owned-visual{justify-content:flex-start}
   .owned-img{max-width:420px}
   .owned-go{padding-top:20px}
@@ -1218,6 +1235,7 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
     </div>
     <ol class="owned">
       <li>
+        <a class="owned-card" href="#research" aria-label="Read how the validation ran">
         <span class="owned-no" aria-hidden="true">01</span>
         <div>
           <h3>Research &amp; validation</h3>
@@ -1228,9 +1246,11 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
           <img class="owned-img" src="images/research-session.webp" width="1500" height="1000" loading="lazy"
                alt="A feedback session in progress: someone placing a sticky note on a wall of notes and printed screens while two colleagues watch">
         </div>
-        <a class="owned-go" href="#research">See how the validation ran <span class="ar">&#8595;</span></a>
+        <span class="owned-go">See how the validation ran <span class="ar">&#8595;</span></span>
+        </a>
       </li>
       <li>
+        <a class="owned-card" href="#fill-in" aria-label="Read how the profile was rebuilt">
         <span class="owned-no" aria-hidden="true">02</span>
         <div>
           <h3>Candidate profile experience</h3>
@@ -1241,9 +1261,11 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
           <img class="owned-img" src="images/workwise-profile-mobile.webp" width="760" height="1500" loading="lazy"
                alt="The rebuilt profile on a phone: what the candidate is looking for shown around their photo, and the open for offers switch above it">
         </div>
-        <a class="owned-go" href="#fill-in">See the rebuilt profile <span class="ar">&#8595;</span></a>
+        <span class="owned-go">See the rebuilt profile <span class="ar">&#8595;</span></span>
+        </a>
       </li>
       <li>
+        <a class="owned-card" href="#components" aria-label="Read about the shared components">
         <span class="owned-no" aria-hidden="true">03</span>
         <div>
           <h3>Reusable product patterns</h3>
@@ -1254,7 +1276,8 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
           <img class="owned-img" src="images/workwise-patterns-pair.webp" width="1500" height="1364" loading="lazy"
                alt="Two of the shared components: the work location sheet with its city list and homeoffice chips, and the language block with level sliders above a profile completion prompt">
         </div>
-        <a class="owned-go" href="#components">See the shared components <span class="ar">&#8595;</span></a>
+        <span class="owned-go">See the shared components <span class="ar">&#8595;</span></span>
+        </a>
       </li>
     </ol>
   </div>
