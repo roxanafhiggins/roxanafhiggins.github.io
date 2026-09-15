@@ -32,6 +32,13 @@
   --panel-4:#2F3878; --panel-5:#3A44A0; --panel-fg:#FFFFFF;
   --wordmark:rgba(255,255,255,.68); --halftone:rgba(255,255,255,.30);
   --dot-size:28px; --pad-x:230px; --cols:4; --navh:95px;
+  /* The hero copy box. The headline, the paragraph and the buttons are held
+     in a column of this width so the rest of the hero stays open for the
+     objects, and so the wash under the copy has an edge to follow. The floor
+     is there for German: "Fun CV herunterladen" plus "Lass uns reden" needs
+     540px side by side, and a percentage alone broke that row in two at
+     1024. */
+  --copy-w:max(62%,540px);
   --fog:rgba(247,247,250,.985); --fog-0:rgba(247,247,250,0);
   --ease:cubic-bezier(.22,1,.36,1);
   /* Two families. Figtree is the working font: body, cards, chips, buttons,
@@ -123,6 +130,12 @@ a{color:inherit;text-decoration:none}
 .fog{border-radius:34px;background:radial-gradient(118% 130% at 50% 50%,var(--fog) 0 58%,var(--fog-0) 100%)}
 .fog-h{display:inline-block;padding:16px 30px;margin-left:-30px;border-radius:30px;
   background:radial-gradient(100% 150% at 50% 50%,var(--fog) 0 54%,var(--fog-0) 100%)}
+/* Aimed at the copy, not centred on .mid: the block sits in the left 62% of a
+   full width box, so the pool is centred at 33% and has faded out by 95%, which
+   is what keeps the right hand half of the hero on bare dot grid for the
+   objects. The box itself must stay full width. Clipping it to the copy column
+   instead drew the gradient's own edge as a visible rectangle around the
+   copy. */
 .hero-fog{background:radial-gradient(62% 86% at 33% 50%,var(--fog) 0 48%,var(--fog-0) 100%)}
 @media(max-width:900px){.fog-h{margin-left:0;padding:12px 16px}}
 
@@ -186,9 +199,10 @@ a{color:inherit;text-decoration:none}
    viewer can pick them up and move them. They live in a layer of their own
    rather than in the copy flow, so nothing they do can move a line of type.
    The layer itself takes no pointer events, only the objects do, so they never
-   eat a click meant for a button. Below 1024px the hero copy fills the width,
-   there is no open half left, so they go rather than pile up behind the
-   headline, and there is nothing to drag on a phone either.
+   eat a click meant for a button. Below 1024px they stay, repositioned per band
+   further down this sheet, but stop being draggable: the copy box gives up
+   enough width at those sizes to leave them a column of their own, and a finger
+   has no hover to find them with.
 
    Each object carries its own shadow colour: the orange, blue and purple the
    card chips already use, so the three glows read as the brand rather than as
@@ -237,7 +251,33 @@ a{color:inherit;text-decoration:none}
   background-position:-3.5px -3.5px, calc(100% + 3.5px) -3.5px,
     -3.5px calc(100% + 3.5px), calc(100% + 3.5px) calc(100% + 3.5px)}
 .hero-deco .deco:hover::after,.hero-deco .deco.is-drag::after,
-.hero-deco .deco.is-resize::after{opacity:1}
+.hero-deco .deco.is-resize::after,.hero-deco .deco.is-hint::after{opacity:1}
+
+/* ---------- "you can pick these up" ----------
+   Nothing on the page says the objects move, and the cursor only changes once
+   the pointer is already on one, which is a hint you get after you have found
+   the thing you needed hinting about. So one object at a time plays its own
+   hover state on its own: the frame and the handles come up, the shadow
+   deepens, and it lifts and settles as if a hand had just put it down.
+
+   It is the hover state exactly, not a second visual language, so the first
+   real hover teaches nothing new. The script stops the cycle for good the
+   moment anything is hovered, picked up or resized, and it never runs where the
+   objects are decoration only, on a touch screen, or under reduced motion. */
+.hero-deco .deco.is-hint img{filter:drop-shadow(0 30px 44px var(--glow-hi))
+  drop-shadow(0 4px 7px var(--glow-2))}
+.hero-deco .deco.is-hint{animation:deco-hint 1.9s var(--ease)}
+/* Every frame carries the whole transform: the rotation and the mirror live in
+   custom properties per object and the drag script writes --dx and --dy, and an
+   animation that set translate alone would flatten both. */
+@keyframes deco-hint{
+  0%,100%{transform:translate(var(--dx,0px),var(--dy,0px))
+    rotate(var(--rot,0deg)) scaleX(var(--flip,1))}
+  38%{transform:translate(calc(var(--dx,0px) + 3px),calc(var(--dy,0px) - 11px))
+    rotate(calc(var(--rot,0deg) + 2.4deg)) scaleX(var(--flip,1))}
+  70%{transform:translate(calc(var(--dx,0px) - 1px),calc(var(--dy,0px) - 3px))
+    rotate(calc(var(--rot,0deg) - .8deg)) scaleX(var(--flip,1))}
+}
 
 /* ---------- resize handles ----------
    Four real elements, not more painted corners: a pseudo element cannot take a
@@ -251,7 +291,7 @@ a{color:inherit;text-decoration:none}
   opacity:0;transition:opacity .14s linear;pointer-events:auto;z-index:3;
   touch-action:none}
 .hero-deco .deco:hover .hdl,.hero-deco .deco.is-drag .hdl,
-.hero-deco .deco.is-resize .hdl,
+.hero-deco .deco.is-resize .hdl,.hero-deco .deco.is-hint .hdl,
 .sticky:hover .hdl,.sticky.is-drag .hdl,.sticky.is-resize .hdl{opacity:1}
 .hdl-nw{top:-15px;left:-15px;cursor:nwse-resize}
 .hdl-ne{top:-15px;right:-15px;cursor:nesw-resize}
@@ -260,12 +300,17 @@ a{color:inherit;text-decoration:none}
 .sticky .hdl{position:absolute}
 /* Touch: no handles, and the note gives the gesture back to the page. With
    touch-action:none on it a swipe that started on the note dragged the note
-   instead of scrolling, which is a trap on a phone. The hero objects are
-   already hidden at this width. */
+   instead of scrolling, which is a trap on a phone. The hero objects give the
+   gesture back the same way, in the rule underneath it. */
 @media(max-width:1023px){
   .hdl{display:none}
   .sticky{touch-action:auto;cursor:default}
   .sticky::after{display:none}
+  /* Tablets and phones: the objects are composition, not toys. A touch device
+     has no hover to reveal the frame with, and with touch-action:none a scroll
+     that started on an object would drag it instead of scrolling the page. */
+  .hero-deco .deco{pointer-events:none;cursor:default;touch-action:auto}
+  .hero-deco .deco::after{display:none}
 }
 
 /* Smaller than it was and tucked into the corner, so the top right reads as
@@ -292,8 +337,9 @@ a{color:inherit;text-decoration:none}
    plane's default overlapped it there while looking fine in English. Pulled
    right for those widths only. */
 @media(max-width:1300px){.deco-plane{right:25%}}
-@media(max-width:1023px){.hero-deco{display:none}}
-@media (prefers-reduced-motion: reduce){.hero-deco .deco{transition:none}}
+/* Phone placements live in the phone block further down this sheet. */
+@media (prefers-reduced-motion: reduce){.hero-deco .deco{transition:none}
+  .hero-deco .deco.is-hint{animation:none}}
 .row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px}
 .logo{justify-self:start;display:inline-flex;align-items:center;gap:11px;
   font-weight:600;font-size:18px;letter-spacing:-.02em;white-space:nowrap;
@@ -312,6 +358,11 @@ a{color:inherit;text-decoration:none}
 .navcta{justify-self:end;display:flex;align-items:center;gap:12px}
 
 .mid{flex:1;display:flex;flex-direction:column;justify-content:center;padding:18px 0}
+/* The copy box. Headline, paragraph, buttons and trust marks are all held to
+   one column so the block has a straight right margin and the rest of the hero
+   is left to the objects. On the children rather than on .mid, because .mid is
+   also the element carrying the wash and that has to stay full width. */
+.mid > *{max-width:var(--copy-w)}
 /* Three short lines rather than two long ones. The first sentence used to run
    798px at 1440 and the eye had to travel the whole width twice; broken in two
    it reads in one glance, the block gets narrower, and the right hand half of
@@ -331,7 +382,7 @@ h1 .mark{text-decoration:underline;text-decoration-color:var(--dotcol);
      off because the gap it opened around that descender broke the mark into two
      dashes at this size. */
   text-decoration-skip-ink:none}
-.sub{margin-top:30px;max-width:54ch;font-size:16.5px;line-height:1.62;color:var(--ink-2)}
+.sub{margin-top:30px;max-width:min(54ch,var(--copy-w));font-size:16.5px;line-height:1.62;color:var(--ink-2)}
 .sub b{color:var(--ink);font-weight:600}
 .actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:36px}
 .link-cta{display:inline-flex;align-items:center;gap:9px;font-size:16px;font-weight:500}
@@ -746,6 +797,86 @@ h2 em{font-style:italic}
   .theme-toggle{width:38px;height:38px}
   .theme-toggle svg{width:16px;height:16px}
 }
+
+/* ---------- tablet, 700 to 1023 ----------
+   The band the iPads sit in, and the one hiring managers actually open this on.
+   It used to inherit the phone's 24px gutter and the hero objects were switched
+   off outright, so the copy ran almost edge to edge while the whole right hand
+   half of the hero stayed empty. Here it gets a gutter of its own, the copy is
+   held to a narrower measure, and the three objects come back down the right.
+
+   Portrait is the case that matters. The hero is a full viewport tall while the
+   copy block is only about 40% of it, which leaves two free bands, one above the
+   copy and one below. The objects are spread down the right edge through both
+   rather than clustered the way they are on desktop, and that is what turns the
+   leftover height into composition instead of a void.
+
+   They are decoration only at this width. pointer-events off, so a scroll that
+   starts on one scrolls the page rather than dragging the object, which is the
+   same trap the note already avoids, and there is no selection frame or resize
+   handle to offer a finger that cannot hover. */
+@media(min-width:700px) and (max-width:1023px){
+  :root{--pad-x:52px;
+    /* A tighter box than the desktop one. The copy has to give up more of the
+       width here, because the object column is the whole right hand edge rather
+       than an open half. The 420px floor is the German button row again. */
+    --copy-w:max(60%,420px)}
+  /* Down from the desktop /11.4 measure. At /11.4 the second headline line
+     reached 68% of the width and ran under the memoji; at /13.2 it stops at
+     about 56% and the object column is genuinely clear. */
+  h1{font-size:calc((100vw - 2 * var(--pad-x)) / 13.2)}
+  /* Held well inside the headline's edge so the paragraph reads as a block with
+     a straight right margin, and so the object column keeps a real gutter
+     instead of the copy running up against the plane. */
+  .sub{max-width:min(40ch,var(--copy-w))}
+  /* Trimmed at this width. The badge and the two buttons were carrying desktop
+     padding: 65px tall buttons in a portrait hero that already has a full
+     viewport of height to fill and three objects to fit beside them. Scoped to
+     .actions so the discovery panel's CTA keeps its full size. */
+  .hero-eyebrow{font-size:12.5px;padding:6px 12px;margin-bottom:12px}
+  .actions{gap:16px;margin-top:30px}
+  .actions .btn-cta{font-size:16px;padding:15px 26px;gap:12px}
+  /* Top free band, above the eyebrow. */
+  .deco-face{width:clamp(132px,20vw,176px);top:6.5%;right:5.5%}
+  /* Mid height and hard right, clear of the shortened paragraph. Keeps the
+     mirror from the base rule, so the nose still points back at the copy. */
+  .deco-plane{width:clamp(92px,13.4vw,122px);top:46%;right:9%}
+  /* Bottom free band, below the certificate marks, stepped in from the plane so
+     the three read as a staircase rather than a stacked column. */
+  .deco-onigiri{width:clamp(78px,11.2vw,104px);top:78.5%;right:17%}
+}
+
+/* ---------- phone, under 700 ----------
+   They used to be switched off outright below 700, on the reasoning that a
+   phone has no open half to put them in. It does have open bands: the copy
+   block is about 300px of a 750px hero, which leaves a strip above the eyebrow
+   and a deep one under the certificate marks, and both were bare dot grid.
+   So the three come back, smaller, tucked into the space the copy does not
+   use: one over the top right corner, one in the pocket beside the buttons
+   that the shortened CTA row leaves open, one low and stepped in from the
+   right so the three still read as a diagonal rather than a stacked column.
+   Decoration only, like the tablet band, from the shared rule above. */
+@media(max-width:699px){
+  /* No box to hold here: a phone column is the copy box. Which is also why the
+     wash changes shape. The radial pool is aimed at the left 62% of a wide
+     block, and on a phone the copy runs the full width, so the dot grid was
+     coming through the right hand end of every paragraph line. Here the ground
+     is a soft rounded slab instead: it covers a rectangle of text to its
+     corners, which a pool cannot, and it fades on all four sides. It bleeds
+     past the column into the gutter so its own side edges land off screen. */
+  :root{--copy-w:100%}
+  .hero-fog{background:none;position:relative}
+  .hero-fog::before{content:"";position:absolute;z-index:-1;
+    inset:5% -18px;border-radius:40px;background:var(--fog);
+    box-shadow:0 0 46px 22px var(--fog)}
+  /* The badge was still at its desktop size, 249px of it on a 342px column,
+     which left no corner for the memoji and read as loud as the headline. The
+     German label is the long one, so it sets the width that has to clear. */
+  .hero-eyebrow{font-size:11.5px;padding:6px 12px;margin-bottom:11px}
+  .deco-face{width:clamp(72px,20vw,100px);top:1.6%;right:3%}
+  .deco-plane{width:clamp(66px,19vw,92px);top:52.5%;right:4%}
+  .deco-onigiri{width:clamp(58px,17vw,80px);top:83%;right:21%}
+}
 :focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:6px}
 
 /* ---------- theme toggle, floating instead of in the nav ----------
@@ -914,26 +1045,30 @@ a.cert:hover .cert-go .ar,a.cert:focus-visible .cert-go .ar{transform:translate(
 .case--dirA .visual .browser{width:480px;margin-right:-70px}
 
 /* ---------- the tall variant, card one ----------
-   The artwork runs the full height of the card rather than sitting inside the
-   padding. The visual stretches to the flex line and then cancels the card's
-   vertical padding with a negative block margin, so it spans edge to edge; the
-   art takes height:100% off that and its width follows the aspect. min-height
-   on the card is what makes the artwork bigger rather than just proportionally
-   taller, since otherwise the text would set the height. No overflow on the
-   visual: the card already crops, and cropping here would eat the hover scale
-   and the pointer movement. */
-/* Explicit height, plain block, no grid and no percentages. Two earlier
-   attempts failed: `height:100%` on a stretched grid item made the browser
-   resolve the circular dependency by falling back to the asset's own 745px, and
-   `justify-self:start` did not hold against intrinsic ratio sizing, so the art
-   drifted 77px across the text column. A fixed height with a negative block
-   margin is unambiguous: the art's border box is 660px, its margin box is 580,
-   so the flex line is 580, the card is 580 + 80 padding = 660, and the art
-   spans the card top to bottom exactly. Block flow keeps its left edge on the
-   column edge, so it can only ever bleed right. */
-.case--dirA-tall .visual{align-self:center;display:block}
-.case--dirA-tall .visual .art{height:470px;width:auto;max-width:none;
-  margin:-40px 0;display:block}
+   The phones used to run the full height of the card and hang off its right
+   edge, where the radius cropped them: a third of the right hand phone was only
+   ever visible on hover, when the card stops clipping. It now sits inside the
+   card at rest, held to the right of its own column, so the whole composition
+   reads without touching it and the hover scale has somewhere to grow into.
+   That costs width, which is the trade: fully visible means it cannot also be
+   the widest thing on the card. The column takes 48% to give back some of it.
+
+   Two earlier layout attempts are worth not repeating: `height:100%` on a
+   stretched grid item made the browser resolve the circular dependency by
+   falling back to the asset's own 745px, and `justify-self:start` did not hold
+   against intrinsic ratio sizing, so the art drifted 77px across the text
+   column. Percentage width in normal block flow with `margin-left:auto` is
+   unambiguous.
+
+   The asset is drawn tilted: the centre phone runs 4.99deg clockwise, measured
+   by fitting the minimum area rectangle to its screen, which comes out 241 by
+   520 at a 2.16 ratio, so that is the phone and not a guess at an edge. The
+   counter rotation sits on the wrapper rather than on .art, so the hover scale
+   composes inside it and nothing has to repeat the angle. */
+.case--dirA-tall .visual{align-self:center;display:block;width:48%;
+  transform:rotate(-5deg)}
+.case--dirA-tall .visual .art{width:94%;max-width:none;height:auto;
+  margin:0 0 0 auto;display:block}
 @media(max-width:1100px){
   .case--dirA-tall{min-height:0}
   .case--dirA-tall .visual{align-self:auto;display:block}
@@ -958,6 +1093,11 @@ a.cert:hover .cert-go .ar,a.cert:focus-visible .cert-go .ar{transform:translate(
   /* margin-inline, not margin-right: the stack variant sets both sides, so
      resetting only the right left the artwork 49px off centre on phones. */
   .case--dirA .visual .art,.case--dirA .visual .browser{width:100%;margin-inline:0}
+  /* The phones are a composition, not a screenshot to read: at full column width
+     they ran about 880px on a small laptop and swallowed the card. Capped to
+     roughly half that and centred in the column. The cap only bites where the
+     column is wider than it, so a phone still gets the full width it has. */
+  .case--dirA-tall .visual .art{width:min(100%,440px);margin-inline:auto}
   .case--dirA-stack{align-items:center}
   .case--dirA .visual{width:100%}
   .case--dirA h3{font-size:38px}
@@ -1780,8 +1920,10 @@ document.querySelector('.theme-toggle').addEventListener('click',function(){
   var resetBtn=document.querySelector('.reset-fab');
   var pieces=[];
   var moved=false;
+  var hintOff=null;
 
   function flagMoved(){
+    if(hintOff) hintOff();
     if(moved) return;
     moved=true; root.classList.add('deco-moved');
   }
@@ -1999,6 +2141,59 @@ document.querySelector('.theme-toggle').addEventListener('click',function(){
     if(getComputedStyle(el).position!=='absolute') return;   /* stacked on mobile */
     draggable(el, field, true, 6, 'font');
   });
+
+  /* ---------- the hint cycle ----------
+     Every few seconds one object plays the hover state without being hovered,
+     so a viewer who never puts a pointer near them still learns they move. The
+     objects take turns, three rounds and then it rests: a page that keeps
+     twitching at you is worse than one that never offered.
+
+     Desktop pointers only. Below 1024 the objects are decoration, a touch
+     screen has no hover for this to be a preview of, and reduced motion is a
+     no. It stops for good the first time one is hovered, picked up or resized,
+     because at that point the viewer has found them, and it holds off while the
+     hero is scrolled out of sight rather than spending its three rounds on an
+     empty screen. */
+  (function(){
+    if(!layer||!window.matchMedia) return;
+    function on(q){ return matchMedia(q).matches; }
+    if(!on('(min-width:1024px)')||!on('(hover:hover)')||
+       on('(prefers-reduced-motion: reduce)')) return;
+    var HOLD=1900, GAP=2600, ROUND=7000, ROUNDS=3;
+    var order=['.deco-plane','.deco-onigiri','.deco-face'].map(function(sel){
+      return layer.querySelector(sel);
+    }).filter(Boolean);
+    if(!order.length) return;
+    var i=0, rounds=0, timer=0, done=false;
+
+    function stop(){
+      if(done) return;
+      done=true; clearTimeout(timer);
+      order.forEach(function(el){ el.classList.remove('is-hint'); });
+    }
+    function inView(){
+      var r=layer.getBoundingClientRect();
+      return r.bottom>140 && r.top<innerHeight-80;
+    }
+    function tick(){
+      if(done) return;
+      if(rounds>=ROUNDS) return stop();
+      if(!inView()){ timer=setTimeout(tick,GAP); return; }
+      var el=order[i];
+      el.classList.add('is-hint');
+      setTimeout(function(){ el.classList.remove('is-hint'); },HOLD);
+      i++;
+      if(i<order.length){ timer=setTimeout(tick,GAP); }
+      else { i=0; rounds++; timer=setTimeout(tick,ROUND); }
+    }
+    /* pointerover, not pointerenter: the layer takes no pointer events itself,
+       so this only ever arrives from an object underneath it, by bubbling. */
+    ['pointerover','pointerdown'].forEach(function(t){
+      layer.addEventListener(t,stop,{passive:true});
+    });
+    hintOff=stop;
+    timer=setTimeout(tick,GAP);
+  })();
 
   if(!pieces.length) return;
   if(resetBtn) resetBtn.addEventListener('click',function(){
