@@ -502,8 +502,10 @@ h2 em{font-style:italic}
   .cs-fix{min-height:0;padding-top:calc(var(--navh,95px) + 14px)}
   .cs-inner{padding:0 22px}
   .cs-shot{width:auto;margin-top:26px}
-  .mock--desk{display:none}
-  .mock--phone{width:244px;margin-left:0;margin-bottom:0}
+  /* This hero has only the desktop frame, so hiding it left nothing at all in
+     the hero on a phone. It stays, scaled down. */
+  .mock--phone{display:none}
+  .mock--desk .mock-screen{height:clamp(200px,38vh,340px)}
 }
 
 /* ---------- the facts, in a card ---------- */
@@ -1005,9 +1007,9 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21h-4V9z"/></svg>
             linkedin.com/in/roxana-higgins
           </a>
-          <a href="mailto:hello@example.com">
+          <a href="mailto:roxanafhiggins@gmail.com">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 6.5l9 6.5 9-6.5"/></svg>
-            hello@example.com
+            roxanafhiggins@gmail.com
           </a>
         </div>
       </div>
@@ -1108,16 +1110,52 @@ document.querySelector('.theme-toggle').addEventListener('click',function(){
       var z=Math.min(1,p/GROW);
       var ez=1-Math.pow(1-z,3);
       if(copy){
-        var f=Math.min(1,p/(GROW*0.75));
+        var f=Math.min(1,p/(GROW*0.6));
         copy.style.opacity=(1-f).toFixed(3);
         copy.style.transform='translate3d(0,'+(-30*f).toFixed(1)+'px,0)';
         copy.style.pointerEvents=f>0.85?'none':'';
       }
       if(shot){
         var vw=document.documentElement.clientWidth,navh=nav.offsetHeight;
-        /* the frame that leads: the browser on a desktop, the phone on a phone.
-           the phone is never scaled on its own, it rides along so the overlap holds. */
+        /* the frame that leads is the browser one at every width now: it is the
+           one that pans, and the phone frame is hidden below 820 rather than
+           standing in for it. the fallback stays for a page that has no browser
+           frame in its hero. */
         var main=(desk&&desk.offsetParent)?desk:(phone||desk);
+
+        /* Fill the height with the window, not only with the scale. Scaling
+           alone cannot do it on a narrow screen, where the frame is already
+           nearly the full width and the sideways cap pins the scale near 1. So
+           the window grows by as much as the scale cannot cover, and never past
+           the height of the picture inside it. */
+        var screen=main.querySelector('.mock-screen');
+        if(screen){
+          /* The resting height is read back from the stylesheet rather than
+             assumed, and re-read whenever the viewport changes or the picture
+             finishes loading. Keying it on the viewport alone measured one hero
+             at 81px, because the first frame ran before its image had loaded
+             and that hero sizes its window to the picture. */
+          var pic0=screen.querySelector('img');
+          var key=vw+'x'+vh+'x'+(pic0&&pic0.complete?1:0);
+          if(screen.dataset.key!==key){
+            screen.style.height='';
+            screen.dataset.h0=screen.offsetHeight;
+            screen.dataset.key=key;
+          }
+          var h0=+screen.dataset.h0;
+          var bar=main.offsetHeight-screen.offsetHeight;
+          var lreach=main.offsetWidth/2;
+          if(phone&&phone.offsetParent){
+            var gl=Math.min(main.offsetLeft,phone.offsetLeft);
+            var gr=Math.max(main.offsetLeft+main.offsetWidth,phone.offsetLeft+phone.offsetWidth);
+            lreach=(gr-gl)/2;
+          }
+          var scMax=Math.max(1,vw*0.495/lreach);
+          var pic=screen.querySelector('img');
+          var hMax=pic&&pic.offsetHeight?pic.offsetHeight:1e6;
+          var hWant=Math.max(h0,Math.min(h0*2.2,hMax,(vh-navh-26)/scMax-bar));
+          screen.style.height=(h0+(hWant-h0)*ez).toFixed(1)+'px';
+        }
         var d0=main.offsetTop,dh=main.offsetHeight,dw=main.offsetWidth,sw=shot.offsetWidth;
         /* the leading frame sits left of the group centre because the phone hangs off
            the right, so pull it halfway back towards the middle as it grows */
@@ -1126,10 +1164,16 @@ document.querySelector('.theme-toggle').addEventListener('click',function(){
         var l=main.offsetLeft,r=main.offsetLeft+dw;
         if(phone&&phone.offsetParent){l=Math.min(l,phone.offsetLeft);r=Math.max(r,phone.offsetLeft+phone.offsetWidth);}
         var reach=Math.max(Math.abs(l-sw/2+pull),Math.abs(r-sw/2+pull));
-        /* three quarters of the height, as long as nothing spills off the sides */
-        var target=Math.max(1,Math.min(vh*0.75/dh, vw*0.485/reach));
+        /* nearly the whole height now, as long as nothing spills off the sides */
+        var target=Math.max(1,Math.min((vh-navh-26)/dh, vw*0.495/reach));
         var sc=1+(target-1)*ez;
-        var base=(fix?fix.getBoundingClientRect().top:0)+shot.offsetTop;
+        /* offsetTop is measured from the shot's offsetParent, and that is
+           .cs-inner, not .cs-fix: the reveal puts a transform on .cs-inner and a
+           transformed element becomes the offsetParent even while it is static.
+           Reading from .cs-fix left the frame 105px, the height of that
+           element's padding, lower than the code intended. */
+        var op=shot.offsetParent||fix;
+        var base=(op?op.getBoundingClientRect().top:0)+shot.offsetTop;
         var want=navh+Math.max(0,(vh-navh-dh*sc)/2);
         shot.style.transform='translate3d('+(pull*sc*ez).toFixed(1)+'px,'+((want-base-d0*sc)*ez).toFixed(1)+'px,0) scale('+sc.toFixed(3)+')';
       }

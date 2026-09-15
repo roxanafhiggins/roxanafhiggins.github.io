@@ -23,6 +23,8 @@
   --shadow-btn:0 14px 30px -14px rgba(17,19,24,.5);
   --slot:rgba(17,19,24,.10);
   --tint-a:rgba(92,109,244,.10); --tint-b:rgba(225,107,67,.075);
+  --tint-c:rgba(170,119,239,.10);
+  --red:#D93A26; --red-tint:rgba(217,58,38,.10);
   --panel-1:#0E1014; --panel-2:#171A28; --panel-3:#232A52;
   --panel-4:#2F3878; --panel-5:#3A44A0; --panel-fg:#FFFFFF;
   --wordmark:rgba(255,255,255,.68); --halftone:rgba(255,255,255,.30);
@@ -52,6 +54,8 @@
     --shadow-btn:0 14px 30px -14px rgba(74,90,232,.5);
     --slot:rgba(142,155,255,.16);
     --tint-a:rgba(92,109,244,.14); --tint-b:rgba(225,107,67,.08);
+    --tint-c:rgba(170,119,239,.16);
+    --red:#FF7A63; --red-tint:rgba(255,122,99,.16);
     --panel-1:#0E1014; --panel-2:#141726; --panel-3:#1D2344;
     --panel-4:#262E63; --panel-5:#303A86; --panel-fg:#F5F6F8;
     --wordmark:rgba(245,246,248,.17); --halftone:rgba(255,255,255,.13);
@@ -71,6 +75,8 @@
   --shadow-btn:0 14px 30px -14px rgba(74,90,232,.5);
   --slot:rgba(142,155,255,.16);
   --tint-a:rgba(92,109,244,.14); --tint-b:rgba(225,107,67,.08);
+  --tint-c:rgba(170,119,239,.16);
+  --red:#FF7A63; --red-tint:rgba(255,122,99,.16);
   --panel-1:#0E1014; --panel-2:#141726; --panel-3:#1D2344;
   --panel-4:#262E63; --panel-5:#303A86; --panel-fg:#F5F6F8;
   --wordmark:rgba(245,246,248,.17); --halftone:rgba(255,255,255,.13);
@@ -312,6 +318,88 @@ h2 em{font-style:italic}
 .closing .alt{margin-top:22px;font-size:15px;color:rgba(245,246,248,.62)}
 .closing .alt a{color:#8E9BFF;text-decoration:underline;text-underline-offset:3px}
 
+/* ---------- next case, in the home page's card style ----------
+   The dark panel that used to close this page is gone. The last thing a reader
+   sees is now the same card the home page uses for a case study, so it looks
+   like the thing it links to rather than like a different site.
+
+   The tokens are lifted from index.html so the two stay in step, including the
+   dark theme swap: the orange lifts to keep its contrast on a dark surface, the
+   card takes a hairline because #15171D on #0C0D11 is only 1.08:1, and the near
+   black pill becomes the blue one, because a near black button on a dark card
+   is an invisible button. */
+#next{padding-top:96px;padding-bottom:116px}
+.nextcard{
+  --a-ink:#111318; --a-muted:#4C515B; --a-faint:#6D727C;
+  --a-orange:#E16B43; --a-hair:#E7E5EB;
+  --a-surface:#FFFFFF; --a-chip:#FFFFFF; --a-edge:transparent;
+  --a-btn:#111318; --a-btn-fg:#FFFFFF;
+  display:flex;align-items:center;gap:44px;
+  background:var(--a-surface);border-radius:28px;padding:40px;
+  box-shadow:inset 0 0 0 1px var(--a-edge);color:var(--a-ink);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.nextcard:hover,.nextcard:focus-visible{transform:translateY(-3px)}
+.nextcard .copy{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:20px}
+.nc-meta{display:flex;align-items:center;gap:12px}
+.nc-meta img{width:34px;height:34px;border-radius:9px;display:block}
+.nc-co{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--a-orange)}
+.nc-yr{font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--a-faint)}
+.nextcard h2{font-family:var(--font);font-size:clamp(28px,2.9vw,40px);line-height:1.08;
+  letter-spacing:-.022em;font-weight:800;color:var(--a-ink);margin:0;max-width:18ch}
+.nextcard p{margin:0;font-size:17px;line-height:1.55;color:var(--a-muted);max-width:52ch}
+.nc-tags{display:flex;flex-wrap:wrap;gap:9px}
+.nc-tags > span{display:inline-flex;align-items:center;gap:8px;padding:7px 15px;
+  border:1px solid var(--a-hair);border-radius:999px;background:var(--a-chip)}
+.nc-tags > span > span{font-size:14px;font-weight:600;color:var(--a-ink)}
+.nc-tags i{width:8px;height:8px;border-radius:999px;flex:none}
+/* a span, not an anchor: the whole card is the link and anchors cannot nest */
+.nc-more{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;
+  height:54px;padding:0 28px;border-radius:999px;
+  background:var(--a-btn);color:var(--a-btn-fg);font-size:16px;font-weight:700}
+.nc-more .ar{font-size:15px;color:var(--a-btn-fg);transition:transform .3s var(--ease)}
+.nextcard:hover .nc-more .ar,.nextcard:focus-visible .nc-more .ar{transform:translate(2px,-2px)}
+/* Smaller than the home page's 480px and held inside the card rather than
+   bleeding off its right edge, which is what she asked for. */
+.nc-visual{width:42%;flex:none;display:block}
+.nc-visual .browser{width:min(100%,430px);max-width:none;margin-left:auto;
+  border:1px solid var(--a-hair);box-shadow:0 26px 50px -28px rgba(0,0,0,.45)}
+.nc-visual .browser .shot{display:block;width:100%;height:calc(100% - 34px);
+  object-fit:cover;object-position:top left}
+.nc-alt{margin-top:22px;font-size:15px;color:var(--ink-3)}
+.nc-alt a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+@media(max-width:1023px){
+  .nextcard{flex-direction:column;align-items:flex-start;gap:28px;padding:32px}
+  .nc-visual{width:100%}
+  .nc-visual .browser{margin-left:0;width:100%}
+}
+@media(max-width:520px){
+  .nextcard{padding:26px 22px}
+  .nextcard h2{font-size:29px}
+  .nextcard p{font-size:16px}
+  .nc-more{height:50px;padding:0 22px;font-size:15px}
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .nextcard{
+    --a-ink:#F5F6F8; --a-muted:#B7BCC6; --a-faint:#9AA0AB;
+    --a-orange:#F08A63; --a-hair:rgba(245,246,248,.15);
+    --a-surface:var(--surface); --a-chip:rgba(245,246,248,.05);
+    --a-edge:rgba(245,246,248,.09);
+    --a-btn:var(--btn); --a-btn-fg:var(--btn-fg);
+  }
+}
+:root[data-theme="dark"] .nextcard{
+  --a-ink:#F5F6F8; --a-muted:#B7BCC6; --a-faint:#9AA0AB;
+  --a-orange:#F08A63; --a-hair:rgba(245,246,248,.15);
+  --a-surface:var(--surface); --a-chip:rgba(245,246,248,.05);
+  --a-edge:rgba(245,246,248,.09);
+  --a-btn:var(--btn); --a-btn-fg:var(--btn-fg);
+}
+@media (prefers-reduced-motion: reduce){
+  .nextcard,.nc-more .ar{transition:none}
+  .nextcard:hover,.nextcard:focus-visible{transform:none}
+}
+
 /* ---------- the two objects on the discovery panel ----------
    Coffee hangs off the top right corner and the idea off the bottom right, both
    clear of the copy: the text column is capped at 34ch and sits hard left, so a
@@ -502,8 +590,13 @@ h2 em{font-style:italic}
   .cs-fix{min-height:0;padding-top:calc(var(--navh,95px) + 14px)}
   .cs-inner{padding:0 22px}
   .cs-shot{width:auto;margin-top:26px}
-  .mock--desk{display:none}
-  .mock--phone{width:244px;margin-left:0;margin-bottom:0}
+  /* The desktop frame stays and the phone goes, not the other way round. The
+     pan on scroll lives on the desktop frame, so hiding it left a phone that
+     sits there and does nothing, which was the whole point of the hero. It is
+     just scaled down: the frame is fluid and the screen height clamps. */
+  .mock--phone{display:none}
+  .mock--desk{flex:1 1 auto}
+  .mock--desk .mock-screen{height:clamp(200px,38vh,340px)}
 }
 
 /* ---------- the facts, in a card ---------- */
@@ -512,6 +605,9 @@ h2 em{font-style:italic}
 .factbar{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin:0}
 .factbar dt{font-size:15px;font-weight:700;letter-spacing:-.01em;color:var(--accent);margin-bottom:10px}
 .factbar dd{margin:0;font-size:15.5px;line-height:1.55;color:var(--ink-2)}
+/* three facts now that the timeline is out, so the row divides by three */
+.factbar--three{grid-template-columns:repeat(3,1fr)}
+@media(max-width:760px){.factbar--three{grid-template-columns:1fr}}
 @media(max-width:900px){.factbar{grid-template-columns:1fr 1fr;gap:24px}}
 
 /* ---------- text blocks ---------- */
@@ -531,6 +627,21 @@ h2 em{font-style:italic}
 .side .cam img{max-width:none;border-radius:0}
 .side--wide img{max-width:none;border-radius:14px}
 .side--wide figure+figure{margin-top:26px}
+/* ---------- part 3, the two spec boards ----------
+   They are wide boards, and one under the other in a 480px side column made
+   that block twice as tall as the two either side of it, so the copy beside it
+   had scrolled away long before the last board arrived. The copy now runs
+   across the top and the two boards sit next to each other underneath, which
+   costs them no width at all: they were about 480px each in the column and they
+   are about 460px each here, in half the height. */
+.blk--pair .col{max-width:66ch}
+.side--pair{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:34px}
+.side--pair img{max-width:none;width:100%;margin-left:0;border-radius:14px}
+.side--pair figcaption{max-width:none}
+/* The page stacks figures with figure+figure{margin-top:34px}. In a grid row
+   that lands on the second column and drops it 34px below the first. */
+.side--pair figure+figure{margin-top:0}
+@media(max-width:900px){.side--pair{grid-template-columns:1fr;gap:24px;margin-top:26px}}
 .side figcaption{max-width:none}
 @media(max-width:900px){
   .blk--split{grid-template-columns:1fr;gap:26px}
@@ -545,8 +656,9 @@ h2 em{font-style:italic}
 .blk p{font-size:17px;line-height:1.68;color:var(--ink-2)}
 .blk p strong,.blk p b{color:var(--ink);font-weight:600}
 .blk p.lead2{font-size:19px;line-height:1.6;color:var(--ink)}
-.kicker{font-size:12px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:16px}
+.kicker,.blk p.kicker{font-size:12px;font-weight:600;letter-spacing:.15em;
+  line-height:1.35;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.blk p.kicker+h2,.blk p.kicker+h3{margin-top:10px}
 .list{list-style:none;margin:24px 0 0;padding:0;display:flex;flex-direction:column;gap:13px}
 .list li{position:relative;padding-left:26px;font-size:17px;line-height:1.6;color:var(--ink-2)}
 .list li::before{content:"";position:absolute;left:2px;top:.66em;width:7px;height:7px;
@@ -689,6 +801,140 @@ figcaption{margin-top:17px;font-size:15px;line-height:1.6;color:var(--ink-2)}
   color:var(--ink);margin-bottom:8px}
 .buckets span{display:block;font-size:15px;line-height:1.55;color:var(--ink-2)}
 @media(max-width:700px){.buckets{grid-template-columns:1fr}}
+
+/* ---------- what I owned, the three pieces ----------
+   This replaces a five item bullet list. Same content, but the shape of the
+   project is visible before any of it is read, and each row is a door into the
+   section that covers it, so a reader who only came for the components can get
+   there in one click rather than scrolling for it.
+
+   Numbers carry the order. Each row takes one colour from the site triad, blue,
+   purple and peach, the same three the case cards use on the home page, at the
+   tint alphas rather than full strength so three coloured rows in a column do
+   not shout. Each row is an opaque card, so the copy inside it is never sitting
+   on the dot grid.
+
+   The pictures are hers: a photograph for the sessions, the rebuilt profile
+   itself, and the two shared components side by side. Each one is held inside
+   its slot whole rather than cropped to a window, capped at 200px tall so a
+   portrait screenshot cannot make its card twice the height of the others, and
+   carries a hairline and a shadow so a white artwork still has an edge on a
+   white card. */
+/* Three upright cards in one row, so the whole of what she owned is one
+   glance rather than three scrolls. Each card reads top to bottom: number,
+   title, what it was, the tags, the picture, and the way into the section that
+   covers it, with the links pushed to the foot of the card by margin-top:auto
+   so all three sit on one line whatever the copy above them does. */
+.owned{list-style:none;margin:34px 0 0;padding:0;
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.owned > li{--row:var(--tint-a);display:flex;flex-direction:column;
+  padding:28px 26px 26px;border-radius:24px;border:1px solid var(--rule);
+  background-color:var(--surface);
+  background-image:linear-gradient(168deg,var(--row),transparent 66%)}
+.owned > li:nth-child(2){--row:var(--tint-c)}
+.owned > li:nth-child(3){--row:var(--tint-b)}
+.owned-no{display:grid;place-items:center;width:46px;height:46px;border-radius:999px;
+  background:var(--row);font-size:14.5px;font-weight:700;color:var(--ink);
+  margin-bottom:18px}
+.owned h3{margin:0;font-family:var(--font);font-size:20px;font-weight:700;
+  letter-spacing:-.022em;line-height:1.25;color:var(--ink)}
+.owned h3+p{margin-top:11px}
+.blk .owned p{font-size:15.5px;line-height:1.6;color:var(--ink-2)}
+.blk p.owned-tags{margin-top:16px;font-size:11.5px;font-weight:600;letter-spacing:.11em;
+  line-height:1.5;text-transform:uppercase;color:var(--ink-3)}
+.owned-visual{flex:1;min-height:0;margin-top:22px;
+  display:flex;align-items:center;justify-content:center}
+.owned-img{display:block;width:auto;height:auto;max-width:100%;
+  /* A hard ceiling in px, not max-height:100%. The slot's height comes from
+     flex:1, which resolves from the card, which resolves from its content, so a
+     percentage has nothing to measure against and the portrait screenshot grew
+     to 425px and made its card twice the height of the others. */
+  max-height:200px;border-radius:12px;
+  /* A hairline as well as the shadow. The components shot is white artwork on a
+     white ground, so on a white card a shadow alone left it with no edge at all
+     and it read as an empty gap in the card. */
+  border:1px solid var(--rule);
+  filter:drop-shadow(0 16px 26px rgba(17,19,24,.20)) drop-shadow(0 4px 8px rgba(17,19,24,.12))}
+/* Down, not out: these go further along the same page, and the arrow used for
+   leaving the site is the diagonal one. */
+.owned-go{display:inline-flex;align-items:center;gap:9px;
+  margin-top:auto;padding-top:22px;
+  font-size:15px;font-weight:600;color:var(--ink)}
+.owned-go .ar{color:var(--ink-3);font-size:14px;transition:transform .3s var(--ease)}
+.owned-go:hover,.owned-go:focus-visible{color:var(--accent)}
+.owned-go:hover .ar,.owned-go:focus-visible .ar{color:var(--accent);transform:translateY(3px)}
+/* One column below the desktop band. Three cards at 1023 come out under 300px
+   each, which is narrower than the copy inside them wants to be. */
+@media(max-width:1023px){
+  .owned{grid-template-columns:1fr;gap:16px}
+  .owned > li{padding:26px 22px}
+  .owned-visual{justify-content:flex-start}
+  .owned-img{max-width:420px}
+  .owned-go{padding-top:20px}
+}
+/* The nav is sticky, so a jump target has to leave room for it or the heading
+   it lands on sits underneath. The split blocks carry their id on the text
+   column rather than on the block, because those columns are centred against a
+   much taller figure and a jump to the block landed on a picture with the
+   heading half a screen below it. */
+.blk[id],.blk .col[id]{scroll-margin-top:96px}
+
+/* ---------- the challenge, two halves ----------
+   Two columns that are one argument: on the left why candidates do not keep a
+   profile, on the right why that costs them anyway, and the question the rest of
+   the case study answers underneath. Side by side on desktop so the tension is
+   visible in one look rather than a scroll apart.
+
+   It breaks to one column at 1023 rather than at the 900 the other duo uses.
+   Tablet portrait is the width this page is most often opened at, and at 900 to
+   1023 two columns of this much copy come out around 430px each, which is a
+   measure that reads like a newspaper.
+
+   Hierarchy: one label for the whole section, one dominant statement on the
+   left, and a supporting one on the right that is an h3 and looks like an h3.
+   Two headings at the same size side by side gave the reader no order to read
+   them in, and needed a second label on the right to hide the fact. The label
+   spans both columns rather than sitting inside the left one, which is also
+   what lets both columns start on the same line. */
+.blk--chal{display:block}
+.blk p.chal-kick{display:inline-block;color:var(--red);margin:0 0 2px -20px;padding:10px 20px 8px;
+  background:radial-gradient(100% 160% at 50% 50%,var(--fog) 0 54%,var(--fog-0) 100%)}
+.chal-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:start}
+.chal-grid .col{max-width:none;padding:16px 32px 30px;margin-left:-32px}
+.blk--chal h2{font-size:clamp(28px,3vw,40px);max-width:20ch}
+.blk--chal h3{font-family:var(--font);font-size:23px;font-weight:700;
+  letter-spacing:-.02em;line-height:1.25;color:var(--ink);max-width:22ch}
+.blk--chal h3+p{margin-top:14px}
+@media(max-width:1023px){
+  .chal-grid{grid-template-columns:1fr;gap:10px}
+  .chal-grid .col:last-child{padding-top:30px}
+}
+
+/* The three ways it shows up. Icon in a tinted disc, label, one line of plain
+   detail: enough to scan without reading the paragraph above it. The disc, the
+   icon and the label are one colour, and the icon art is drawn centred on the
+   viewBox so place-items has something honest to centre. */
+.pains{list-style:none;margin:28px 0 0;padding:0;
+  display:flex;flex-direction:column;gap:20px}
+.pains li{display:flex;align-items:flex-start;gap:15px}
+.pico{flex:none;display:grid;place-items:center;width:44px;height:44px;
+  border-radius:999px;background:var(--red-tint);color:var(--red)}
+.pico svg{display:block;width:22px;height:22px}
+.pains b{display:block;font-size:15.5px;font-weight:700;letter-spacing:-.01em;
+  color:var(--red);margin-bottom:5px}
+.pains div span{display:block;font-size:15.5px;line-height:1.55;color:var(--ink-2)}
+
+/* The question the whole case study is an answer to. It sits directly under the
+   paragraph it comes out of rather than being pushed to the foot of the column,
+   which only looked deliberate at one window width. */
+.keyq{margin-top:28px;padding:24px 26px;border-left:3px solid var(--red);
+  border-radius:0 18px 18px 0;background:var(--red-tint)}
+.blk .keyq p{margin-top:0;font-size:19px;line-height:1.45;font-weight:600;color:var(--ink)}
+.blk .keyq p.kicker{font-size:12px;line-height:1.35;color:var(--red);margin-bottom:8px}
+@media(max-width:520px){
+  .keyq{padding:20px 20px}
+  .blk .keyq p{font-size:17.5px}
+}
 @media(max-width:620px){.trio,.pair{grid-template-columns:1fr}}
 
 /* ---------- theme toggle, floating instead of in the nav ----------
@@ -869,7 +1115,7 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
 <section class="sec wrap" style="padding-top:0">
 
   <div class="factcard reveal">
-    <dl class="factbar">
+    <dl class="factbar factbar--three">
       <div>
         <dt>Role</dt>
         <dd>Product Designer<br>Sole designer on the project</dd>
@@ -877,10 +1123,6 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
       <div>
         <dt>Team</dt>
         <dd>1 Product Manager<br>2 to 3 Engineers</dd>
-      </div>
-      <div>
-        <dt>Timeline</dt>
-        <dd>Three months<br>Research to handover</dd>
       </div>
       <div>
         <dt>Focus</dt>
@@ -903,14 +1145,11 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
 
   <div class="blk blk--first blk--duo reveal">
     <div class="col">
-      <p class="kicker">What this project was</p>
       <h2>About the project</h2>
-      <p>Workwise is a job marketplace in Germany. Candidates keep one profile and apply with it, no cover letters. Over 2,000 companies read that profile when someone applies, and search it when they go looking for people themselves. It is not a settings page. It is the product.</p>
-      <p>A CV cannot carry that. It goes out of date, it says nothing about what someone wants next, and you cannot compare it across thousands of people.</p>
-      <p>So I rebuilt structured input in both places it happens, the signup wizard and the profile page, then added gamification across the job search flow: a completion score on the candidate's own photo, and prompts where intent is already high. The score belongs to the candidate, not the platform. It never blocks the flow it sits in.</p>
+      <p>Workwise is a German job marketplace where one candidate profile replaces the traditional CV and cover letter, used by 2,000+ companies to evaluate and discover talent.</p>
+      <p>I redesigned how candidates build and maintain that profile across signup and the profile itself, then introduced gamification throughout the job search. A completion score and contextual prompts encourage stronger profiles without ever blocking the user's flow.</p>
     </div>
     <div class="col">
-      <p class="kicker">What I did</p>
       <h2>My role</h2>
       <p>I owned the work end to end, from research and structure to flows, edge cases and shipped UI.</p>
       <p>I built the input components and worked with the wider design team to align them with the design system, so the same patterns run across B2C, B2B, the signup flow and Workwise staff products.</p>
@@ -939,33 +1178,92 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
     </figure>
   </div>
 
-  <div class="blk reveal">
+  <div class="blk blk--chal reveal" id="problem">
+    <p class="kicker chal-kick">Challenges</p>
+    <div class="chal-grid">
     <div class="col">
-      <h2>My contributions</h2>
-      <ul class="list">
-        <li>Sessions with colleagues close to the target group, talent managers above all, run on every round.</li>
-        <li>Rebuilt profile page: skills, languages and levels, experience, CV, personal details.</li>
-        <li>A new section for what candidates want, including an actively looking toggle.</li>
-        <li>Input components, editing states and feedback, reused in the signup wizard and on the employer side.</li>
-        <li>Completion percentage in the account menu, and the prompt card inside job search.</li>
+      <h2>Candidates have little reason to maintain a profile.</h2>
+      <p>Most candidates use multiple job platforms at once. Completing yet another profile takes time, offers little immediate reward, and often feels repetitive. As a result, many skip fields, drop off halfway through, or never come back to update their information.</p>
+      <ul class="pains">
+        <li>
+          <span class="pico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7.8" r="4"/><path d="M4.8 20.2a7.2 7.2 0 0 1 14.4 0"/></svg></span>
+          <div><b>Incomplete profiles</b><span>Many candidates skip fields or stop halfway.</span></div>
+        </li>
+        <li>
+          <span class="pico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.2"/><path d="M12 7.2V12l3.4 2"/></svg></span>
+          <div><b>Outdated information</b><span>Profiles often are not updated for months or years.</span></div>
+        </li>
+        <li>
+          <span class="pico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.3 12S6.9 5.9 12 5.9s8.7 6.1 8.7 6.1-3.6 6.1-8.7 6.1S3.3 12 3.3 12Z"/><circle cx="12" cy="12" r="2.9"/><path d="M4.6 19.4 19.4 4.6"/></svg></span>
+          <div><b>Low engagement</b><span>Candidates rarely return after the initial signup.</span></div>
+        </li>
       </ul>
+    </div>
+    <div class="col">
+      <h3>But the profile is critical to getting hired.</h3>
+      <p>Employers use the profile to understand a candidate&rsquo;s experience and goals, and they actively search for talent directly on the platform, often before any application is made. A thin or outdated profile reduces visibility and opportunities for the candidate.</p>
+      <div class="keyq">
+        <p class="kicker">Key challenge</p>
+        <p>How might we make completing and maintaining a profile feel worth the effort for candidates?</p>
+      </div>
+    </div>
     </div>
   </div>
 
-  <div class="blk reveal" id="problem">
+  <div class="blk reveal" id="owned">
     <div class="col">
-      <h2>Challenges</h2>
-      <p class="lead2"><strong>Nobody wants to fill in a profile.</strong> People are signed up to several job sites at once, they do not feel any ownership over any single profile, and filling one in is boring work with no immediate reward. So they skip fields, or they stop halfway, or they never come back to update the one they made two years ago.</p>
-      <p>That matters because the profile does two jobs. When a candidate applies, the company reads what they have done and what they are looking for, and decides from that. And companies search profiles directly, so a candidate can be found without applying to anything at all. A thin or two-year-old profile fails at both.</p>
+      <p class="kicker">My contribution</p>
+      <h2>Turning insights into a better candidate experience</h2>
+      <p class="lead2">I led the redesign of the candidate profile and introduced reusable product patterns to make the experience simpler, more intuitive and more engaging, for both candidates and employers.</p>
     </div>
+    <ol class="owned">
+      <li>
+        <span class="owned-no" aria-hidden="true">01</span>
+        <div>
+          <h3>Research &amp; validation</h3>
+          <p>Ran recurring feedback sessions with talent managers and colleagues close to the target audience to validate concepts throughout the design process.</p>
+          <p class="owned-tags">Talent managers &middot; Colleagues &middot; Candidates</p>
+        </div>
+        <div class="owned-visual">
+          <img class="owned-img" src="images/research-session.webp" width="1500" height="1000" loading="lazy"
+               alt="A feedback session in progress: someone placing a sticky note on a wall of notes and printed screens while two colleagues watch">
+        </div>
+        <a class="owned-go" href="#research">See how the validation ran <span class="ar">&#8595;</span></a>
+      </li>
+      <li>
+        <span class="owned-no" aria-hidden="true">02</span>
+        <div>
+          <h3>Candidate profile experience</h3>
+          <p>Redesigned the candidate profile across skills, languages, experience, CV and personal details, and introduced preferences such as job expectations and the &ldquo;actively looking&rdquo; status.</p>
+          <p class="owned-tags">Profile &middot; Skills &middot; Preferences &middot; Status</p>
+        </div>
+        <div class="owned-visual">
+          <img class="owned-img" src="images/workwise-profile-mobile.webp" width="760" height="1500" loading="lazy"
+               alt="The rebuilt profile on a phone: what the candidate is looking for shown around their photo, and the open for offers switch above it">
+        </div>
+        <a class="owned-go" href="#fill-in">See the rebuilt profile <span class="ar">&#8595;</span></a>
+      </li>
+      <li>
+        <span class="owned-no" aria-hidden="true">03</span>
+        <div>
+          <h3>Reusable product patterns</h3>
+          <p>Designed reusable form components, editing states and feedback patterns used across candidate and employer journeys. Added profile completion and contextual prompts to encourage candidates to complete their profiles.</p>
+          <p class="owned-tags">Forms &middot; States &middot; Prompts &middot; Completion</p>
+        </div>
+        <div class="owned-visual">
+          <img class="owned-img" src="images/workwise-patterns-pair.webp" width="1500" height="1364" loading="lazy"
+               alt="Two of the shared components: the work location sheet with its city list and homeoffice chips, and the language block with level sliders above a profile completion prompt">
+        </div>
+        <a class="owned-go" href="#components">See the shared components <span class="ar">&#8595;</span></a>
+      </li>
+    </ol>
   </div>
 
   <div class="blk reveal" id="research">
     <div class="col">
-      <h2>What research gave me</h2>
-      <p><strong>I could not talk to candidates, so I sat with the people closest to them.</strong> I booked sessions in the office with colleagues who are not technical and who deal with candidates all day, talent managers above all. They are close enough to the target group to behave like it.</p>
-      <p>Each person got one specific task and no help from me. I watched them do it and wrote down every point where they stopped, guessed, or asked what something meant. I ran this on every round, not once at the start.</p>
-      <p>Afterwards I sorted the notes into four piles, and the piles set the order of the work.</p>
+      <h2>Validation throughout the process</h2>
+      <p>I ran recurring usability sessions with talent managers and colleagues closest to our candidates.</p>
+      <p>Participants completed tasks without guidance while I tracked friction, confusion and hesitation. I repeated this each design round, using the findings to prioritise the next improvements.</p>
     </div>
     <ul class="buckets">
       <li><span class="bicon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none">
@@ -1006,10 +1304,6 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
               stroke-linecap="round" stroke-dasharray="2 3.6" stroke-opacity=".75"/>
       </svg></span><div><b>Motivational dropoff</b><span>The moments where people stopped caring enough to carry on.</span></div></li>
     </ul>
-    <div class="col">
-      <p class="note">The sessions were not filmed and the notes are not a deliverable, so there is nothing to show here.</p>
-      <p><strong>The structural finding: what you have done and what you want are two different questions.</strong> The old page mixed them, which is part of why it felt arbitrary. Separating them let each part be paced on its own, and gave the new intent section a place of its own instead of being buried.</p>
-    </div>
   </div>
 
   <div class="blk reveal" id="parts">
@@ -1070,7 +1364,7 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
   </div>
 
   <div class="blk blk--split reveal">
-    <div class="col">
+    <div class="col" id="fill-in">
       <p class="kicker">Part 1 of 4</p>
       <h2>Easy to fill in</h2>
       <p>I rebuilt the page around entering information rather than displaying it, mobile first, so skills, languages and their levels, experience, CV and personal details could be added and edited without friction. Most candidates do this on a phone, in a few minutes, between other things.</p>
@@ -1098,19 +1392,14 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
     </figure>
   </div>
 
-  <div class="blk blk--split blk--wide reveal">
-    <div class="col">
+  <div class="blk blk--pair reveal">
+    <div class="col" id="components">
       <p class="kicker">Part 3 of 4</p>
       <h2>Built as components other teams could use</h2>
       <p>Skill and language level selection, editing and adding states, and the small feedback moments that confirm information has been saved were built once, with rules and styling documented, then handed over.</p>
       <p>They are used in the signup wizard and on the employer side, not just here.</p>
     </div>
-    <div class="side side--wide">
-    <figure>
-      <img class="shot shot--framed" src="images/workwise-card-spec.webp" width="1400" height="1174" loading="lazy"
-           alt="Specification board for the card structure on mobile, tablet and desktop, with edit and delete states and card spacing">
-      <figcaption>Card structure, spacing and the edit and delete states, drawn for mobile, tablet and desktop.</figcaption>
-    </figure>
+    <div class="side side--pair">
     <figure>
       <img class="shot" src="images/workwise-awards-spec.webp" width="1700" height="796" loading="lazy"
            alt="Specification board for the awards card, in view mode and in add and edit mode, with every input">
@@ -1141,10 +1430,6 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
 
   <div class="blk reveal" id="call">
     <div class="col">
-      <h2>The hardest call</h2>
-      <p><strong>I did not force it.</strong> The straightforward way to get complete profiles is to demand them, block the application until the profile is done. That would have worked on paper and lost the people who leave halfway.</p>
-      <p>I chose the slower route. Let people finish a usable profile quickly and earn the rest back over time, which means accepting that a real share of profiles are incomplete on day one. That only holds up because the prompts exist. Without them it is just a flow that gives up early.</p>
-      <p class="note"><span class="slot">CONFIRM</span> whether gating was genuinely discussed, or whether this is reconstruction after the fact.</p>
       <h2>What I would do differently</h2>
       <p><strong>I would have measured it.</strong> Two things would have settled the argument: where people drop out of the flow, and how many applications arrive with the intent fields filled in.</p>
       <p>Without those I can defend the thinking but not prove the result. That is the part of this project I would not repeat.</p>
@@ -1153,15 +1438,32 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
 
 </section>
 
-<section class="closing wrap" id="next">
-  <div class="contact-panel reveal">
-    <div class="contact-inner">
-      <h2 class="reveal">Next</h2>
-      <p class="reveal">Same platform, different problem. Or skip ahead to the research work I did with a national broadcaster.</p>
-      <a class="btn-cta reveal" href="case-ard-audiothek.html"><span class="ar">&#8599;</span> See the next case study</a>
-      <p class="alt reveal">or go back to <a href="index.html#work">all work</a>.</p>
+<section class="wrap" id="next">
+  <a class="nextcard reveal" href="case-ard-audiothek.html"
+     aria-label="Explore my research case study, ARD Audiothek">
+    <div class="copy">
+      <div class="nc-meta">
+        <img src="images/case-study-logo-ard.webp" width="34" height="34" alt="ARD Audiothek">
+        <span class="nc-co">ARD Audiothek</span>
+      </div>
+      <h2>Want to see how I approach research?</h2>
+      <p>At ARD Audiothek, I spent a year focused on user research, designing and running studies from research planning and moderation to synthesis and stakeholder recommendations.</p>
+      <div class="nc-tags">
+        <span><i style="background:#E16B43"></i><span>User research</span></span>
+        <span><i style="background:#5C6DF4"></i><span>Usability testing</span></span>
+        <span><i style="background:#AA77EF"></i><span>Research synthesis</span></span>
+      </div>
+      <span class="nc-more">Explore my research case study <span class="ar">&#8599;</span></span>
     </div>
-  </div>
+    <div class="nc-visual">
+      <div class="browser">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <img class="shot" src="images/ard-miro-synthesis.jpg" width="1200" height="583" loading="lazy"
+             alt="The synthesis board in Miro, tagged sticky notes in columns by page, phase and user group">
+      </div>
+    </div>
+  </a>
+  <p class="nc-alt reveal">or go back to <a href="index.html#work">all work</a>.</p>
 </section>
 <footer class="site-footer">
   <p class="footer-meta"><span data-de="Gestaltet und gebaut von Roxana">Designed and built by Roxana</span></p>
@@ -1182,9 +1484,9 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21h-4V9z"/></svg>
             linkedin.com/in/roxana-higgins
           </a>
-          <a href="mailto:hello@example.com">
+          <a href="mailto:roxanafhiggins@gmail.com">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 6.5l9 6.5 9-6.5"/></svg>
-            hello@example.com
+            roxanafhiggins@gmail.com
           </a>
         </div>
       </div>
@@ -1285,16 +1587,61 @@ document.querySelector('.theme-toggle').addEventListener('click',function(){
       var z=Math.min(1,p/GROW);
       var ez=1-Math.pow(1-z,3);
       if(copy){
-        var f=Math.min(1,p/(GROW*0.75));
+        var f=Math.min(1,p/(GROW*0.6));
         copy.style.opacity=(1-f).toFixed(3);
         copy.style.transform='translate3d(0,'+(-30*f).toFixed(1)+'px,0)';
         copy.style.pointerEvents=f>0.85?'none':'';
       }
       if(shot){
         var vw=document.documentElement.clientWidth,navh=nav.offsetHeight;
-        /* the frame that leads: the browser on a desktop, the phone on a phone.
-           the phone is never scaled on its own, it rides along so the overlap holds. */
+        /* the frame that leads is the browser one at every width now: it is the
+           one that pans, and the phone frame is hidden below 820 rather than
+           standing in for it. the fallback stays for a page that has no browser
+           frame in its hero. */
         var main=(desk&&desk.offsetParent)?desk:phone;
+
+        /* Fill the height with the window, not only with the scale.
+           Scaling alone cannot do it on a narrow screen: the frame is already
+           nearly the full width there, so the sideways cap pins the scale near
+           1 and the frame settled at 43% of the viewport with a screen of empty
+           space above it. So the window inside the frame grows too, but only by
+           as much as the scale cannot cover: work out the biggest scale the
+           width allows, ask how tall the frame would have to be unscaled to
+           fill the height at that scale, and take the shortfall out of the
+           window. On a wide screen the scale does nearly all of it and this
+           adds almost nothing. Capped at 2.2 times the resting height so a very
+           tall viewport cannot stretch the frame into a letterbox. */
+        var screen=main.querySelector('.mock-screen');
+        if(screen){
+          /* The resting height is read back from the stylesheet rather than
+             assumed, and re-read whenever the viewport changes or the picture
+             finishes loading. Keying it on the viewport alone measured one hero
+             at 81px, because the first frame ran before its image had loaded
+             and that hero sizes its window to the picture. */
+          var pic0=screen.querySelector('img');
+          var key=vw+'x'+vh+'x'+(pic0&&pic0.complete?1:0);
+          if(screen.dataset.key!==key){
+            screen.style.height='';
+            screen.dataset.h0=screen.offsetHeight;
+            screen.dataset.key=key;
+          }
+          var h0=+screen.dataset.h0;
+          var bar=main.offsetHeight-screen.offsetHeight;
+          var lreach=main.offsetWidth/2;
+          if(phone&&phone.offsetParent){
+            var gl=Math.min(main.offsetLeft,phone.offsetLeft);
+            var gr=Math.max(main.offsetLeft+main.offsetWidth,phone.offsetLeft+phone.offsetWidth);
+            lreach=(gr-gl)/2;
+          }
+          var scMax=Math.max(1,vw*0.495/lreach);
+          /* never taller than the picture it is a window onto: the research
+             hero holds a wide board a few hundred px tall, and a window past
+             that is just white space under it. */
+          var pic=screen.querySelector('img');
+          var hMax=pic&&pic.offsetHeight?pic.offsetHeight:1e6;
+          var hWant=Math.max(h0,Math.min(h0*2.2,hMax,(vh-navh-26)/scMax-bar));
+          screen.style.height=(h0+(hWant-h0)*ez).toFixed(1)+'px';
+        }
         var d0=main.offsetTop,dh=main.offsetHeight,dw=main.offsetWidth,sw=shot.offsetWidth;
         /* the leading frame sits left of the group centre because the phone hangs off
            the right, so pull it halfway back towards the middle as it grows */
@@ -1303,10 +1650,16 @@ document.querySelector('.theme-toggle').addEventListener('click',function(){
         var l=main.offsetLeft,r=main.offsetLeft+dw;
         if(phone&&phone.offsetParent){l=Math.min(l,phone.offsetLeft);r=Math.max(r,phone.offsetLeft+phone.offsetWidth);}
         var reach=Math.max(Math.abs(l-sw/2+pull),Math.abs(r-sw/2+pull));
-        /* three quarters of the height, as long as nothing spills off the sides */
-        var target=Math.max(1,Math.min(vh*0.75/dh, vw*0.485/reach));
+        /* nearly the whole height now, as long as nothing spills off the sides */
+        var target=Math.max(1,Math.min((vh-navh-26)/dh, vw*0.495/reach));
         var sc=1+(target-1)*ez;
-        var base=(fix?fix.getBoundingClientRect().top:0)+shot.offsetTop;
+        /* offsetTop is measured from the shot's offsetParent, and that is
+           .cs-inner, not .cs-fix: the reveal puts a transform on .cs-inner and a
+           transformed element becomes the offsetParent even while it is static.
+           Reading from .cs-fix left the frame 105px, the height of that
+           element's padding, lower than the code intended. */
+        var op=shot.offsetParent||fix;
+        var base=(op?op.getBoundingClientRect().top:0)+shot.offsetTop;
         var want=navh+Math.max(0,(vh-navh-dh*sc)/2);
         shot.style.transform='translate3d('+(pull*sc*ez).toFixed(1)+'px,'+((want-base-d0*sc)*ez).toFixed(1)+'px,0) scale('+sc.toFixed(3)+')';
       }

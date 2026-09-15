@@ -1585,9 +1585,6 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
       <div class="dirA-meta">
         <img class="mark-ink" src="images/case-study-logo-workwise.png" width="34" height="34" alt="Workwise">
         <span class="dirA-co">Workwise</span>
-        <!-- The spec asks for an en dash between the years. Standing no dashes
-             rule wins, so this reads 2022/23. -->
-        <span class="dirA-yr">2022 to 2023</span>
       </div>
       <h3 data-de="Ein Profil, das man fertig ausfüllen will&lt;span class=&quot;stop&quot;&gt;.&lt;/span&gt;">Making the profile worth finishing<span class="stop">.</span></h3>
       <p data-de="Arbeitgeber bewerten und kontaktieren Talente über das Profil. Ich habe es neu gestaltet, und die Gründe, es aktuell zu halten.">The candidate profile is what employers use to evaluate and contact talent, so I redesigned it and the reasons people keep it current.</p>
@@ -1610,7 +1607,6 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
     <div class="copy">
       <div class="dirA-meta">
         <span class="dirA-co" data-de="Selbständige Unternehmen">Independent businesses</span>
-        <span class="dirA-yr">2022 to 2026</span>
       </div>
       <h3 data-de="Marken und Websites, die im Kopf bleiben und Kunden bringen&lt;span class=&quot;stop&quot;&gt;.&lt;/span&gt;">Memorable brands and websites that&nbsp;convert and keep working<span class="stop">.</span></h3>
       <p data-de="Ich gestalte den gesamten digitalen Auftritt, von Strategie und Identität bis zur Website. Danach verbinde ich die Systeme, die nach dem Launch weiter Kunden bringen.">I shape the whole digital presence, from strategy and identity through to the website, then wire up the systems that keep it earning after launch.</p>
@@ -1634,7 +1630,6 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
       <div class="dirA-meta">
         <img src="images/case-study-logo-ard.webp" width="34" height="34" alt="ARD Audiothek">
         <span class="dirA-co">ARD Audiothek</span>
-        <span class="dirA-yr">2025 to 2026</span>
       </div>
       <h3 data-de="Eine neue Startseite, die sich selbst erklärt&lt;span class=&quot;stop&quot;&gt;.&lt;/span&gt;">Making a new homepage explain itself<span class="stop">.</span></h3>
       <p data-de="Ein öffentlich-rechtlicher Sender wollte wissen, wie eine neue App Startseite ankommt, bevor sie gebaut wird. Ich habe die Studie entworfen und durchgeführt, die zeigte, was Menschen wahrnehmen, falsch verstehen und als Nächstes erwarten.">A public broadcaster wanted to know how a new app homepage would land before building it. I designed and ran the study that showed what people noticed, misread and expected next.</p>
@@ -1751,9 +1746,9 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21h-4V9z"/></svg>
             linkedin.com/in/roxana-higgins
           </a>
-          <a href="mailto:hello@example.com">
+          <a href="mailto:roxanafhiggins@gmail.com">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 6.5l9 6.5 9-6.5"/></svg>
-            hello@example.com
+            roxanafhiggins@gmail.com
           </a>
         </div>
       </div>
@@ -2159,7 +2154,10 @@ document.querySelector('.theme-toggle').addEventListener('click',function(){
     function on(q){ return matchMedia(q).matches; }
     if(!on('(min-width:1024px)')||!on('(hover:hover)')||
        on('(prefers-reduced-motion: reduce)')) return;
-    var HOLD=1900, GAP=2600, ROUND=7000, ROUNDS=3;
+    /* FIRST is shorter than GAP on purpose: the first hint should arrive
+       just as the hero settles, not a beat after the reader has already
+       started looking elsewhere. The rhythm after it is unchanged. */
+    var FIRST=1100, HOLD=1900, GAP=2600, ROUND=7000, ROUNDS=3;
     var order=['.deco-plane','.deco-onigiri','.deco-face'].map(function(sel){
       return layer.querySelector(sel);
     }).filter(Boolean);
@@ -2192,7 +2190,7 @@ document.querySelector('.theme-toggle').addEventListener('click',function(){
       layer.addEventListener(t,stop,{passive:true});
     });
     hintOff=stop;
-    timer=setTimeout(tick,GAP);
+    timer=setTimeout(tick,FIRST);
   })();
 
   if(!pieces.length) return;
