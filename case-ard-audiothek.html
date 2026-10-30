@@ -241,11 +241,11 @@ h2 em{font-style:italic}
 /* split layout: copy left, visual bleeding off the right */
 .case-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px;align-items:center}
 @media(min-width:1101px){.case-split .visual{margin-right:-96px}}
-.case-centre{text-align:center}
-.case-centre h3,.case-centre p{margin-left:auto;margin-right:auto;max-width:20ch}
-.case-centre p{max-width:52ch}
-.case-centre .tags{justify-content:center}
-.case-centre .stats{margin-left:auto;margin-right:auto}
+.case-center{text-align:center}
+.case-center h3,.case-center p{margin-left:auto;margin-right:auto;max-width:20ch}
+.case-center p{max-width:52ch}
+.case-center .tags{justify-content:center}
+.case-center .stats{margin-left:auto;margin-right:auto}
 
 /* device placeholders */
 .visual{position:relative;display:flex;justify-content:center}
@@ -850,7 +850,7 @@ figcaption{margin-top:17px;font-size:15px;line-height:1.6;color:var(--ink-2)}
 /* ---------- CV in the navbar ----------
    She wants the download reachable from the nav, so it sits in the action group
    as its own ghost pill rather than in the link pill: a download that fires
-   instead of navigating would break the promise the centre links make. */
+   instead of navigating would break the promise the center links make. */
 .nav-cv{display:inline-flex;align-items:center;gap:9px;flex:none;white-space:nowrap;
   font-size:14.5px;font-weight:600;color:var(--ink);
   padding:12px 18px;border-radius:999px;
@@ -1012,7 +1012,7 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
     <div class="col">
       <p class="kicker">What I did</p>
       <h2>My role</h2>
-      <p>I designed the study, ran and analysed it, and presented the findings and recommendations to the team and the client.</p>
+      <p>I designed the study, ran and analyzed it, and presented the findings and recommendations to the team and the client.</p>
     </div>
   </div>
 
@@ -1064,7 +1064,7 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
   <div class="blk reveal" id="findings">
     <div class="col">
       <h2>Findings</h2>
-      <p class="lead2"><strong>Named logic was trusted. Unnamed logic was not.</strong> Recent, Charts, Sammlungen and Rubriken all rated green, and each says what it is. The Stage and Staffel-Episoden rated red: large, eye-catching, and silent about whether the content was editorial, personalised or new. People guessed, and most guessed personalisation.</p>
+      <p class="lead2"><strong>Named logic was trusted. Unnamed logic was not.</strong> Recent, Charts, Sammlungen and Rubriken all rated green, and each says what it is. The Stage and Staffel-Episoden rated red: large, eye-catching, and silent about whether the content was editorial, personalized or new. People guessed, and most guessed personalization.</p>
     </div>
   </div>
 
@@ -1095,7 +1095,7 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
   <div class="blk reveal" id="recommendations">
     <div class="col">
       <h2>Recommendations</h2>
-      <p>A widget-by-widget assessment across both pages, each rated red, amber or green with the insight, the evidence and a specific fix. The central one followed from the main finding: label how content is selected, so a widget states whether it is personalised, recommended or current.</p>
+      <p>A widget-by-widget assessment across both pages, each rated red, amber or green with the insight, the evidence and a specific fix. The central one followed from the main finding: label how content is selected, so a widget states whether it is personalized, recommended or current.</p>
       <p>I delivered the analysis and recommendations. What the client shipped was their call, and I do not claim it.</p>
     </div>
   </div>
@@ -1105,9 +1105,9 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
       <h2>Challenges</h2>
       <p><strong>Recruiting half the sample from non-users.</strong> Existing users would have been easier to find and could have gone deeper on the app they already know. I split the 16 participants evenly anyway, 8 Audiothek users and 8 users of competing audio apps. That choice carried the study. The trust finding came almost entirely from the non-users, because existing users had learned the homepage logic over months and stopped noticing it. A study run only with them would have come back clean.</p>
       <p><strong>Finding the reason without being able to ask.</strong> The tests were unmoderated, so nobody was there to ask a follow up question. I tagged every session in Miro against a fixed vocabulary, split by page, phase and user group, so each finding traced back to real participants rather than to my impression of them.</p>
-      <p><strong>Letting the study change direction.</strong> Five research questions were agreed before fielding. The one about content sizes turned out to matter most: most widgets carried equal weight, so nothing looked important. That question moved from one item on the list to the centre of the findings.</p>
+      <p><strong>Letting the study change direction.</strong> Five research questions were agreed before fielding. The one about content sizes turned out to matter most: most widgets carried equal weight, so nothing looked important. That question moved from one item on the list to the center of the findings.</p>
       <h2>What I would do differently</h2>
-      <p><strong>Unmoderated means you cannot ask why.</strong> I could see where people hesitated but had to infer the reason. Next time I would add five moderated sessions aimed only at those moments, for example the Stage, where most people guessed the content was personalised. Asking them directly would turn a likely reason into a confirmed one.</p>
+      <p><strong>Unmoderated means you cannot ask why.</strong> I could see where people hesitated but had to infer the reason. Next time I would add five moderated sessions aimed only at those moments, for example the Stage, where most people guessed the content was personalized. Asking them directly would turn a likely reason into a confirmed one.</p>
     </div>
   </div>
 
@@ -1318,10 +1318,10 @@ document.querySelector('.theme-toggle').addEventListener('click',function(){
           screen.style.height=(h0+(hWant-h0)*ez).toFixed(1)+'px';
         }
         var d0=main.offsetTop,dh=main.offsetHeight,dw=main.offsetWidth,sw=shot.offsetWidth;
-        /* the leading frame sits left of the group centre because the phone hangs off
+        /* the leading frame sits left of the group center because the phone hangs off
            the right, so pull it halfway back towards the middle as it grows */
         var pull=-((main.offsetLeft+dw/2)-sw/2)*0.5;
-        /* how far the frames actually reach either side of the group centre */
+        /* how far the frames actually reach either side of the group center */
         var l=main.offsetLeft,r=main.offsetLeft+dw;
         if(phone&&phone.offsetParent){l=Math.min(l,phone.offsetLeft);r=Math.max(r,phone.offsetLeft+phone.offsetWidth);}
         var reach=Math.max(Math.abs(l-sw/2+pull),Math.abs(r-sw/2+pull));

@@ -512,11 +512,11 @@ h2 em{font-style:italic}
 @media(min-width:1101px){.case-split .visual{margin-right:-160px}
   /* the frame is no longer capped, so the screenshot fills the wider column */
   .case-split .browser{max-width:none}}
-.case-centre{text-align:center}
-.case-centre h3,.case-centre p{margin-left:auto;margin-right:auto;max-width:20ch}
-.case-centre p{max-width:52ch}
-.case-centre .tags{justify-content:center}
-.case-centre .stats{margin-left:auto;margin-right:auto;text-align:left}
+.case-center{text-align:center}
+.case-center h3,.case-center p{margin-left:auto;margin-right:auto;max-width:20ch}
+.case-center p{max-width:52ch}
+.case-center .tags{justify-content:center}
+.case-center .stats{margin-left:auto;margin-right:auto;text-align:left}
 
 /* device placeholders */
 .visual{position:relative;display:flex;justify-content:center}
@@ -1060,7 +1060,7 @@ a.cert:hover .cert-go .ar,a.cert:focus-visible .cert-go .ar{transform:translate(
    column. Percentage width in normal block flow with `margin-left:auto` is
    unambiguous.
 
-   The asset is drawn tilted: the centre phone runs 4.99deg clockwise, measured
+   The asset is drawn tilted: the center phone runs 4.99deg clockwise, measured
    by fitting the minimum area rectangle to its screen, which comes out 241 by
    520 at a 2.16 ratio, so that is the phone and not a guess at an edge. The
    counter rotation sits on the wrapper rather than on .art, so the hover scale
@@ -1091,7 +1091,7 @@ a.cert:hover .cert-go .ar,a.cert:focus-visible .cert-go .ar{transform:translate(
 @media(max-width:1100px){
   .case--dirA{flex-direction:column;align-items:flex-start;gap:28px;padding:32px}
   /* margin-inline, not margin-right: the stack variant sets both sides, so
-     resetting only the right left the artwork 49px off centre on phones. */
+     resetting only the right left the artwork 49px off center on phones. */
   .case--dirA .visual .art,.case--dirA .visual .browser{width:100%;margin-inline:0}
   /* The phones are a composition, not a screenshot to read: at full column width
      they ran about 880px on a small laptop and swallowed the card. Capped to
@@ -1444,7 +1444,7 @@ a.cert:hover .cert-go .ar,a.cert:focus-visible .cert-go .ar{transform:translate(
 /* ---------- CV in the navbar ----------
    She wants the download reachable from the nav, so it sits in the action group
    as its own ghost pill rather than in the link pill: a download that fires
-   instead of navigating would break the promise the centre links make. */
+   instead of navigating would break the promise the center links make. */
 .nav-cv{display:inline-flex;align-items:center;gap:9px;flex:none;white-space:nowrap;
   font-size:14.5px;font-weight:600;color:var(--ink);
   padding:12px 18px;border-radius:999px;
@@ -1484,7 +1484,7 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
   <div class="row">
     <a class="logo" href="#top">Roxana<span class="logo-rest"> Higgins</span></a>
     <!-- Two links, not three. "Contact" and the CTA both pointed at #contact,
-         which is the duplication Roxana spotted. The centre group is now purely
+         which is the duplication Roxana spotted. The center group is now purely
          navigation and the right hand button is the only action. -->
     <nav class="navpill" aria-label="Sections">
       <a data-de="Projekte" href="#work">Work</a>
@@ -1646,6 +1646,28 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
         <img class="shot" src="images/ard-miro-synthesis.jpg" width="1200" height="583" loading="lazy"
              alt="The synthesis board in Miro, tagged sticky notes in columns by page, phase and user group">
       </div>
+    </div>
+  </a>
+
+  <a class="case case--dirA case--dirA-tall reveal case-link" href="case-purposeful-hub.html"
+     style="--c-art-shadow:rgba(225,107,67,.24);--c-art-shadow-hi:rgba(225,107,67,.44)"
+     aria-label="Read the case study, Coaching App">
+    <div class="copy">
+      <div class="dirA-meta">
+        <span class="dirA-co">Purposeful</span>
+      </div>
+      <h3 data-de="Coaching-App&lt;span class=&quot;stop&quot;&gt;.&lt;/span&gt;">Coaching App<span class="stop">.</span></h3>
+      <p data-de="Eine mobile App, von den täglichen Gesprächen bis zu den Wochen zwischen den Coaching-Sessions.">A mobile app, from the daily conversations to the weeks between coaching sessions.</p>
+      <div class="tags">
+        <span><i style="background:#E16B43"></i><span data-de="Produktdesign">Product design</span></span>
+        <span><i style="background:#5C6DF4"></i><span data-de="Mobile App">Mobile app</span></span>
+        <span><i style="background:#AA77EF"></i><span data-de="Conversation Design">Conversation design</span></span>
+      </div>
+      <span class="more" data-de="Case Study lesen &lt;span class=&quot;ar&quot;&gt;&amp;#8599;&lt;/span&gt;">Read the case study <span class="ar">&#8599;</span></span>
+    </div>
+    <div class="visual">
+      <img class="art" src="images/purposeful-3-phones.webp" width="1085" height="897" loading="lazy"
+           alt="Three phones showing the Purposeful app: coaching sessions, the dashboard and the energy tracking page">
     </div>
   </a>
 

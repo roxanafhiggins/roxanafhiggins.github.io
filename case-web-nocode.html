@@ -247,11 +247,11 @@ h2 em{font-style:italic}
 /* split layout: copy left, visual bleeding off the right */
 .case-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px;align-items:center}
 @media(min-width:1101px){.case-split .visual{margin-right:-96px}}
-.case-centre{text-align:center}
-.case-centre h3,.case-centre p{margin-left:auto;margin-right:auto;max-width:20ch}
-.case-centre p{max-width:52ch}
-.case-centre .tags{justify-content:center}
-.case-centre .stats{margin-left:auto;margin-right:auto}
+.case-center{text-align:center}
+.case-center h3,.case-center p{margin-left:auto;margin-right:auto;max-width:20ch}
+.case-center p{max-width:52ch}
+.case-center .tags{justify-content:center}
+.case-center .stats{margin-left:auto;margin-right:auto}
 
 /* device placeholders */
 .visual{position:relative;display:flex;justify-content:center}
@@ -1227,7 +1227,7 @@ a.cert:hover .cert-go .ar,a.cert:focus-visible .cert-go .ar{transform:translate(
 /* ---------- CV in the navbar ----------
    She wants the download reachable from the nav, so it sits in the action group
    as its own ghost pill rather than in the link pill: a download that fires
-   instead of navigating would break the promise the centre links make. */
+   instead of navigating would break the promise the center links make. */
 .nav-cv{display:inline-flex;align-items:center;gap:9px;flex:none;white-space:nowrap;
   font-size:14.5px;font-weight:600;color:var(--ink);
   padding:12px 18px;border-radius:999px;
@@ -1655,7 +1655,7 @@ document.querySelector('.theme-toggle').addEventListener('click',function(){
   var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
   /* How much the hero artwork grows across the scroll through the stage. Small
      on purpose: it should read as coming forward, not take the screen over the
-     way the old pinned sequence did. Origin is bottom centre in CSS, so it
+     way the old pinned sequence did. Origin is bottom center in CSS, so it
      grows upward and outward and its bottom edge stays welded to the seam. */
   var ART_GROW=0.06;
   cams.forEach(function(c){

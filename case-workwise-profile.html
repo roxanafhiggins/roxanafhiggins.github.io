@@ -247,11 +247,11 @@ h2 em{font-style:italic}
 /* split layout: copy left, visual bleeding off the right */
 .case-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px;align-items:center}
 @media(min-width:1101px){.case-split .visual{margin-right:-96px}}
-.case-centre{text-align:center}
-.case-centre h3,.case-centre p{margin-left:auto;margin-right:auto;max-width:20ch}
-.case-centre p{max-width:52ch}
-.case-centre .tags{justify-content:center}
-.case-centre .stats{margin-left:auto;margin-right:auto}
+.case-center{text-align:center}
+.case-center h3,.case-center p{margin-left:auto;margin-right:auto;max-width:20ch}
+.case-center p{max-width:52ch}
+.case-center .tags{justify-content:center}
+.case-center .stats{margin-left:auto;margin-right:auto}
 
 /* device placeholders */
 .visual{position:relative;display:flex;justify-content:center}
@@ -930,7 +930,7 @@ figcaption{margin-top:17px;font-size:15px;line-height:1.6;color:var(--ink-2)}
 /* The three ways it shows up. Icon in a tinted disc, label, one line of plain
    detail: enough to scan without reading the paragraph above it. The disc, the
    icon and the label are one colour, and the icon art is drawn centred on the
-   viewBox so place-items has something honest to centre. */
+   viewBox so place-items has something honest to center. */
 .pains{list-style:none;margin:28px 0 0;padding:0;
   display:flex;flex-direction:column;gap:20px}
 .pains li{display:flex;align-items:flex-start;gap:15px}
@@ -1028,7 +1028,7 @@ a.cert:hover .cert-go .ar,a.cert:focus-visible .cert-go .ar{transform:translate(
 /* ---------- CV in the navbar ----------
    She wants the download reachable from the nav, so it sits in the action group
    as its own ghost pill rather than in the link pill: a download that fires
-   instead of navigating would break the promise the centre links make. */
+   instead of navigating would break the promise the center links make. */
 .nav-cv{display:inline-flex;align-items:center;gap:9px;flex:none;white-space:nowrap;
   font-size:14.5px;font-weight:600;color:var(--ink);
   padding:12px 18px;border-radius:999px;
@@ -1323,7 +1323,7 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
     <div class="col">
       <h2>Validation throughout the process</h2>
       <p>I ran recurring usability sessions with talent managers and colleagues closest to our candidates.</p>
-      <p>Participants completed tasks without guidance while I tracked friction, confusion and hesitation. I repeated this each design round, using the findings to prioritise the next improvements.</p>
+      <p>Participants completed tasks without guidance while I tracked friction, confusion and hesitation. I repeated this each design round, using the findings to prioritize the next improvements.</p>
     </div>
     <ul class="buckets">
       <li><span class="bicon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none">
@@ -1718,10 +1718,10 @@ document.querySelector('.theme-toggle').addEventListener('click',function(){
           screen.style.height=(h0+(hWant-h0)*ez).toFixed(1)+'px';
         }
         var d0=main.offsetTop,dh=main.offsetHeight,dw=main.offsetWidth,sw=shot.offsetWidth;
-        /* the leading frame sits left of the group centre because the phone hangs off
+        /* the leading frame sits left of the group center because the phone hangs off
            the right, so pull it halfway back towards the middle as it grows */
         var pull=-((main.offsetLeft+dw/2)-sw/2)*0.5;
-        /* how far the frames actually reach either side of the group centre */
+        /* how far the frames actually reach either side of the group center */
         var l=main.offsetLeft,r=main.offsetLeft+dw;
         if(phone&&phone.offsetParent){l=Math.min(l,phone.offsetLeft);r=Math.max(r,phone.offsetLeft+phone.offsetWidth);}
         var reach=Math.max(Math.abs(l-sw/2+pull),Math.abs(r-sw/2+pull));
