@@ -909,15 +909,24 @@ img + .pending{display:none}
   -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 @media(max-width:600px){.hero-chips span{font-size:13px;padding:9px 15px}}
 
-/* ---------- the four live sites, one row, no descriptions ---------- */
-.sitelinks{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px;padding:0;list-style:none}
-.sitelinks a{display:inline-flex;align-items:center;gap:9px;
-  font-size:15px;font-weight:600;color:var(--accent);
-  padding:12px 20px;border-radius:999px;
-  background-color:var(--surface);border:1px solid var(--rule)}
-.sitelinks .ar{font-size:12px;transition:transform .3s var(--ease)}
-.sitelinks a:hover .ar,.sitelinks a:focus-visible .ar{transform:translate(4px,-4px)}
-.sitelinks a:hover,.sitelinks a:focus-visible{border-color:var(--accent)}
+/* ---------- the four live sites, each with its first screen ---------- */
+.livecards{list-style:none;margin:30px 0 0;padding:0;display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.livecards a{display:flex;flex-direction:column;height:100%;padding:10px 10px 16px;
+  border-radius:20px;background-color:var(--surface);border:1px solid var(--rule);
+  transition:border-color .24s var(--ease),transform .24s var(--ease)}
+.livecards a:hover,.livecards a:focus-visible{border-color:var(--accent);transform:translateY(-3px)}
+.lc-shot{display:block;border-radius:12px;overflow:hidden;border:1px solid var(--rule);aspect-ratio:16/10}
+.lc-shot img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+.lc-name{display:flex;align-items:center;gap:8px;margin:14px 6px 0;
+  font-size:15.5px;font-weight:600;color:var(--ink)}
+.lc-name .ar{font-size:12px;color:var(--accent);transition:transform .3s var(--ease)}
+.livecards a:hover .ar,.livecards a:focus-visible .ar{transform:translate(4px,-4px)}
+.lc-url{margin:3px 6px 0;font-size:13px;color:var(--ink-3)}
+.lc-head{margin-top:76px}
+.lc-next{margin-top:84px}
+@media(max-width:1000px){.livecards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.livecards{grid-template-columns:1fr}}
 
 /* ---------- stage rows ----------
    Stages with one graphic run copy left, graphic right. Stages with two put the
@@ -963,15 +972,45 @@ img + .pending{display:none}
   .omap-join{min-height:0;height:34px}
 }
 
-/* ---------- G2 site tree ---------- */
-.tree svg{display:block;width:100%;height:auto;min-width:460px}
-.tree{overflow-x:auto}
-.tnode{fill:var(--surface);stroke:var(--rule);stroke-width:1.5}
-.tnode--root{fill:var(--tint-a);stroke:var(--accent)}
-.tlabel{fill:var(--ink);font-family:var(--font);font-size:14px;font-weight:600}
-.tbadge{fill:var(--accent);font-family:var(--font);font-size:9.5px;
-  font-weight:700;letter-spacing:.1em}
-.tbadge-box{fill:var(--tint-a);stroke:var(--accent);stroke-width:1}
+/* ---------- G2 site map ----------
+   A vertical tree so it reads top down in a narrow column, with the two CMS
+   sections opening onto the page template each entry produces. */
+.smap,.smap ul{list-style:none;margin:0;padding:0}
+.smap ul{display:flex;flex-direction:column;gap:14px;margin-top:14px;padding-left:44px}
+.smap ul > li{position:relative}
+.smap ul > li::before{content:"";position:absolute;left:-22px;top:-14px;bottom:-14px;
+  width:1.6px;background:var(--rule)}
+.smap ul > li:last-child::before{bottom:auto;height:38px}
+.smap ul > li::after{content:"";position:absolute;left:-22px;top:24px;width:22px;
+  height:1.6px;background:var(--rule)}
+.sm-node{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 18px;
+  border:1px solid var(--rule);border-radius:12px;background-color:var(--surface);
+  font-size:15px;font-weight:600;color:var(--ink)}
+.sm-node--root{background-color:var(--tint-a);border-color:var(--accent);padding:0 26px}
+.sm-cms{font-style:normal;font-size:9.5px;font-weight:700;letter-spacing:.1em;
+  color:var(--accent);background:var(--tint-a);border:1px solid var(--accent);
+  border-radius:5px;padding:2px 5px;line-height:1.2}
+.sm-tpl{position:relative;display:flex;align-items:center;gap:14px;margin:12px 0 0 40px;
+  padding:12px 16px;border:1px dashed var(--accent);border-radius:12px;background:var(--paper)}
+.sm-tpl::before{content:"";position:absolute;left:-22px;top:-13px;width:21px;height:calc(50% + 13px);
+  border-left:1.6px solid var(--rule);border-bottom:1.6px solid var(--rule);border-bottom-left-radius:8px}
+.sm-tpl b{display:block;font-size:14px;font-weight:700;color:var(--ink)}
+.sm-tpl span span,.sm-tpl > span:last-child{font-size:13px;line-height:1.45;color:var(--ink-3)}
+.sm-stack{position:relative;flex:none;width:34px;height:38px}
+.sm-stack i{position:absolute;width:24px;height:30px;border-radius:5px;
+  border:1px solid var(--rule);background-color:var(--surface)}
+.sm-stack i:nth-child(1){left:10px;top:0}
+.sm-stack i:nth-child(2){left:5px;top:4px}
+.sm-stack i:nth-child(3){left:0;top:8px;border-color:var(--accent);
+  box-shadow:inset 0 4px 0 var(--tint-a)}
+.sm-key{display:flex;align-items:center;gap:10px;margin:26px 0 0;padding-top:16px;
+  border-top:1px solid var(--rule);font-size:13px;color:var(--ink-3)}
+@media(max-width:520px){
+  .smap ul{padding-left:30px}
+  .smap ul > li::before,.smap ul > li::after{left:-16px}
+  .smap ul > li::after{width:16px}
+  .sm-tpl{margin-left:22px}
+}
 
 /* ---------- G3 brand strip ---------- */
 .bstrip{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
@@ -991,25 +1030,51 @@ img + .pending{display:none}
   letter-spacing:-.03em}
 @media(max-width:520px){.bstrip li{grid-template-columns:minmax(0,1fr) auto}.bstrip .btype{display:none}}
 
-/* ---------- G4 flow board ---------- */
-.board{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
-.board > li{display:grid;grid-template-columns:132px minmax(0,1fr);gap:20px;align-items:start;
-  padding-bottom:16px;border-bottom:1px solid var(--rule)}
-.board > li:last-child{border-bottom:0;padding-bottom:0}
+/* ---------- G4 flow board ----------
+   Steps run as linked pills and the outcome sits in its own column, so the
+   four results line up and can be read straight down. The list class is
+   .steps, not .chain, to stay clear of the vertical chain rules above. */
+.board{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.board > li{display:grid;grid-template-columns:172px minmax(0,1fr) 190px;gap:0;
+  align-items:center;padding:20px 0;border-bottom:1px solid var(--rule)}
+.board > li:first-child{padding-top:4px}
+.board > li:last-child{border-bottom:0;padding-bottom:4px}
 .board .bpath{font-size:15px;font-weight:700;color:var(--ink);letter-spacing:-.015em}
 .board .bwho{display:block;margin-top:3px;font-size:12.5px;font-weight:500;color:var(--ink-3)}
-.board .chain{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;
-  align-items:center;gap:8px 10px}
-.board .chain li{display:flex;align-items:center;gap:10px;
-  font-size:14px;color:var(--ink-2);white-space:nowrap}
-.board .chain li::after{content:"";width:14px;height:1px;background:var(--rule);flex:none}
-.board .chain li:last-child::after{display:none}
-.board .chain li:last-child{font-weight:700;color:var(--accent)}
-@media(max-width:700px){
-  .board > li{grid-template-columns:1fr;gap:10px}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:center;gap:10px 26px}
+.steps li{position:relative;display:inline-flex;align-items:center;height:36px;padding:0 14px;
+  border:1px solid var(--rule);border-radius:999px;background:var(--paper);
+  font-size:14px;font-weight:500;color:var(--ink-2);white-space:nowrap}
+.steps li.tool{background-color:var(--surface);color:var(--ink);font-weight:600}
+.steps li::after{content:"";position:absolute;right:-21px;top:50%;width:16px;height:1.6px;
+  background:var(--ink-3);opacity:.45}
+.steps li::before{content:"";position:absolute;right:-22px;top:calc(50% - 3.2px);
+  width:6px;height:6px;border-top:1.6px solid var(--ink-3);border-right:1.6px solid var(--ink-3);
+  transform:rotate(45deg);opacity:.45}
+.steps li:last-child::before,.steps li:last-child::after{display:none}
+/* the last step runs one stretched arrow into the outcome column */
+.steps::after{content:"";flex:1 1 24px;min-width:24px;height:10px;margin:0 6px 0 -16px;opacity:.45;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='10'%3E%3Cpath d='M1.5 1l5 4-5 4' fill='none' stroke='%23757A84' stroke-width='1.6'/%3E%3C/svg%3E") right center/8px 10px no-repeat,
+    linear-gradient(#757A84,#757A84) left center/calc(100% - 2px) 1.6px no-repeat}
+.bout{display:inline-flex;align-items:center;gap:9px;justify-self:start;height:36px;padding:0 15px;
+  border:1px solid var(--accent);border-radius:999px;background-color:var(--tint-a);
+  font-size:14px;font-weight:700;color:var(--accent);white-space:nowrap}
+.bout::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--dotcol);flex:none}
+.stage-solo .board > li{grid-template-columns:1fr;gap:14px}
+.stage-solo .steps::after{display:none}
+@media(min-width:1101px){.board > li > .steps{flex-wrap:nowrap}}
+@media(max-width:1100px){
+  .board > li{grid-template-columns:minmax(0,1fr) auto;gap:14px}
+  .board .steps::after{display:none}
+  .board .steps{grid-column:1 / -1;grid-row:2}
+  .board .bout{grid-row:1;grid-column:2;justify-self:end}
+}
+@media(max-width:560px){
+  .board > li{grid-template-columns:1fr}
+  .board .bout{grid-row:auto;grid-column:auto;justify-self:start}
+  .board .steps{grid-row:auto}
 }
 
-/* ---------- G5 CMS schema ---------- */
 .schema{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .coll{border:1px solid var(--rule);border-radius:14px;overflow:hidden;background:var(--paper)}
 .coll h4{margin:0;padding:11px 14px;background-color:var(--surface);
@@ -1023,37 +1088,50 @@ img + .pending{display:none}
 .coll dd{margin:0;font-size:12px;color:var(--ink-3);white-space:nowrap}
 @media(max-width:620px){.schema{grid-template-columns:1fr}}
 
-/* ---------- screenshot slots ----------
-   Neutral frames until the three crops land. They name what the shot should
-   show rather than a filename, so the page still reads if one is missed. */
-.shotslot{border:1px dashed var(--rule);border-radius:20px;background:var(--paper);
-  display:grid;place-content:center;text-align:center;padding:26px;min-height:250px;
-  font-size:13px;line-height:1.55;color:var(--ink-3)}
-.shotslot b{display:block;font-size:13.5px;color:var(--ink-2);margin-bottom:5px}
-.gfx--shot{padding:0;overflow:hidden}
-.gfx--shot img{display:block;width:100%;height:auto}
+.coll dt{display:flex;align-items:center;gap:8px}
+.gfx .schema{margin-top:4px}
+.gfx .coll h4{padding:14px 16px;font-size:15px}
+.gfx .coll dl{padding:6px 16px 10px}
+.gfx .coll dl > div{padding:11px 0}
+.gfx .coll dt{font-size:14.5px}
+.gfx .coll dd{font-size:12.5px}
+.coll--on{border-color:var(--accent)}
+.schema-key{margin:22px 0 0;padding-top:16px;border-top:1px solid var(--rule);
+  font-size:13.5px;line-height:1.5;color:var(--ink-3)}
+.fpin{display:inline-grid;place-items:center;flex:none;width:18px;height:18px;border-radius:999px;
+  background:var(--accent);color:#fff;font-family:var(--font);font-size:10.5px;font-weight:700;
+  font-style:normal;letter-spacing:0;line-height:1}
+.coll:not(.coll--on) dt{padding-left:0}
 
-/* ---------- tool row: six, static, nothing clipped ---------- */
-.toolrow{margin-top:34px;border-radius:24px;padding:30px 26px;
-  background:#FFFFFF;border:1px solid #E1EBED;
-  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:30px 56px}
+/* ---------- tour entry ----------
+   A real tour as it appears on the client's site, each part pinned to the
+   CMS field that fills it. The pins are placed in percent of the image. */
+.entry-shot{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--rule)}
+.entry-shot img{display:block;width:100%;height:auto}
+.entry-shot .fpin{position:absolute;transform:translate(-50%,-50%);
+  box-shadow:0 0 0 3px #FBF8F5}
+
+/* ---------- tool row: six, static, nothing clipped ----------
+   No panel: the marks sit straight on the page. Cal.com is a wordmark in a
+   square file, so it uses a cropped copy and is sized by its own height, and
+   it flips to light ink in dark mode since its fill is near black. */
+.toolrow{margin-top:44px;padding:8px 0;
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:30px 64px}
 .toolrow img{display:block;height:42px;width:auto}
 .toolrow .tl-figma{height:38px}
+.toolrow .tl-calcom{height:25px}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .toolrow .tl-calcom{filter:invert(1)}
+}
+:root[data-theme="dark"] .toolrow .tl-calcom{filter:invert(1)}
 @media(max-width:820px){
-  .toolrow{gap:24px 36px;padding:24px 20px}
+  .toolrow{gap:24px 40px}
   .toolrow img{height:32px}
   .toolrow .tl-figma{height:29px}
+  .toolrow .tl-calcom{height:17px}
 }
 
-/* ---------- contact ---------- */
-.cbtns{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
-.clist{margin:38px 0 0;display:grid;gap:0;max-width:560px}
-.clist > div{display:grid;grid-template-columns:132px minmax(0,1fr);gap:20px;
-  padding:14px 0;border-bottom:1px solid var(--rule)}
-.clist > div:last-child{border-bottom:0}
-.clist dt{font-size:14.5px;font-weight:600;color:var(--ink)}
-.clist dd{margin:0;font-size:14.5px;color:var(--ink-2)}
-@media(max-width:560px){.clist > div{grid-template-columns:1fr;gap:4px}}
+
 
 /* ---------- footer, name left and the next case study right ---------- */
 .footer-meta a{color:inherit}
@@ -1173,6 +1251,43 @@ a.cert:hover .cert-go .ar,a.cert:focus-visible .cert-go .ar{transform:translate(
   .nav-cv,.nav-cv .ar{transition:none}
   .nav-cv:hover .ar{transform:none}
 }
+
+/* ---------- hero follows the theme ----------
+   A light stage in light mode, the original dark stage in dark mode. The nav
+   only switches to its light on dark set while the stage is dark (see script). */
+.cs-stage{color:var(--ink);--p-fg:var(--ink);--p-fg2:var(--ink-2);--steel-2:var(--accent);
+  background:
+    radial-gradient(120% 72% at 50% 104%,rgba(92,109,244,.16),transparent 64%),
+    linear-gradient(180deg,#FFFFFF 0%,#F3F4FA 52%,#ECEEF8 100%)}
+.cs-chips a,.hero-chips span{background:rgba(255,255,255,.72);border-color:var(--rule);color:var(--ink)}
+.cs-chips a:hover,.cs-chips a:focus-visible{background:#FFFFFF;border-color:var(--accent)}
+.cs-hero-art{filter:drop-shadow(0 34px 60px rgba(30,34,60,.22))}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .cs-stage{color:#F5F6F8;--p-fg:#F5F6F8;
+    --p-fg2:rgba(245,246,248,.78);--steel-2:#2F3878;
+    background:
+      radial-gradient(120% 72% at 50% 104%,rgba(92,109,244,.32),transparent 64%),
+      linear-gradient(180deg,#0B0C10 0%,#14172A 46%,#111318 100%)}
+  :root:not([data-theme="light"]) .cs-chips a,
+  :root:not([data-theme="light"]) .hero-chips span{background:rgba(245,246,248,.10);
+    border-color:rgba(245,246,248,.22);color:var(--p-fg)}
+  :root:not([data-theme="light"]) .cs-chips a:hover,
+  :root:not([data-theme="light"]) .cs-chips a:focus-visible{background:rgba(245,246,248,.18);
+    border-color:rgba(198,227,228,.55)}
+  :root:not([data-theme="light"]) .cs-hero-art{filter:drop-shadow(0 40px 74px rgba(1,13,19,.55))}
+}
+:root[data-theme="dark"] .cs-stage{color:#F5F6F8;--p-fg:#F5F6F8;
+  --p-fg2:rgba(245,246,248,.78);--steel-2:#2F3878;
+  background:
+    radial-gradient(120% 72% at 50% 104%,rgba(92,109,244,.32),transparent 64%),
+    linear-gradient(180deg,#0B0C10 0%,#14172A 46%,#111318 100%)}
+:root[data-theme="dark"] .cs-chips a,
+:root[data-theme="dark"] .hero-chips span{background:rgba(245,246,248,.10);
+  border-color:rgba(245,246,248,.22);color:var(--p-fg)}
+:root[data-theme="dark"] .cs-chips a:hover,
+:root[data-theme="dark"] .cs-chips a:focus-visible{background:rgba(245,246,248,.18);
+  border-color:rgba(198,227,228,.55)}
+:root[data-theme="dark"] .cs-hero-art{filter:drop-shadow(0 40px 74px rgba(1,13,19,.55))}
 </style>
 <script>(function(){var r=document.documentElement;
 try{var t=localStorage.getItem('theme');if(t)r.setAttribute('data-theme',t);}catch(e){}
@@ -1245,14 +1360,32 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
     </a>
   </div>
 
-  <p class="kicker reveal">Process</p>
-  <h2 class="reveal">Five stages, every project</h2>
-  <ul class="sitelinks reveal">
-      <li><a href="https://www.holisticbreathwork.de/" target="_blank" rel="noopener noreferrer">Holistic Breathwork <span class="ar">&#8599;</span></a></li>
-      <li><a href="https://touchingtheart.com/" target="_blank" rel="noopener noreferrer">Touching The Art <span class="ar">&#8599;</span></a></li>
-      <li><a href="https://www.nicosmat.com/" target="_blank" rel="noopener noreferrer">Nico Smat <span class="ar">&#8599;</span></a></li>
-      <li><a href="https://purposeful.you/" target="_blank" rel="noopener noreferrer">Purposeful <span class="ar">&#8599;</span></a></li>
+  <h2 class="reveal lc-head">Live projects</h2>
+  <ul class="livecards reveal">
+    <li><a href="https://www.holisticbreathwork.de/" target="_blank" rel="noopener noreferrer">
+      <span class="lc-shot"><img src="images/live-hb.webp" width="960" height="600" loading="lazy" alt="The Holistic Breathwork homepage, first screen"></span>
+      <span class="lc-name">Holistic Breathwork <span class="ar">&#8599;</span></span>
+      <span class="lc-url">holisticbreathwork.de</span>
+    </a></li>
+    <li><a href="https://touchingtheart.com/" target="_blank" rel="noopener noreferrer">
+      <span class="lc-shot"><img src="images/live-tta.webp" width="960" height="600" loading="lazy" alt="The Touching The Art homepage, first screen"></span>
+      <span class="lc-name">Touching The Art <span class="ar">&#8599;</span></span>
+      <span class="lc-url">touchingtheart.com</span>
+    </a></li>
+    <li><a href="https://www.nicosmat.com/" target="_blank" rel="noopener noreferrer">
+      <span class="lc-shot"><img src="images/live-nico.webp" width="960" height="600" loading="lazy" alt="The Nico Smat homepage, first screen"></span>
+      <span class="lc-name">Nico Smat <span class="ar">&#8599;</span></span>
+      <span class="lc-url">nicosmat.com</span>
+    </a></li>
+    <li><a href="https://purposeful.you/" target="_blank" rel="noopener noreferrer">
+      <span class="lc-shot"><img src="images/live-purp.webp" width="960" height="600" loading="lazy" alt="The Purposeful homepage, first screen"></span>
+      <span class="lc-name">Purposeful <span class="ar">&#8599;</span></span>
+      <span class="lc-url">purposeful.you</span>
+    </a></li>
   </ul>
+
+  <p class="kicker reveal lc-next">Process</p>
+  <h2 class="reveal">Five stages, every project</h2>
 
   <div class="stage reveal">
     <div class="stage-solo">
@@ -1293,30 +1426,20 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
     <p class="stage-tag"><b>Touching The Art</b> &middot; tours, books, courses</p>
     <div class="stage-pair">
       <div class="gfx reveal">
-      <div class="tree">
-        <svg viewBox="0 0 640 172" role="img" aria-label="Site structure for Touching The Art: Home above Approach, Tours, Books and Courses, with Tours and Books driven by the CMS">
-          <rect class="tnode tnode--root" x="240.0" y="18" width="160" height="44" rx="12"/>
-          <text class="tlabel" x="320.0" y="45" text-anchor="middle">Home</text>
-            <path class="gline" d="M320.0 62 V 88"/>
-            <path class="gline" d="M66.0 88 H 574.0"/>
-            <path class="gline" d="M66.0 88 V 112"/>
-            <rect class="tnode" x="0.0" y="112" width="132" height="44" rx="11"/>
-            <text class="tlabel" x="66.0" y="139.0" text-anchor="middle">Approach</text>
-            <path class="gline" d="M235.3 88 V 112"/>
-            <rect class="tnode" x="169.3" y="112" width="132" height="44" rx="11"/>
-            <text class="tlabel" x="185.3" y="139.0">Tours</text>
-            <rect class="tbadge-box" x="255.3" y="125.5" width="34" height="17" rx="5"/>
-            <text class="tbadge" x="260.3" y="138.0">CMS</text>
-            <path class="gline" d="M404.7 88 V 112"/>
-            <rect class="tnode" x="338.7" y="112" width="132" height="44" rx="11"/>
-            <text class="tlabel" x="354.7" y="139.0">Books</text>
-            <rect class="tbadge-box" x="424.7" y="125.5" width="34" height="17" rx="5"/>
-            <text class="tbadge" x="429.7" y="138.0">CMS</text>
-            <path class="gline" d="M574.0 88 V 112"/>
-            <rect class="tnode" x="508.0" y="112" width="132" height="44" rx="11"/>
-            <text class="tlabel" x="574.0" y="139.0" text-anchor="middle">Courses</text>
-        </svg>
-      </div>
+      <p class="gfx-note">Site map</p>
+      <ul class="smap" aria-label="Site structure for Touching The Art">
+        <li><span class="sm-node sm-node--root">Home</span>
+          <ul>
+            <li><span class="sm-node">Approach</span></li>
+            <li><span class="sm-node">Tours <em class="sm-cms">CMS</em></span>
+              <div class="sm-tpl"><span class="sm-stack" aria-hidden="true"><i></i><i></i><i></i></span><span><b>One page per tour</b>Museum, date, booking</span></div></li>
+            <li><span class="sm-node">Books <em class="sm-cms">CMS</em></span>
+              <div class="sm-tpl"><span class="sm-stack" aria-hidden="true"><i></i><i></i><i></i></span><span><b>One page per book</b>Cover, price, buy with Stripe</span></div></li>
+            <li><span class="sm-node">Courses</span></li>
+          </ul>
+        </li>
+      </ul>
+      <p class="sm-key"><em class="sm-cms">CMS</em> Pages the client adds and edits</p>
     </div>
       <div class="gfx gfx--device reveal">
         <div class="device">
@@ -1367,7 +1490,7 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
       </div>
       <div class="gfx reveal">
       <ul class="board">
-        <li><span class="bpath">Lead capture<span class="bwho">Purposeful</span></span><ol class="chain"><li>Form</li><li>Zapier</li><li>Follow up email</li><li>Contacts in order</li></ol></li>
+        <li><span class="bpath">Lead capture<span class="bwho">Purposeful</span></span><ol class="steps"><li>Form</li><li class="tool">Zapier</li><li>Follow up email</li></ol><span class="bout">Contacts in order</span></li>
       </ul>
     </div>
     </div>
@@ -1379,13 +1502,24 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
     <p class="stage-tag"><b>Touching The Art</b> &middot; two CMS templates</p>
     <div class="stage-pair">
       <div class="gfx reveal">
+        <p class="gfx-note">The fields the client fills in</p>
         <div class="schema">
-          <div class="coll"><h4>Tours</h4><dl><div><dt>Title</dt><dd>text</dd></div><div><dt>Museum</dt><dd>text</dd></div><div><dt>Date</dt><dd>date</dd></div><div><dt>Cover</dt><dd>image</dd></div><div><dt>Booking link</dt><dd>link</dd></div></dl></div>
+          <div class="coll coll--on"><h4>Tours</h4><dl><div><dt><span class="fpin">1</span>Date</dt><dd>date</dd></div><div><dt><span class="fpin">2</span>Title</dt><dd>text</dd></div><div><dt><span class="fpin">3</span>Museum</dt><dd>text</dd></div><div><dt><span class="fpin">4</span>Booking link</dt><dd>link</dd></div><div><dt><span class="fpin">5</span>Cover</dt><dd>image</dd></div></dl></div>
           <div class="coll"><h4>Books</h4><dl><div><dt>Title</dt><dd>text</dd></div><div><dt>Cover</dt><dd>image</dd></div><div><dt>Description</dt><dd>rich text</dd></div><div><dt>Price</dt><dd>number</dd></div><div><dt>Stripe link</dt><dd>link</dd></div></dl></div>
         </div>
+        <p class="schema-key">New entry in the Editor, new page on the site.</p>
       </div>
-      <div class="gfx gfx--shot reveal">
-        <div class="shotslot"><b>Webflow CMS</b>The collection list as the client sees it in the Editor</div>
+      <div class="gfx reveal">
+        <p class="gfx-note">One tour, live on the site</p>
+        <div class="entry-shot">
+          <img src="images/tta-tour-entry.webp" width="1330" height="880" loading="lazy"
+               alt="A tour on the Touching The Art site: date, Legion of Honor, San Francisco, a Learn more button and the cover painting">
+          <span class="fpin" style="left:1.8%;top:8.8%">1</span>
+          <span class="fpin" style="left:32.5%;top:8%">2</span>
+          <span class="fpin" style="left:32.5%;top:12.8%">3</span>
+          <span class="fpin" style="left:32.5%;top:25.5%">4</span>
+          <span class="fpin" style="left:32.5%;top:39.8%">5</span>
+        </div>
       </div>
     </div>
   </div>
@@ -1397,36 +1531,31 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
   <h2 class="reveal">What happens after the click</h2>
   <div class="gfx reveal">
       <ul class="board">
-        <li><span class="bpath">Enquiry<span class="bwho">Nico Smat</span></span><ol class="chain"><li>Website</li><li>WhatsApp</li><li>Conversation</li><li>Qualified enquiry</li></ol></li>
-        <li><span class="bpath">Booking<span class="bwho">Holistic Breathwork</span></span><ol class="chain"><li>Website</li><li>Cal.com</li><li>Confirmation</li><li>Both sides notified</li><li>Attendance list</li></ol></li>
-        <li><span class="bpath">Payment<span class="bwho">Touching The Art</span></span><ol class="chain"><li>Website</li><li>Stripe</li><li>Receipt</li><li>Customer email</li><li>Owner notified</li></ol></li>
-        <li><span class="bpath">Lead capture<span class="bwho">Purposeful</span></span><ol class="chain"><li>Form</li><li>Zapier</li><li>Follow up email</li><li>Contacts in order</li></ol></li>
+        <li><span class="bpath">Enquiry<span class="bwho">Nico Smat</span></span><ol class="steps"><li>Website</li><li class="tool">WhatsApp</li><li>Conversation</li></ol><span class="bout">Qualified enquiry</span></li>
+        <li><span class="bpath">Booking<span class="bwho">Holistic Breathwork</span></span><ol class="steps"><li>Website</li><li class="tool">Cal.com</li><li>Confirmation</li><li>Both sides notified</li></ol><span class="bout">Attendance list</span></li>
+        <li><span class="bpath">Payment<span class="bwho">Touching The Art</span></span><ol class="steps"><li>Website</li><li class="tool">Stripe</li><li>Receipt</li><li>Customer email</li></ol><span class="bout">Owner notified</span></li>
+        <li><span class="bpath">Lead capture<span class="bwho">Purposeful</span></span><ol class="steps"><li>Form</li><li class="tool">Zapier</li><li>Follow up email</li></ol><span class="bout">Contacts in order</span></li>
       </ul>
     </div>
   <div class="toolrow reveal">
     <img class="tl-figma" src="images/logo-figma.svg" width="256" height="384" alt="Figma">
     <img class="tl-webflow" src="images/logo-webflow.svg" width="24" height="24" alt="Webflow">
-    <img class="tl-calcom" src="images/logo-calcom.svg" width="24" height="24" alt="Cal.com">
+    <img class="tl-calcom" src="images/logo-calcom-wide.svg" width="112" height="24" alt="Cal.com">
     <img class="tl-calendly" src="images/logo-calendly.svg" width="24" height="24" alt="Calendly">
     <img class="tl-stripe" src="images/logo-stripe.svg" width="24" height="24" alt="Stripe">
     <img class="tl-zapier" src="images/logo-zapier.svg" width="24" height="24" alt="Zapier">
   </div>
 </section>
 
-<section class="sec wrap" id="contact">
-  <h2 class="reveal">Open to design and no-code roles</h2>
-  <div class="cbtns reveal">
-    <!-- Needs the real address: mailto:# would open a mail client addressed to "#". -->
-    <a class="btn-cta btn-ghost" href="#"><span class="ar">&#8599;</span> Email me</a>
-    <a class="btn-cta btn-dl" href="Roxana-Higgins-CV.pdf" download="Roxana-Higgins-CV.pdf"><span class="ar">&#8595;</span> Download CV</a>
+<section class="sec wrap" id="challenges">
+  <div class="blk reveal" style="padding-top:0">
+    <div class="col">
+      <h2>Challenges</h2>
+      <p><strong>Four offers, one first step.</strong> Holistic Breathwork sold coaching, breathwork, workshops and retreats to the same people. Putting all four on the homepage would have left visitors choosing. The site leads with one offer, one audience and one action: book a workshop.</p>
+      <p><strong>A site the client runs without me.</strong> Tours and books at Touching The Art change over time, and the client needs to add them without calling a designer. I set up two CMS collections with their own page templates, so a new tour or book is a new entry in the Webflow Editor, and the page builds itself.</p>
+      <p><strong>Making what happens after the click reliable.</strong> Every booking, payment and enquiry passes through more than one tool, such as Cal.com, Stripe, Zapier or WhatsApp. Each flow ends with someone informed: an attendance list, an owner notification, a follow up email.</p>
+    </div>
   </div>
-  <dl class="clist reveal">
-    <div><dt>Email</dt><dd><span class="slot">[real address]</span></dd></div>
-    <div><dt>LinkedIn</dt><dd><span class="slot">[handle]</span></dd></div>
-    <div><dt>Based in</dt><dd>Berlin, Germany</dd></div>
-    <div><dt>Languages</dt><dd><span class="slot">[languages]</span></dd></div>
-    <div><dt>Available</dt><dd><span class="slot">[month]</span></dd></div>
-  </dl>
 </section>
 
 <footer class="site-footer">
@@ -1537,9 +1666,15 @@ document.querySelector('.theme-toggle').addEventListener('click',function(){
     c.style.setProperty('--fy',f[1]+'%');
   });
   function measure(){document.documentElement.style.setProperty('--navh',nav.offsetHeight+'px');}
+  /* the stage is only dark in dark mode, so the nav flip follows the theme */
+  function stageDark(){
+    var t=document.documentElement.getAttribute('data-theme');
+    return t ? t==='dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  new MutationObserver(function(){frame();}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
   function frame(){
     var st=stage.getBoundingClientRect();
-    nav.classList.toggle('nav-dark', st.bottom > nav.offsetHeight * 0.75);
+    nav.classList.toggle('nav-dark', stageDark() && st.bottom > nav.offsetHeight * 0.75);
     if(still) return;
     var vh=window.innerHeight;
 

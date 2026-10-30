@@ -1052,6 +1052,43 @@ a.cert:hover .cert-go .ar,a.cert:focus-visible .cert-go .ar{transform:translate(
   .nav-cv,.nav-cv .ar{transition:none}
   .nav-cv:hover .ar{transform:none}
 }
+
+/* ---------- hero follows the theme ----------
+   A light stage in light mode, the original dark stage in dark mode. The nav
+   only switches to its light on dark set while the stage is dark (see script). */
+.cs-stage{color:var(--ink);--p-fg:var(--ink);--p-fg2:var(--ink-2);--steel-2:var(--accent);
+  background:
+    radial-gradient(120% 72% at 50% 104%,rgba(92,109,244,.16),transparent 64%),
+    linear-gradient(180deg,#FFFFFF 0%,#F3F4FA 52%,#ECEEF8 100%)}
+.cs-chips a,.hero-chips span{background:rgba(255,255,255,.72);border-color:var(--rule);color:var(--ink)}
+.cs-chips a:hover,.cs-chips a:focus-visible{background:#FFFFFF;border-color:var(--accent)}
+.cs-hero-art{filter:drop-shadow(0 34px 60px rgba(30,34,60,.22))}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .cs-stage{color:#F5F6F8;--p-fg:#F5F6F8;
+    --p-fg2:rgba(245,246,248,.78);--steel-2:#2F3878;
+    background:
+      radial-gradient(120% 72% at 50% 104%,rgba(92,109,244,.32),transparent 64%),
+      linear-gradient(180deg,#0B0C10 0%,#14172A 46%,#111318 100%)}
+  :root:not([data-theme="light"]) .cs-chips a,
+  :root:not([data-theme="light"]) .hero-chips span{background:rgba(245,246,248,.10);
+    border-color:rgba(245,246,248,.22);color:var(--p-fg)}
+  :root:not([data-theme="light"]) .cs-chips a:hover,
+  :root:not([data-theme="light"]) .cs-chips a:focus-visible{background:rgba(245,246,248,.18);
+    border-color:rgba(198,227,228,.55)}
+  :root:not([data-theme="light"]) .cs-hero-art{filter:drop-shadow(0 40px 74px rgba(1,13,19,.55))}
+}
+:root[data-theme="dark"] .cs-stage{color:#F5F6F8;--p-fg:#F5F6F8;
+  --p-fg2:rgba(245,246,248,.78);--steel-2:#2F3878;
+  background:
+    radial-gradient(120% 72% at 50% 104%,rgba(92,109,244,.32),transparent 64%),
+    linear-gradient(180deg,#0B0C10 0%,#14172A 46%,#111318 100%)}
+:root[data-theme="dark"] .cs-chips a,
+:root[data-theme="dark"] .hero-chips span{background:rgba(245,246,248,.10);
+  border-color:rgba(245,246,248,.22);color:var(--p-fg)}
+:root[data-theme="dark"] .cs-chips a:hover,
+:root[data-theme="dark"] .cs-chips a:focus-visible{background:rgba(245,246,248,.18);
+  border-color:rgba(198,227,228,.55)}
+:root[data-theme="dark"] .cs-hero-art{filter:drop-shadow(0 40px 74px rgba(1,13,19,.55))}
 </style>
 <script>(function(){var r=document.documentElement;
 try{var t=localStorage.getItem('theme');if(t)r.setAttribute('data-theme',t);}catch(e){}
@@ -1196,7 +1233,7 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
   </div>
 
   <div class="blk blk--chal reveal" id="problem">
-    <p class="kicker chal-kick">Challenges</p>
+    <p class="kicker chal-kick">The problem</p>
     <div class="chal-grid">
     <div class="col">
       <h2>Candidates have little reason to maintain a profile.</h2>
@@ -1451,6 +1488,15 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
     </figure>
   </div>
 
+  <div class="blk reveal" id="challenges">
+    <div class="col">
+      <h2>Challenges</h2>
+      <p><strong>Asking for more without asking for more work.</strong> The new section for what people want added role, hours, salary, location and availability to a profile many people already left half finished. So every section opens as its own sheet and can be done in short goes, and being open for offers is a single toggle rather than a form.</p>
+      <p><strong>A reminder that does not nag.</strong> Candidates rarely came back after signup, so the prompt had to reach them where they already were. It sits in the job list, shaped like the job cards around it. It promises being found by companies who are already searching, and the button asks people to check their profile, not complete it.</p>
+      <p><strong>Designing for more than one team.</strong> The input components run across candidates, employers, the signup flow and Workwise staff products. I worked with the wider design team to align them with the design system, and documented the rules and styling before handing them over, so nobody had to guess how they behave.</p>
+    </div>
+  </div>
+
   <div class="blk reveal" id="call">
     <div class="col">
       <h2>What I would do differently</h2>
@@ -1593,9 +1639,15 @@ document.querySelector('.theme-toggle').addEventListener('click',function(){
     c.style.setProperty('--fy',f[1]+'%');
   });
   function measure(){document.documentElement.style.setProperty('--navh',nav.offsetHeight+'px');}
+  /* the stage is only dark in dark mode, so the nav flip follows the theme */
+  function stageDark(){
+    var t=document.documentElement.getAttribute('data-theme');
+    return t ? t==='dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  new MutationObserver(function(){frame();}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
   function frame(){
     var st=stage.getBoundingClientRect();
-    nav.classList.toggle('nav-dark', st.bottom > nav.offsetHeight * 0.75);
+    nav.classList.toggle('nav-dark', stageDark() && st.bottom > nav.offsetHeight * 0.75);
     if(still) return;
     var vh=window.innerHeight;
 

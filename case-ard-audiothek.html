@@ -874,6 +874,43 @@ figcaption{margin-top:17px;font-size:15px;line-height:1.6;color:var(--ink-2)}
   .nav-cv,.nav-cv .ar{transition:none}
   .nav-cv:hover .ar{transform:none}
 }
+
+/* ---------- hero follows the theme ----------
+   A light stage in light mode, the original dark stage in dark mode. The nav
+   only switches to its light on dark set while the stage is dark (see script). */
+.cs-stage{color:var(--ink);--p-fg:var(--ink);--p-fg2:var(--ink-2);--steel-2:var(--accent);
+  background:
+    radial-gradient(120% 72% at 50% 104%,rgba(92,109,244,.16),transparent 64%),
+    linear-gradient(180deg,#FFFFFF 0%,#F3F4FA 52%,#ECEEF8 100%)}
+.cs-chips a,.hero-chips span{background:rgba(255,255,255,.72);border-color:var(--rule);color:var(--ink)}
+.cs-chips a:hover,.cs-chips a:focus-visible{background:#FFFFFF;border-color:var(--accent)}
+.cs-hero-art{filter:drop-shadow(0 34px 60px rgba(30,34,60,.22))}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .cs-stage{color:#F5F6F8;--p-fg:#F5F6F8;
+    --p-fg2:rgba(245,246,248,.78);--steel-2:#2F3878;
+    background:
+      radial-gradient(120% 72% at 50% 104%,rgba(92,109,244,.32),transparent 64%),
+      linear-gradient(180deg,#0B0C10 0%,#14172A 46%,#111318 100%)}
+  :root:not([data-theme="light"]) .cs-chips a,
+  :root:not([data-theme="light"]) .hero-chips span{background:rgba(245,246,248,.10);
+    border-color:rgba(245,246,248,.22);color:var(--p-fg)}
+  :root:not([data-theme="light"]) .cs-chips a:hover,
+  :root:not([data-theme="light"]) .cs-chips a:focus-visible{background:rgba(245,246,248,.18);
+    border-color:rgba(198,227,228,.55)}
+  :root:not([data-theme="light"]) .cs-hero-art{filter:drop-shadow(0 40px 74px rgba(1,13,19,.55))}
+}
+:root[data-theme="dark"] .cs-stage{color:#F5F6F8;--p-fg:#F5F6F8;
+  --p-fg2:rgba(245,246,248,.78);--steel-2:#2F3878;
+  background:
+    radial-gradient(120% 72% at 50% 104%,rgba(92,109,244,.32),transparent 64%),
+    linear-gradient(180deg,#0B0C10 0%,#14172A 46%,#111318 100%)}
+:root[data-theme="dark"] .cs-chips a,
+:root[data-theme="dark"] .hero-chips span{background:rgba(245,246,248,.10);
+  border-color:rgba(245,246,248,.22);color:var(--p-fg)}
+:root[data-theme="dark"] .cs-chips a:hover,
+:root[data-theme="dark"] .cs-chips a:focus-visible{background:rgba(245,246,248,.18);
+  border-color:rgba(198,227,228,.55)}
+:root[data-theme="dark"] .cs-hero-art{filter:drop-shadow(0 40px 74px rgba(1,13,19,.55))}
 </style>
 <script>(function(){var r=document.documentElement;
 try{var t=localStorage.getItem('theme');if(t)r.setAttribute('data-theme',t);}catch(e){}
@@ -1065,10 +1102,12 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
 
   <div class="blk reveal" id="call">
     <div class="col">
-      <h2>The hardest call</h2>
-      <p><strong>Recruiting half the sample from non-users.</strong> More expensive, and it costs depth on the existing experience. The entire trust finding lived in that half.</p>
+      <h2>Challenges</h2>
+      <p><strong>Recruiting half the sample from non-users.</strong> Existing users would have been easier to find and could have gone deeper on the app they already know. I split the 16 participants evenly anyway, 8 Audiothek users and 8 users of competing audio apps. That choice carried the study. The trust finding came almost entirely from the non-users, because existing users had learned the homepage logic over months and stopped noticing it. A study run only with them would have come back clean.</p>
+      <p><strong>Finding the reason without being able to ask.</strong> The tests were unmoderated, so nobody was there to ask a follow up question. I tagged every session in Miro against a fixed vocabulary, split by page, phase and user group, so each finding traced back to real participants rather than to my impression of them.</p>
+      <p><strong>Letting the study change direction.</strong> Five research questions were agreed before fielding. The one about content sizes turned out to matter most: most widgets carried equal weight, so nothing looked important. That question moved from one item on the list to the centre of the findings.</p>
       <h2>What I would do differently</h2>
-      <p><strong>Unmoderated means you cannot ask why.</strong> I could see where people hesitated but had to infer the reason. Next time I would add five moderated sessions aimed only at those moments.</p>
+      <p><strong>Unmoderated means you cannot ask why.</strong> I could see where people hesitated but had to infer the reason. Next time I would add five moderated sessions aimed only at those moments, for example the Stage, where most people guessed the content was personalised. Asking them directly would turn a likely reason into a confirmed one.</p>
     </div>
   </div>
 
@@ -1197,9 +1236,15 @@ document.querySelector('.theme-toggle').addEventListener('click',function(){
     c.style.setProperty('--fy',f[1]+'%');
   });
   function measure(){document.documentElement.style.setProperty('--navh',nav.offsetHeight+'px');}
+  /* the stage is only dark in dark mode, so the nav flip follows the theme */
+  function stageDark(){
+    var t=document.documentElement.getAttribute('data-theme');
+    return t ? t==='dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  new MutationObserver(function(){frame();}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
   function frame(){
     var st=stage.getBoundingClientRect();
-    nav.classList.toggle('nav-dark', st.bottom > nav.offsetHeight * 0.75);
+    nav.classList.toggle('nav-dark', stageDark() && st.bottom > nav.offsetHeight * 0.75);
     if(still) return;
     var vh=window.innerHeight;
 
