@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>People trusted what explained itself, Roxana Higgins</title>
+<title>User Research, Roxana Higgins</title>
 <meta name="description" content="A public broadcaster tested a new app homepage before build. I designed and ran the study that found people could not tell where any of the content came from.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -512,7 +512,8 @@ h2 em{font-style:italic}
   background:
     radial-gradient(120% 72% at 50% 104%,rgba(92,109,244,.32),transparent 64%),
     linear-gradient(180deg,#0B0C10 0%,#14172A 46%,#111318 100%)}
-.cs-track{height:210vh;height:210svh;min-height:1350px}
+/* only as long as the frame takes to grow, so the hero lets go once it is full size */
+.cs-track{height:170vh;height:170svh;min-height:1100px}
 .cs-fix{position:sticky;top:0;height:100vh;height:100svh;min-height:620px;overflow:hidden;
   display:flex;flex-direction:column;padding-top:calc(var(--navh,95px) + 30px)}
 .cs-inner{display:flex;flex-direction:column;flex:1;width:100%;max-width:1160px;
@@ -953,8 +954,8 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
     <div class="cs-fix">
       <div class="cs-inner reveal">
         <div class="cs-copy">
-          <p class="cs-eyebrow">ARD Audiothek &nbsp;&middot;&nbsp; User research</p>
-          <h1>People trusted what explained itself</h1>
+          <p class="cs-eyebrow">ARD Audiothek</p>
+          <h1>User Research</h1>
           <p class="cs-sub">A public broadcaster tested a new app homepage before build. I designed and ran the study that found people could not tell where any of the content came from.</p>
 
           <nav class="cs-chips" aria-label="On this page">
@@ -1103,9 +1104,8 @@ if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: red
   <div class="blk reveal" id="call">
     <div class="col">
       <h2>Challenges</h2>
-      <p><strong>Recruiting half the sample from non-users.</strong> Existing users would have been easier to find and could have gone deeper on the app they already know. I split the 16 participants evenly anyway, 8 Audiothek users and 8 users of competing audio apps. That choice carried the study. The trust finding came almost entirely from the non-users, because existing users had learned the homepage logic over months and stopped noticing it. A study run only with them would have come back clean.</p>
-      <p><strong>Finding the reason without being able to ask.</strong> The tests were unmoderated, so nobody was there to ask a follow up question. I tagged every session in Miro against a fixed vocabulary, split by page, phase and user group, so each finding traced back to real participants rather than to my impression of them.</p>
-      <p><strong>Letting the study change direction.</strong> Five research questions were agreed before fielding. The one about content sizes turned out to matter most: most widgets carried equal weight, so nothing looked important. That question moved from one item on the list to the center of the findings.</p>
+      <p><strong>Recruiting people who didn't use the app.</strong> Finding non-users was harder than recruiting existing users, but I wanted to understand how people approached Audiothek for the first time. I split the 16 participants evenly: 8 Audiothek users and 8 users of competing audio apps. This turned out to be important, as most trust issues came from people who were new to the app.</p>
+      <p><strong>Understanding why people struggled without being able to ask.</strong> The tests were unmoderated, so I couldn't ask follow-up questions. To keep track of what happened, I documented every session in Miro, using the same categories for each participant. This helped me compare results and avoid relying on my own assumptions.</p>
       <h2>What I would do differently</h2>
       <p><strong>Unmoderated means you cannot ask why.</strong> I could see where people hesitated but had to infer the reason. Next time I would add five moderated sessions aimed only at those moments, for example the Stage, where most people guessed the content was personalized. Asking them directly would turn a likely reason into a confirmed one.</p>
     </div>
@@ -1257,18 +1257,14 @@ document.querySelector('.theme-toggle').addEventListener('click',function(){
       var p=span>0?Math.min(1,Math.max(0,-t.top/span)):0;
       /* Two curves. A page whose frame pans has the page inside it to carry the
          rest of the track, so the frame grows and stays grown. A page with
-         nothing to pan, like this one, would then stand still for two thirds of
-         the track, which reads as stuck: there it grows, holds long enough to
-         be looked at, and shrinks back before the hero hands over to the next
-         section. The copy follows the same curve, so it comes back as the frame
-         goes down and the hero leaves the way it arrived. */
+         nothing to pan, like this one, has a short track instead: the frame
+         grows over almost all of it and the hero lets go the moment it is full
+         size, so the page scrolls on with the frame still large. It never
+         shrinks back. */
       var GROW=0.26;
       var z;
       if(pans.length){ z=Math.min(1,p/GROW); }
-      else {
-        var G=0.34,O=0.58;
-        z = p<=G ? p/G : (p<O ? 1 : 1-Math.min(1,(p-O)/(1-O)));
-      }
+      else { z=Math.min(1,p/0.9); }
       var ez=1-Math.pow(1-z,3);
       if(copy){
         var f=Math.min(1,z/0.6);
@@ -1333,8 +1329,12 @@ document.querySelector('.theme-toggle').addEventListener('click',function(){
            transformed element becomes the offsetParent even while it is static.
            Reading from .cs-fix left the frame 105px, the height of that
            element's padding, lower than the code intended. */
+        /* Past the end of the track the stage scrolls away, and that distance is
+           added back so the frame travels up with it. Without it the offset
+           kept the frame pinned on screen after the hero had let go. */
         var op=shot.offsetParent||fix;
-        var base=(op?op.getBoundingClientRect().top:0)+shot.offsetTop;
+        var past=Math.max(0,-t.top-span);
+        var base=(op?op.getBoundingClientRect().top:0)+past+shot.offsetTop;
         var want=navh+Math.max(0,(vh-navh-dh*sc)/2);
         shot.style.transform='translate3d('+(pull*sc*ez).toFixed(1)+'px,'+((want-base-d0*sc)*ez).toFixed(1)+'px,0) scale('+sc.toFixed(3)+')';
       }
